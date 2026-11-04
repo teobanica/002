@@ -1,0 +1,18 @@
+{
+  "title": "Regular complex Hadamard matrices of order 7,8",
+  "description": "Paper (PDF and LaTeX source) and associated computational code. We review the general theory of regular complex Hadamard matrices, including the known classification at order 6, and develop classification results at orders 7 and 8. The repository contains exact computational procedures, verification scripts, and supporting data.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {"name": "GPT"},
+    {"name": "Teo", "orcid": "0000-0003-4680-0364"}
+  ],
+  "keywords": [
+    "complex Hadamard matrices",
+    "regular Hadamard matrices",
+    "Butson matrices",
+    "affine deformations",
+    "classification",
+    "computer-assisted proofs"
+  ]
+}
