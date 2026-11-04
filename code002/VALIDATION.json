@@ -1,0 +1,471 @@
+{
+  "original_source_bytes_unchanged": true,
+  "original_data_bytes_unchanged": true,
+  "all_original_files_accounted_for": true,
+  "all_1286_json_files_preserved": true,
+  "retained_original_source_locations": 217,
+  "unique_original_sources": 187,
+  "python_syntax_files_checked": 141,
+  "cpp_syntax_checks": [
+    {
+      "program": "N8/n8_AB_completion/code/affine_columns.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/affine_columns_bounded.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/affine_partial.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/exceptional_frames.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/find_embeddings.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/full_cliques.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/full_pairs.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/full_rows.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_AB_completion/code/full_rows_general.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_C_sector/code/c_pair_cliques.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_C_sector/code/c_pair_rows.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_C_sector/code/independent_c_rows.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_C_sector/code/independent_fixed_squares.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/aaa_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/affine_equivalence.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/all_fourth_A.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/canonical_squares.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/family_cliques.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/family_equivalence.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/family_equivalence_modq.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/generic_full.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/n8_aaa_complete/code/generic_pairs.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/aaa_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/archived_canonical_aaa.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/class21_events.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/class21_full.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/finite_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class21/code/pair_events.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class22/code/aaa_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class22/code/class22_events.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class22/code/class22_full.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class22/code/finite_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_class22/code/pair_events.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/aaa_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/events.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/finite_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/full.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/lattice_check.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/AAA_classes11_19/code/pairs.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/aaa_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/canonical_squares.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/finite_scan.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/n8_canonical.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/n8_pilot.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/consolidation/code/pure_extensions.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    },
+    {
+      "program": "N8/proofs/expanded_report/code/n8_seed_extend_bruteforce.cpp",
+      "exit_code": 0,
+      "diagnostics": ""
+    }
+  ],
+  "scope": "Packaging validation and saved-certificate checks. Original exhaustive searches were not rerun.",
+  "certificate_checks": [
+    {
+      "check": "n7-ab",
+      "program": "N7/code/ab/independent_check.py",
+      "exit_code": 0,
+      "seconds": 1.616
+    },
+    {
+      "check": "n7-ccc",
+      "program": "N7/code/ccc/independent_verification.py",
+      "exit_code": 0,
+      "seconds": 0.191
+    },
+    {
+      "check": "n7-mixed",
+      "program": "N7/code/mixed/verify_mixed.py",
+      "exit_code": 0,
+      "seconds": 3.854
+    },
+    {
+      "check": "n7-f4",
+      "program": "N7/code/f4/verify_candidates.py",
+      "exit_code": 0,
+      "seconds": 0.107
+    },
+    {
+      "check": "n7-isolated",
+      "program": "N7/code/isolated45/verify.py",
+      "exit_code": 0,
+      "seconds": 0.041
+    },
+    {
+      "check": "n7-affine",
+      "program": "N7/code/affine4/verify_export.py",
+      "exit_code": 0,
+      "seconds": 12.28
+    },
+    {
+      "check": "n7-completion",
+      "program": "N7/code/completion/check.py",
+      "exit_code": 0,
+      "seconds": 0.116
+    },
+    {
+      "check": "n7-squares",
+      "program": "N7/code/square/verify_square_families.py",
+      "exit_code": 0,
+      "seconds": 0.284
+    },
+    {
+      "check": "n8-c-reduction",
+      "program": "N8/n8_C_sector/code/verify_reduction.py",
+      "exit_code": 0,
+      "seconds": 0.639
+    },
+    {
+      "check": "n8-c-squares",
+      "program": "N8/n8_C_sector/code/verify_c_squares.py",
+      "exit_code": 0,
+      "seconds": 0.46
+    },
+    {
+      "check": "n8-c-final",
+      "program": "N8/n8_C_sector/code/verify_final.py",
+      "exit_code": 0,
+      "seconds": 0.412
+    },
+    {
+      "check": "n8-aaa-results",
+      "program": "N8/n8_aaa_complete/code/verify_results.py",
+      "exit_code": 0,
+      "seconds": 2.595
+    },
+    {
+      "check": "n8-aaa-equivalences",
+      "program": "N8/n8_aaa_complete/code/verify_equivalences.py",
+      "exit_code": 0,
+      "seconds": 4.671
+    },
+    {
+      "check": "n8-class22-display",
+      "program": "N8/proofs/AAA_class22/code/verify_displayed_data.py",
+      "exit_code": 0,
+      "seconds": 0.03
+    },
+    {
+      "check": "n8-ab-final",
+      "program": "N8/n8_AB_completion/code/final_verification.py",
+      "exit_code": 0,
+      "seconds": 52.873
+    },
+    {
+      "check": "n8-cycles",
+      "program": "N8/code/verify_cycle_censuses.py",
+      "exit_code": 0,
+      "seconds": 0.361
+    }
+  ],
+  "all_rewritten_original_certificate_files_byte_identical": true,
+  "environment": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "compiler": "GNU g++ 13.3.0",
+    "platform": "Linux"
+  },
+  "original_archive_files": 3703,
+  "ordinary_files_after_unpacking": 196,
+  "source_folders": 6,
+  "data_archives": 2,
+  "known_limitations": [
+    "Full exhaustive searches were not rerun.",
+    "A complete macOS C++ build was not tested.",
+    "The launcher restores original relative paths in a separate execution folder."
+  ],
+  "launcher_checks": {
+    "fresh_extraction_all_hashes": true,
+    "original_N7_runner_list": true,
+    "unrelated_folder_refused": true,
+    "optimized_python_refused": true
+  },
+  "code002_rename_validation": {
+    "date": "2026-11-03",
+    "archive_root": "code002",
+    "default_work_folder": "code002_work",
+    "launcher_prepare_passed": true,
+    "launcher_repeat_prepare_passed": true,
+    "prefixed_run_command_passed": true,
+    "all_187_mathematical_source_files_unchanged": true,
+    "both_data_archives_unchanged": true,
+    "certificate_checks": [
+      {
+        "check": "n7-ab",
+        "program": "N7/code/ab/independent_check.py",
+        "exit_code": 0,
+        "seconds": 1.395
+      },
+      {
+        "check": "n7-ccc",
+        "program": "N7/code/ccc/independent_verification.py",
+        "exit_code": 0,
+        "seconds": 0.239
+      },
+      {
+        "check": "n7-mixed",
+        "program": "N7/code/mixed/verify_mixed.py",
+        "exit_code": 0,
+        "seconds": 3.961
+      },
+      {
+        "check": "n7-f4",
+        "program": "N7/code/f4/verify_candidates.py",
+        "exit_code": 0,
+        "seconds": 0.191
+      },
+      {
+        "check": "n7-isolated",
+        "program": "N7/code/isolated45/verify.py",
+        "exit_code": 0,
+        "seconds": 0.057
+      },
+      {
+        "check": "n7-affine",
+        "program": "N7/code/affine4/verify_export.py",
+        "exit_code": 0,
+        "seconds": 14.897
+      },
+      {
+        "check": "n7-completion",
+        "program": "N7/code/completion/check.py",
+        "exit_code": 0,
+        "seconds": 0.112
+      },
+      {
+        "check": "n7-squares",
+        "program": "N7/code/square/verify_square_families.py",
+        "exit_code": 0,
+        "seconds": 0.306
+      },
+      {
+        "check": "n8-c-reduction",
+        "program": "N8/n8_C_sector/code/verify_reduction.py",
+        "exit_code": 0,
+        "seconds": 0.654
+      },
+      {
+        "check": "n8-c-squares",
+        "program": "N8/n8_C_sector/code/verify_c_squares.py",
+        "exit_code": 0,
+        "seconds": 0.46
+      },
+      {
+        "check": "n8-c-final",
+        "program": "N8/n8_C_sector/code/verify_final.py",
+        "exit_code": 0,
+        "seconds": 0.406
+      },
+      {
+        "check": "n8-aaa-results",
+        "program": "N8/n8_aaa_complete/code/verify_results.py",
+        "exit_code": 0,
+        "seconds": 2.56
+      },
+      {
+        "check": "n8-aaa-equivalences",
+        "program": "N8/n8_aaa_complete/code/verify_equivalences.py",
+        "exit_code": 0,
+        "seconds": 3.714
+      },
+      {
+        "check": "n8-class22-display",
+        "program": "N8/proofs/AAA_class22/code/verify_displayed_data.py",
+        "exit_code": 0,
+        "seconds": 0.027
+      },
+      {
+        "check": "n8-ab-final",
+        "program": "N8/n8_AB_completion/code/final_verification.py",
+        "exit_code": 0,
+        "seconds": 50.947
+      },
+      {
+        "check": "n8-cycles",
+        "program": "N8/code/verify_cycle_censuses.py",
+        "exit_code": 0,
+        "seconds": 0.374
+      }
+    ],
+    "full_searches_rerun": false
+  }
+}

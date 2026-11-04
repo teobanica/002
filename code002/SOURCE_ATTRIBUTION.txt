@@ -1,0 +1,38 @@
+SOURCE DATA
+
+The 38 AAA triple components and the class-11/class-19 candidate-row data
+come from the preceding exact proof packages of GPT and Teo, consolidated
+in the 66-page N8 account dated 29 October 2026. The present archive includes
+the inputs it uses and distinguishes those prior results from new proofs.
+
+Public Butson catalogue:
+Pekka H. J. Lampio, Patric R. J. Ostergard, and Ferenc Szollosi,
+Orderly generation of Butson Hadamard matrices,
+Mathematics of Computation 89 (2020), 313-331.
+https://doi.org/10.1090/mcom/3453
+
+Official catalogue page (accessed 29 October 2026):
+https://wiki.aalto.fi/spaces/Butson/pages/120482304/Matrices%2Bup%2Bto%2Bmonomial%2Bequivalence
+Format specification:
+https://wiki.aalto.fi/spaces/Butson/pages/122456122/Format%2Binformation%2Bregarding%2Bthe%2BBH%2Bn%2Bq%2Bmatrices
+Original catalogue bytes for q=2,4,6,8,10,12,14,16 are in inputs/aalto/.
+Their SHA-256 hashes and exact entry counts are in outputs/aalto_inventory.json.
+Files were downloaded from the official /download/attachments/120482261/
+endpoint, with filenames BH-8-q.txt, and preserved unchanged.
+
+Dataset attribution:
+Lampio, Ostergard, and Szollosi, Dataset for Orderly Generation of Butson
+Hadamard Matrices, Zenodo, 2019, doi:10.5281/zenodo.2585766.
+The Aalto research portal identifies the associated dataset license as CC-BY-4.0:
+https://research.aalto.fi/en/datasets/dataset-for-orderly-generation-of-butson-hadamard-matrices/
+The present work uses the catalogue's published completeness. It does not
+claim to have rerun the original orderly generation.
+
+A general complex-Hadamard catalogue was consulted for orientation only:
+Bruzda, Tadej, and Zyczkowski, Catalog of Complex Hadamard Matrices,
+https://chaos.if.uj.edu.pl/~karol/hadamard/
+No identification with named literature families or literature novelty claim
+is used in the proofs in this report.
+
+Order-seven catalogue input: BH-7-6.txt, previously uploaded by Teo.
+Included here to repair its omission from the earlier code archive.
