@@ -1,0 +1,3019 @@
+\RequirePackage{fix-cm}
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,enumitem,needspace,graphicx,adjustbox,etoolbox,listings,xcolor}
+\usepackage[colorlinks=true,allcolors=magenta]{hyperref}
+\hypersetup{bookmarksdepth=3,bookmarksnumbered=true,pdftitle={Regular complex Hadamard matrices of order 7,8},pdfauthor={GPT and Teo}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{plain}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\numberwithin{equation}{section}
+\setlength{\parskip}{2pt}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\setcounter{MaxMatrixCols}{20}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\setlist{itemsep=0pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+\lstset{basicstyle=\ttfamily\fontsize{9}{10.5}\selectfont,breaklines=true,breakatwhitespace=false,columns=fullflexible,keepspaces=true,showstringspaces=false,aboveskip=0.4em,belowskip=0.4em}
+\makeatletter
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}  {\medskipamount}  {-1em}  {\normalfont\normalsize\bfseries}}
+\makeatother
+\pagestyle{plain}
+\title{Regular complex Hadamard matrices of order 7,8}
+\author{GPT and Teo}
+\date{}
+
+\begin{document}
+\pagenumbering{arabic}
+\maketitle
+
+\begin{abstract}
+A complex Hadamard matrix $H\in M_N(\mathbb C)$ is called regular when the scalar products between its rows $\sum_kH_{ik}\bar{H}_{jk}=0$ decompose as trivially vanishing sums of roots of unity, rotated by scalars. We review the general theory of such matrices, including the known classification at $N=6$, and then we work out classification results at $N=7$ and $N=8$.
+\end{abstract}
+
+\begingroup
+\setlength{\parskip}{0pt}
+\makeatletter
+\patchcmd{\l@section}{\addvspace{1.0em \@plus\p@}}{\addvspace{0pt}}{}{}
+\makeatother
+\tableofcontents
+\endgroup
+
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+
+A complex Hadamard matrix is regular when the entrywise quotient of any $2$ rows splits into prime cycles: rotated copies of the full set of $p$th roots of unity, for primes $p$. Fixing the cycles gives integer linear congruences in the entry phases. We prove that their solution sets are finitely many torsion-translated tori, so every regular matrix is an affine deformation of a Butson matrix. We then classify the regular matrices at orders $7$ and $8$.
+
+Equivalence consists of row and column permutations and unit scalings; conjugation and transposition are separate operations. At order $7$ the quotient types are $7$, $5+2$, and $3+2+2$. There are $6$ affine $3$-row families and $45$ isolated $3$-row classes. Completing them gives precisely the Fourier matrix $F_7$ and the $2$ families below, with $w=e^{2\pi i/3}$ and $q\in\mathbb T$.
+{\setlength{\arraycolsep}{2.5pt}
+$$P_7^q=\begin{pmatrix}
+-q&q&w&1&w&1&w\\
+q&-q&w&1&1&w&w\\
+w&w&-w&1&w&w&1\\
+1&1&1&-1&w&w&w\\
+w&1&w&w&-\bar{q} w&\bar{q} w&1\\
+1&w&w&w&\bar{q} w&-\bar{q} w&1\\
+w&w&1&w&1&1&-1
+\end{pmatrix}\qquad\quad R_7^q=\begin{pmatrix}
+1&1&1&1&1&1&1\\
+1&1&1&w&-1&-1&w^2\\
+1&-w^2&w^2&w^2&q&-q&w\\
+1&w&-1&1&qw^2&-qw^2&w^2\\
+1&-1&-w&-1&-q&q&-w^2\\
+1&w^2&w&qw&q&-qw&-q\\
+1&w^2&w&-qw&qw&-q&q
+\end{pmatrix}$$
+}
+
+
+The family $R_7^q$ is a monomially normalized conjugate of $P_7^q$. The $2$ displayed branches are retained because conjugation is not part of equivalence.
+
+At order $8$ the possible cycle lengths in a row quotient are $A=2+2+2+2$, $B=3+3+2$, and $C=5+3$. Here $2$ denotes an opposite pair, $3$ a regular triangle, and $5$ a regular pentagon, each rotated independently. The table lists all regular matrices up to equivalence. Its first group has only quotients of types $A,B$; in the second group, type $C$ occurs for at least one pair of rows.
+\begin{center}\small
+\begin{tabular}{@{}p{.31\textwidth}p{.52\textwidth}p{.11\textwidth}@{}}\toprule
+Row quotients & Matrices & Dimension\\\midrule
+Only $A,B$ & $F_{8,5a},F_{8,5b},F_{8,5c}$ & $5$ each\\
+& $F_{8,4},F_{8,4}^{t}$ & $4$ each\\
+& $F_{8,2},F_{8,2}^{t},K_{8,2}$ & $2$ each\\
+& $M_{8,1},I_{8,12}$ & $1,0$\\
+$C$ occurs & $K_{8,30},L_{8,30},L_{8,30}^{t}$ & $0$\\\bottomrule
+\end{tabular}
+\end{center}
+The $9$ continuous families are displayed below. All parameters range independently over the unit circle; the transpose families are written out explicitly.
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5a}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -bd & bd & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & -\frac{bd}{a} & d & \frac{bd}{a} & -d & -1 & \frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -\frac{1}{c} & \frac{bd}{a} & -d & -\frac{bd}{a} & d & -1 & \frac{1}{c} \\
+1 & -1 & bd & -bd & bd & -bd & 1 & -1 \\
+1 & \frac{1}{c} & e & \frac{ae}{b} & -e & -\frac{ae}{b} & -1 & -\frac{1}{c} \\
+1 & \frac{1}{c} & -e & -\frac{ae}{b} & e & \frac{ae}{b} & -1 & -\frac{1}{c}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5b}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -bd & bd & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & -\frac{bd}{a} & d & \frac{bd}{a} & -d & -1 & \frac{1}{c} \\
+1 & \frac{1}{c} & -\frac{bd}{a} & -d & \frac{bd}{a} & d & -1 & -\frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -1 & bd & -bd & bd & -bd & 1 & -1 \\
+1 & e & \frac{bd}{a} & cde & -\frac{bd}{a} & -cde & -1 & -e \\
+1 & -e & \frac{bd}{a} & -cde & -\frac{bd}{a} & cde & -1 & e
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5c}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & ad & -ad & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & d & d & -d & -d & -1 & \frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -\frac{1}{c} & -d & -d & d & d & -1 & \frac{1}{c} \\
+1 & -1 & -ad & ad & bd & -bd & 1 & -1 \\
+1 & \frac{1}{c} & e & -e & \frac{be}{a} & -\frac{be}{a} & -1 & -\frac{1}{c} \\
+1 & \frac{1}{c} & -e & e & -\frac{be}{a} & \frac{be}{a} & -1 & -\frac{1}{c}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,4}(a,b,c,d)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & ad & -ad & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & d & d & -d & -d & -1 & \frac{1}{c} \\
+1 & \frac{1}{cd} & -ad & ad & -1 & -1 & 1 & -\frac{1}{cd} \\
+1 & \frac{1}{c} & ad^{2} & -ad^{2} & bd^{2} & -bd^{2} & -1 & -\frac{1}{c} \\
+1 & d & -d & -d & -bd^{2} & bd^{2} & -1 & d \\
+1 & -\frac{1}{cd} & -1 & -1 & bd & -bd & 1 & \frac{1}{cd} \\
+1 & -d & -ad^{2} & ad^{2} & d & d & -1 & -d
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,4}^{t}(a,b,c,d)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -\frac{1}{c} & \frac{1}{cd} & \frac{1}{c} & d & -\frac{1}{cd} & -d \\
+1 & ad & d & -ad & ad^{2} & -d & -1 & -ad^{2} \\
+1 & -ad & d & ad & -ad^{2} & -d & -1 & ad^{2} \\
+1 & -bd & -d & -1 & bd^{2} & -bd^{2} & bd & d \\
+1 & bd & -d & -1 & -bd^{2} & bd^{2} & -bd & d \\
+1 & 1 & -1 & 1 & -1 & -1 & 1 & -1 \\
+1 & -1 & \frac{1}{c} & -\frac{1}{cd} & -\frac{1}{c} & d & \frac{1}{cd} & -d
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,2}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & b & -b & -\frac{b}{a} & \frac{b}{a} & a & -a \\
+1 & -a & \frac{b}{a} & b & -\frac{b}{a} & -b & -1 & a \\
+1 & \frac{1}{a} & \frac{b}{a^{2}} & -\frac{b}{a} & \frac{b}{a} & -\frac{b}{a^{2}} & -\frac{1}{a} & -1 \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & a & -b & \frac{b}{a} & -\frac{b}{a} & b & -a & -1 \\
+1 & -\frac{1}{a} & -\frac{b}{a} & -\frac{b}{a^{2}} & \frac{b}{a} & \frac{b}{a^{2}} & -1 & \frac{1}{a} \\
+1 & -1 & -\frac{b}{a^{2}} & \frac{b}{a^{2}} & \frac{b}{a} & -\frac{b}{a} & \frac{1}{a} & -\frac{1}{a}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,2}^{t}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -a & \frac{1}{a} & 1 & a & -\frac{1}{a} & -1 \\
+1 & b & \frac{b}{a} & \frac{b}{a^{2}} & -1 & -b & -\frac{b}{a} & -\frac{b}{a^{2}} \\
+1 & -b & b & -\frac{b}{a} & -1 & \frac{b}{a} & -\frac{b}{a^{2}} & \frac{b}{a^{2}} \\
+1 & -\frac{b}{a} & -\frac{b}{a} & \frac{b}{a} & -1 & -\frac{b}{a} & \frac{b}{a} & \frac{b}{a} \\
+1 & \frac{b}{a} & -b & -\frac{b}{a^{2}} & -1 & b & \frac{b}{a^{2}} & -\frac{b}{a} \\
+1 & a & -1 & -\frac{1}{a} & 1 & -a & -1 & \frac{1}{a} \\
+1 & -a & a & -1 & 1 & -1 & \frac{1}{a} & -\frac{1}{a}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle K_{8,2}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & a & -b^{2} & -\frac{b^{2}}{a} & -1 & -a & \frac{b^{2}}{a} & b^{2} \\
+1 & \frac{a}{b} & -1 & \frac{b}{a} & 1 & -\frac{a}{b} & -\frac{b}{a} & -1 \\
+1 & -b & b & \frac{b^{2}}{a} & -\frac{b}{a} & -1 & \frac{b}{a} & -\frac{b^{2}}{a} \\
+1 & -a & -b & b & -\frac{a}{b} & \frac{a}{b} & -1 & a \\
+1 & -1 & b & -\frac{b}{a} & \frac{b}{a} & -b & -\frac{b^{2}}{a} & \frac{b^{2}}{a} \\
+1 & -\frac{a}{b} & -b & -1 & \frac{a}{b} & a & b & -a \\
+1 & b & b^{2} & -b & -1 & b & -b & -b^{2}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{center}\normalsize\setlength{\arraycolsep}{3.8pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle M_{8,1}(a)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -wa^{2} & a & wa & -1 & wa^{2} & -a & -wa \\
+1 & a & -a & a^{3} & -a^{3} & -a^{4} & a^{4} & -1 \\
+1 & wa & -\frac{w}{a} & -wa & \frac{w}{a} & w^2 & -1 & -w^2 \\
+1 & -1 & \frac{w}{a} & -a^{3} & wa^{2} & -wa^{2} & a^{3} & -\frac{w}{a} \\
+1 & wa^{2} & w & -wa^{4} & -wa^{2} & -w^2a^{4} & -a^{4} & w^2 \\
+1 & -a & -w & -1 & -\frac{w}{a} & w & a & \frac{w}{a} \\
+1 & -wa & -1 & wa^{4} & a^{3} & -wa^{4} & -a^{3} & wa
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+
+\begin{samepage}
+For the $4$ isolated matrices, the prime denotes logarithmic form: $H_{ij}=\omega^{H'_{ij}}$, with $\omega=e^{\pi i/6}$ for $I_{8,12}$ and $\omega=e^{\pi i/15}$ for the other $3$:
+{\setlength{\arraycolsep}{4pt}
+$$\begin{gathered}
+I'_{8,12}=\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 3 & 6 & 6 & 6 & 9 \\
+0 & 1 & 5 & 9 & 1 & 5 & 9 & 6 \\
+0 & 4 & 8 & 6 & 10 & 2 & 3 & 9 \\
+0 & 6 & 2 & 11 & 9 & 8 & 3 & 5 \\
+0 & 6 & 11 & 5 & 3 & 11 & 9 & 5 \\
+0 & 7 & 6 & 1 & 7 & 3 & 9 & 1 \\
+0 & 10 & 6 & 7 & 4 & 9 & 3 & 1
+\end{pmatrix}\qquad K'_{8,30}=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&13&28&27&21&12&15\\
+0&10&28&20&16&4&10&22\\
+0&12&27&16&1&15&24&9\\
+0&18&21&4&15&19&6&3\\
+0&20&12&10&24&6&0&18\\
+0&24&15&22&9&3&18&7\\
+\end{pmatrix}\\[1em]
+L'_{8,30}=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&21&2&19&17&4&15\\
+0&10&17&25&8&2&15&23\\
+0&12&4&23&27&15&19&8\\
+0&18&2&17&15&3&1&16\\
+0&20&19&15&4&16&5&1\\
+0&24&15&8&23&1&16&9\\
+\end{pmatrix}\qquad L_{8,30}^{t\prime}=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&21&17&4&2&19&15\\
+0&10&2&25&23&17&15&8\\
+0&12&19&8&27&15&4&23\\
+0&18&17&2&15&3&16&1\\
+0&20&4&15&19&1&5&16\\
+0&24&15&23&8&16&1&9\\
+\end{pmatrix}
+\end{gathered}$$
+}
+\end{samepage}
+
+The maximum regular local moduli dimension is $5$. The $4$ isolated classes are exactly those listed above, and transposition preserves regularity. Different families can intersect, and parameters need not be unique.
+
+The finite classifications are computer-assisted, using exact integer, rational and cyclotomic arithmetic. All code is available at {\hypersetup{urlcolor=black}\url{https://github.com/teobanica}}.
+
+
+\section{Regular Hadamard matrices}\label{sec:background}
+\subsection{Cycles and equivalence}\label{bg:basics}\label{bg:cycles}
+We use
+$$\mathbb T=\{z\in\mathbb C:|z|=1\},\qquad e(t)=e^{2\pi it},\qquad \mu_l=\{e^{2\pi i j/l}:0\leq j<l\}.$$
+Roots denoted by $w$ are specified locally; $\omega$ denotes a stated power or choice of powers of $w$.
+A partial Hadamard matrix $H\in M_{K\times N}(\mathbb T)$ satisfies $HH^*=NI_K$. Equivalence consists of row and column permutations and unit row and column scalings. Conjugation and transposition are separate operations. Dephasing is given by
+$$D(H)_{ij}=\frac{H_{ij}H_{11}}{H_{i1}H_{1j}}.$$
+Thus the $1$st row and column become $\mathbf1$, the all-one vector. We write $u/v=u\bar{v}$ for the entrywise quotient. A Butson matrix has root-of-unity entries; $B(N,l)$ specifies its order and level \cite{but}.
+
+\begin{definition}\label{bg:defregular}
+A multiset is a collection in which repeated values are counted separately; for example, $\{1,1,-1,-1\}$ has $4$ terms. A prime cycle is a rotated copy $\lambda\mu_p$ of the $p$th roots of unity, with $p$ prime and $\lambda\in\mathbb T$. A partial Hadamard matrix is regular when the multiset of entries in each quotient of distinct rows can be partitioned into prime cycles.
+\end{definition}
+A cycle of composite length $n=mp$, with $p$ prime, is the disjoint union of $m$ rotated $p$-cycles: with $w=e^{2\pi i/n}$,
+$$\lambda\mu_n=\bigsqcup_{r=0}^{m-1}\lambda w^r\mu_p.$$
+For example, a $6$-cycle splits into $2$ triangles. This agrees with the cycle convention of \cite{bbs,bop}.
+
+\begin{proposition}\label{bg:operations}
+Regularity is preserved by equivalence, conjugation, deletion of rows, and tensor products.
+\end{proposition}
+\begin{proof}
+Scalings rotate cycles, permutations reorder them, and conjugation reverses them. For tensor products, use cycles from a factor where the $2$ rows differ, fixing each coordinate of the other factor.
+\end{proof}
+
+For $l=\prod_{j=1}^s p_j^{a_j}$, Lam--Leung \cite{lle} identify the lengths of vanishing sums of $l$th roots as $\sum_jp_j\mathbb N$. For $s\leq2$, every such sum decomposes into prime cycles. For $s=3$ this fails: with $w=e^{\pi i/15}$,
+$$S=w^5+w^6+w^{12}+w^{18}+w^{24}+w^{25}=0.$$
+The terms of exponents $6,12,18,24$ sum to $-1$, the others to $1$; there is neither an antipodal pair nor a $3$-cycle. Hence
+$$\begin{pmatrix}
+1&1&1&1&1&1\\
+w^5&w^6&w^{12}&w^{18}&w^{24}&w^{25}
+\end{pmatrix}$$
+is a nonregular partial Butson matrix.
+
+\subsection{Examples and the classification through order 6}\label{bg:examples}\label{bg:smallorders}
+The Fourier matrix of $\mathbb Z_N$ is $F_N=(w^{ij})$, with $w=e^{2\pi i/N}$. For example, with $w=e^{2\pi i/3}$,
+{\setlength{\arraycolsep}{3.5pt}
+$$F_2=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad F_3=\begin{pmatrix}1&1&1\\1&w&w^2\\1&w^2&w\end{pmatrix},\qquad F_4=\begin{pmatrix}
+1&1&1&1\\
+1&i&-1&-i\\
+1&-1&1&-1\\
+1&-i&-1&i
+\end{pmatrix}.$$
+}
+The matrix $F_4$ deforms as
+$$F_4^q=\begin{pmatrix}
+1&1&1&1\\
+1&-1&1&-1\\
+1&q&-1&-q\\
+1&-q&-1&q
+\end{pmatrix}.$$
+At $N=5$ we have $F_5$. At $N=6$ we have the following Fourier, Haagerup and Tao matrices, with $w=e^{2\pi i/3}$ \cite{bbs,dit,ha1,tao}:
+{\normalsize\setlength{\arraycolsep}{2.6pt}
+\setlength{\abovedisplayskip}{6pt}\setlength{\belowdisplayskip}{6pt}
+$$\begin{gathered}
+F_{23}^{rs}=\begin{pmatrix}
+1&1&1&1&1&1\\
+1&w&w^2&1&w&w^2\\
+1&w^2&w&1&w^2&w\\
+1&r&s&-1&-r&-s\\
+1&wr&w^2s&-1&-wr&-w^2s\\
+1&w^2r&ws&-1&-w^2r&-ws
+\end{pmatrix},\qquad F_{32}^{rs}=\begin{pmatrix}
+1&1&1&1&1&1\\
+1&-1&1&-1&1&-1\\
+1&r&w&wr&w^2&w^2r\\
+1&-r&w&-wr&w^2&-w^2r\\
+1&s&w^2&w^2s&w&ws\\
+1&-s&w^2&-w^2s&w&-ws
+\end{pmatrix},\\[8pt]
+H_6^q=\begin{pmatrix}
+1&1&1&1&1&1\\
+1&-1&i&i&-i&-i\\
+1&i&-1&-i&q&-q\\
+1&i&-i&-1&-q&q\\
+1&-i&\bar{q}&-\bar{q}&i&-1\\
+1&-i&-\bar{q}&\bar{q}&-1&i
+\end{pmatrix},\qquad\qquad T_6=\begin{pmatrix}
+1&1&1&1&1&1\\
+1&1&w&w&w^2&w^2\\
+1&w&1&w^2&w^2&w\\
+1&w&w^2&1&w&w^2\\
+1&w^2&w^2&w&1&w\\
+1&w^2&w&w^2&w&1
+\end{pmatrix}.
+\end{gathered}$$
+}
+Their quotients split into antipodal pairs or $3$-cycles for every parameter. The $2$ Fourier families are related by transposition and equivalence.
+
+\begin{theorem}\label{bg:uptofive}\label{bg:ordersix}
+The regular Hadamard matrices at orders $N=2,3,4,5,6$ are, up to equivalence:
+\begin{enumerate}[label=(\arabic*)]
+\item $N=2$: $F_2$.
+\item $N=3$: $F_3$.
+\item $N=4$: $F_4^q$.
+\item $N=5$: $F_5$.
+\item $N=6$: $F_{23}^{rs}$, $F_{32}^{rs}$, $H_6^q$, $T_6$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+At $N=2,3$, dephasing gives $F_2,F_3$; at $N=4$, pairing opposite entries gives $F_4^q$.
+
+For $N=5$, the possible quotient types are $5$ and $3+2$. We first exclude a $2\times2$ Hadamard submatrix. If one exists, equivalence puts $H$ in the form
+$$H=\begin{pmatrix}A&B\\ C&D\end{pmatrix},\quad A=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\quad B_{\cdot j}=\binom{1}{a w^j},\quad C_{i\cdot}=(1,bw^i),\quad 0\leq i,j<3,$$
+where $a,b\in\mathbb T$ and $w=e^{2\pi i/3}$. Orthogonality with the first $2$ rows gives
+$$\sum_{j=0}^2D_{ij}=-(1+bw^i),\qquad
+\sum_{j=0}^2D_{ij}w^{-j}=-a(1-bw^i).$$
+These determine $2$ Fourier coefficients of each row of $D$. The corresponding column equations determine the remaining coefficients up to a single number $z\in\mathbb C$, giving
+$$D_{ij}=-\frac{1+a w^j+bw^i-abw^{i+j}-z w^{2(i+j)}}3.$$
+Since the entries of $D$ have modulus $1$, the constant Fourier coefficient of $|3D_{ij}|^2=9$ yields $|z|^2=5$, while those at $(1,1)$ and $(1,2)$ yield
+$$z-ab\bar{z}=(ab)^2,\qquad z+ab\bar{z}=b^2\bar{a}.$$
+Adding these equations gives $|z|\leq1$, a contradiction. No quotient can therefore have type $3+2$, so all are $5$-cycles. Normalize the $2$nd row to that of $F_5$. Each remaining row is described by a permutation $\sigma$ of $\mathbb Z_5$ such that $\sigma(0)=0$ and $\sigma-\mathrm{id}$ is also a permutation. The possibilities are
+$$\bigl(\sigma(1),\sigma(2),\sigma(3),\sigma(4)\bigr)=(2,4,1,3),\ (3,1,4,2),\ (4,3,2,1).$$
+These are precisely the remaining Fourier rows. Haagerup's theorem gives the same classification without regularity \cite{ha1}.
+
+At $N=6$, every quotient splits into $3$ opposite pairs or $2$ triangles; call these decompositions binary and ternary. The proof of \cite[Theorem 11.2]{bbs} classifies triples of rows and then uses their compatibility to complete the matrix.
+
+If all quotients admit ternary decompositions, the $3$-row calculation gives, up to equivalence, either a matrix over $\mu_3$ or
+$$\begin{pmatrix}1&1&1&1&1&1\\1&w&w^2&r&wr&w^2r\\1&w^2&w&s&w^2s&ws\end{pmatrix}.$$
+Here $w=e^{2\pi i/3}$. A $4$th row with ternary quotients forces the phases into $\mu_3$, and completion gives $T_6$, uniquely up to equivalence \cite[Lemmas 8.1--8.2 and Theorem 8.3]{bbs}.
+
+If all quotients admit binary decompositions, the $3$-row calculation puts the entries in $\{\pm1,\pm i,\pm q,\pm iq\}$ after equivalence. Comparing the pairings in different triples gives a $3\times3$ arrangement of $2\times2$ blocks. Their orthogonality equations leave $1$ unit parameter, giving $H_6^q$ \cite[Lemma 9.1 and Theorem 9.2]{bbs}.
+
+In the mixed case, regard the rows as vertices of a complete graph and label its edges by the chosen decompositions. The restrictions on $4$ and $5$ rows leave $2$ arrangements: the binary edges form a perfect matching and the others are ternary, or the ternary edges form $2$ disjoint triangles and the others are binary \cite[Section 10]{bbs}. Inserting the $3$-row normal form determines the remaining rows with $2$ free unit parameters, giving $F_{23}^{rs}$ and $F_{32}^{rs}$. Quotients admitting both decompositions at special parameter values are retained in this argument. Finally, the cycle decompositions of the displayed matrices show that every member of the list is regular.
+\end{proof}
+
+\label{bg:nonregular}Let us discuss as well some basic examples of non-regular matrices, which clearly show the extra complexity which appears, when looking at the non-regular case.
+
+The Bj\"orck--Fr\"oberg matrix \cite{bjo,bjf}, which is circulant and nonregular, is
+{\normalsize
+$$BF_6=\begin{pmatrix}
+1&ia&-a&-i&-\bar{a}&i\bar{a}\\
+i\bar{a}&1&ia&-a&-i&-\bar{a}\\
+-\bar{a}&i\bar{a}&1&ia&-a&-i\\
+-i&-\bar{a}&i\bar{a}&1&ia&-a\\
+-a&-i&-\bar{a}&i\bar{a}&1&ia\\
+ia&-a&-i&-\bar{a}&i\bar{a}&1
+\end{pmatrix},\qquad a^2+(\sqrt3-1)a+1=0.$$
+}
+We can see its nonregularity directly. We have $a+a^{-1}=1-\sqrt3$. This excludes $a$ being a root of unity: the algebraic conjugate $1+\sqrt3$ is greater than $2$, whereas all algebraic conjugates of the sum of a root of unity and its inverse lie in $[-2,2]$. The quotient of rows $1$ and $3$ is
+$$(-a,a^2,-a,-a^{-1},a^{-2},-a^{-1}).$$
+The ratio of any $2$ distinct values here is $\pm a^k$ for some nonzero integer $k$, hence is not a root of unity. No prime cycle can therefore occur in this quotient.
+
+Another class of examples, this time parametric, is provided by the self-adjoint $6\times6$ Hadamard matrices, classified by Beauchamp--Nicoara in \cite{ben}. These matrices, which are generically non-regular, are as follows:
+$$BN_6^q=\begin{pmatrix}
+1&1&1&1&1&1\\
+1&-1&\bar{x}&-y&-\bar{x}&y\\
+1&x&-1&t&-t&-x\\
+1&-\bar{y}&\bar{t}&-1&\bar{y}&-\bar{t}\\
+1&-x&-\bar{t}&y&1&\bar{z}\\
+1&\bar{y}&-\bar{x}&-t&z&1
+\end{pmatrix},$$
+where $y=q$, $\operatorname{Re}q\leq(\sqrt3-1)/2$, and
+$$x=\frac{1+2q+q^2-\sqrt2\sqrt{1+2q+2q^3+q^4}}{1+2q-q^2},\qquad
+z=\frac{1+2q-q^2}{q(-1+2q+q^2)},\qquad t=xyz.$$
+
+\subsection{Affine realization}\label{bg:deformation}
+An affine Hadamard deformation has the form
+$$H(t)_{ij}=H_{ij}\exp(2\pi i tR_{ij}),\qquad R\in M_{K\times N}(\mathbb R),$$
+for $t$ in a nonempty open interval; independence of exponentials with distinct real frequencies extends the identity to all $t\in\mathbb R$. Constant families and several parameters are allowed. The linearized space is
+$$\widetilde T_H=\left\{R\in M_{K\times N}(\mathbb R):\sum_{k=1}^N H_{ik}\bar{H}_{jk}(R_{ik}-R_{jk})=0\ \text{for all }i\ne j\right\}.$$
+The enveloping defect $d_{\mathrm{env}}=\dim_{\mathbb R}\widetilde T_H$ counts all infinitesimal phase deformations. Removing the $K+N-1$ directions coming from row and column scalings gives the dephased defect $d_{\mathrm{dep}}=d_{\mathrm{env}}-(K+N-1)$. This bounds the dimension of dephased families, but infinitesimal deformations need not extend to actual families \cite{dit,tz1,tz2}.
+
+\begin{theorem}[Affine realization and finite cover]\label{bg:affinerealization}\label{bg:finitecover}\label{bg:densityisolation}
+For fixed $K,N$, the regular locus is a finite union of tori translated by torsion points. Each regular matrix has a representation
+$$H_{ij}=B_{ij}\prod_{s=1}^d q_s^{V^{(s)}_{ij}},$$
+with $B$ partial Butson and $V^{(s)}$ integer matrices, valid as a regular Hadamard family for all $q_s\in\mathbb T$. Chosen prime cycles and dephasing can be preserved throughout. Regular Butson matrices are dense in every component; every isolated dephased regular matrix, and every dephased representative of an isolated regular equivalence class, is Butson.
+\end{theorem}
+\begin{proof}
+Choose a cycle decomposition of every row quotient. On a block of length $p$, label the positions in cycle order as $k_0,\ldots,k_{p-1}$. The quotient entries on this block are a fixed number times $1,w,\ldots,w^{p-1}$, where $w=e^{2\pi i/p}$. Write each entry as $H_{ij}=e(x_{ij})$, with the phase $x_{ij}$ considered modulo integers. The cycle condition says that, for each $1\leq a<p$, the difference $x_{ik_a}-x_{jk_a}-x_{ik_0}+x_{jk_0}$ is $a/p$, up to an integer.
+
+Thus all chosen blocks give linear conditions with integer coefficients on the phases, and with rational constants; phase values are considered modulo integers. We add the dephasing conditions when needed. Integer row and column operations (Smith normal form) change variables so that the conditions separate into equations of the form $d_jy_j=c'_j$, up to an integer, and conditions with no variables, which we keep only when they hold. Here $d_j$ is a nonzero integer and $c'_j$ is rational. Each such equation has finitely many rational solutions for $y_j$ modulo integers. Coordinates not constrained by these equations can vary freely around a circle. Returning to the original coordinates expresses the entries using integer powers of the free circle parameters and fixed roots of unity.
+
+There are only finitely many choices of cycle blocks and their orderings. For each choice, the solutions form a finite union of closed tori, so the regular locus is a finite union of closed tori. In the Smith normal form coordinates, each constrained coordinate is rational and the free coordinates vary on circles. Joining a point to a rational point by a straight line in the free phase coordinates gives the regular path
+$$H(t)_{ij}=e\bigl(x_{0,ij}+t(x_{ij}-x_{0,ij})\bigr),\qquad t\in\mathbb R,$$
+where $x_0$ is rational. Rational values of the free parameters are dense, so Butson matrices are dense in each torus. If a dephased regular matrix is isolated, it must therefore be Butson. The same argument applies to a dephased representative of an isolated equivalence class, since its dephased orbit is finite.
+\end{proof}
+\label{bg:scope}Different cycle decompositions can give intersecting, nonmaximal families. The theorem preserves the chosen cycles; classification still requires completion and equivalence analysis.
+
+\subsection{The regularity conjecture}\label{bg:conjectures}
+\begin{conjecture}[Regularity]\label{bg:regularityconjecture}
+Every square Butson matrix is regular.
+\end{conjecture}
+Lam--Leung proves this at levels with at most $2$ prime divisors. The partial $2\times6$ example above explains the square hypothesis. Put $\mathcal B_N$ for all Butson matrices, $\overline{\mathcal B}_N$ for their closure, $\mathcal R_N$ for the regular locus, and $\mathcal A_N$ for affine Hadamard deformations through Butson matrices, including constant families.
+
+\begin{proposition}\label{bg:affineapproximation}\label{bg:equivalentconjectures}\label{bg:transposeconditional}
+We have
+$$\mathcal R_N\subseteq\mathcal A_N\subseteq\overline{\mathcal B}_N.$$
+The following are equivalent:
+$$\mathcal B_N\subseteq\mathcal R_N,\qquad \mathcal R_N=\mathcal A_N,\qquad \mathcal R_N=\overline{\mathcal B}_N.$$
+Under these conditions transposition preserves regularity.
+\end{proposition}
+\begin{proof}
+The $1$st inclusion is Theorem~\ref{bg:affinerealization}. Write $H=B\circ e(R)$ with $B\circ e(tR)$ Hadamard. For each row pair, group equal frequencies $R_{ik}-R_{jk}$. Independence of exponentials gives
+$$\sum_{k\in E}B_{ik}\bar{B}_{jk}=0$$
+on every frequency block $E$. Impose on $S$ the equations
+$$S_{ik}-S_{jk}=S_{il}-S_{jl}\qquad(k,l\in E)$$
+for every such block and row pair. These integer-coefficient equations define a rational linear space containing $R$, so it has rational points $S_n\to R$. On each original block, the exponential factor is constant and the displayed sum still vanishes, even if different blocks acquire the same frequency. Thus $B\circ e(S_n)$ is Butson and converges to $H$.
+
+We also have $\mathcal B_N\subseteq\mathcal A_N$, by constant families, and $\mathcal R_N$ is closed by Theorem~\ref{bg:finitecover}. Together with the inclusions just proved, these facts give the equivalences. Transposition preserves $\mathcal B_N$ and its closure.
+\end{proof}
+
+
+\section{The regular classification at order 7}
+
+At order $7$, the possible quotient types are $A=7$, $B=5+2$, and $C=3+2+2$. We begin by determining which triples of types can occur in a $3$-row matrix. Antipodal-pair counts rule out incompatible triples; elementary phase identities and normalization then give the remaining cases. The result is $6$ affine families and $45$ isolated classes, up to equivalence, reducing the square-matrix classification to an extension problem.
+
+Some of this section continues and finishes previous $N=7$ work by Banica--\"Ozteke--Pittau and their predecessors \cite{bbs,bop}. That work was exploratory at the time. Here we arrange the cases into a systematic proof, first classifying the $3$-row matrices and then studying how each can be extended by additional rows.
+
+For the extension step, we impose the cycle conditions for each new row and analyze the resulting phase equations. We treat affine families and isolated classes separately. For the families we follow the phase parameters through the extension equations, including exceptional values; for isolated classes we determine the compatible fourth rows and then continue the surviving candidates through the larger row sizes. Common supports and special configurations organize these checks. Finally, we compare the completed matrices up to equivalence. This leaves precisely the Fourier matrix $F_7$ and the $2$ families displayed in the introduction.
+
+The proof combines elementary reductions with finite exact calculations. The preliminary type restrictions and the $BBB$ case are handled directly; the $AAA$ case reduces to a finite permutation check. The completeness arguments for $CCC$, $ACC$ and $BCC$ use exact phase equations together with finite support enumeration and certificates. No parameter sampling or numerical tolerance is used. The result is computer-assisted, but it is not a formal proof-assistant verification.
+\subsection{Cycle types and phase equations}\label{sec:overview}\label{sec:preliminaries}
+For $H=(\mathbf1;u;v)\in M_{3\times7}(\mathbb T)$, the quotients are $u,v,u\bar{v}$, with types $A=7$, $B=5+2$ and $C=3+2+2$.
+\begin{proposition}\label{pre:types}\label{pre:symmetry}\label{pre:AA}\label{pre:main}
+Every regular length-$7$ vector has a unique type $A,B$ or $C$. Up to permutation, the possible triples of row-pair types are exactly
+$$
+ \boxed{
+ (A,A,A),\quad
+ (A,C,C),\quad
+ (B,B,B),\quad
+ (B,C,C),\quad
+ (C,C,C).}
+$$
+\end{proposition}
+\begin{proof}
+The prime partitions of $7$ give the list of types. Their maximum numbers of disjoint antipodal pairs are respectively $0,1,2$: an odd cycle has no antipodal pair; $2$ pairs in a $5+2$ decomposition would force opposite entries in its $5$-cycle; $3$ pairs in a zero-sum length-$7$ vector would leave a nonzero singleton.
+
+Exchanging rows permutes the $3$ types. If $2$ quotients are $7$-cycles, normalize them into $\mu_7$; their quotient has no antipodal pair and hence also has type $A$. The next lemma excludes $AB$ and $BBC$. The representatives below realize every remaining triple.
+\end{proof}
+\begin{lemma}\label{pre:AB}\label{pre:BBC}
+For odd primes $p=q+2$, a $p$-cycle cannot be orthogonal to a vector of type $q+2$. At order $7$ the triple $BBC$ is impossible.
+\end{lemma}
+\begin{proof}
+Normalize the $2$ vectors as
+$$
+ u=(1,\omega,\ldots,\omega^{q-1},a,-a),\qquad
+ v=(w^{qr_0},\ldots,w^{qr_{q-1}},w^{qs},w^{qt}),
+$$
+where $w=e^{2\pi i/(pq)}$, $\omega=w^p$ and $r_0,\ldots,r_{q-1},s,t$ exhaust $\mathbb Z/p$. Set
+$$
+ A_k=\sum_{j=0}^{q-1}\omega^{kj}w^{-qr_j}\quad(0\le k<q),
+ \qquad B=w^{-qt}-w^{-qs},\qquad D=|B|^2.
+$$
+Orthogonality gives $|A_1|^2=D$. Cyclotomic automorphisms fixing $w^q$ give $|A_k|^2=D$ for $1\le k<q$. Fourier orthogonality and $A_0=-w^{-qs}-w^{-qt}$ yield
+$$
+ \sum_{k=0}^{q-1}|A_k|^2
+ =\sum_{j,l=0}^{q-1}w^{q(r_l-r_j)}
+       \sum_{k=0}^{q-1}\omega^{k(j-l)}
+ =q^2.
+$$
+Thus $q^2=(4-D)+(q-1)D=4+(q-2)D$, so $D=q+2=p$, contradicting $D\le4<p$.
+
+For $BBC$, rotate the $5$-cycles of $u,v$ into $\mu_5$, and let $U,V$ be their pair supports. The quotient has at least $3+|U\cap V|$ entries in $\mu_5$. Each block of a $C$ decomposition contains at most $1$ such entry. Hence $U\cap V=\varnothing$, and each block contains exactly $1$ of the $3$ entries outside $U\cup V$. The partners of the $2$ antipodal blocks lie in $-\mu_5$. On each of $U,V$, the quotient of the inherited $2$ entries belongs to $-\mu_5$; thus the $2$ partners must lie on different supports, and their inherited partners lie in $\mu_5$. This gives $5$ entries in $\mu_5$, a contradiction.
+\end{proof}
+The same count excludes $(p+2,p+2,q+2+2)$ for odd primes $p=q+2$: its $3$ blocks allow at most $3$ entries in $\mu_p$, but the quotient has at least $q+|U\cap V|$. The case $q=3$ was just excluded.
+
+\begin{lemma}\label{pre:phase}
+Put $w=e^{2\pi i/3}$. For $a,b,c\in\mathbb T$, $a+b+c=0$ precisely when $(a,b,c)=(a,a\omega,a\omega^2)$ for $\omega\in\{w,w^2\}$. In the following table both choices of $\omega$ are allowed:
+$$
+\begin{array}{c|l}
+\text{equation}&\text{all solutions }(a,b)\\ \hline
+ a+b+ab=0&(\omega,\omega^2)\\
+ a+b+a\bar{b}=0&(1,\omega)\\
+ a+b+\bar{a}\,\bar{b}=0&(w^r,w^r\omega),\quad r\in\{0,1,2\}\\
+ 1+a+b=0&(\omega,\omega^2)\\
+ 1+ab+a\bar{b}=0&(\varepsilon,\varepsilon\omega),
+                         \quad\varepsilon\in\{1,-1\}
+\end{array}
+$$
+The signs in the last row are correlated.
+\end{lemma}
+\begin{proof}
+If $1+x+y=0$ with $|x|=|y|=1$, then
+$$
+ 1=|1+x|^2=2+x+\bar{x},
+ \qquad \operatorname{Re}(x)=-\tfrac12.
+$$
+so $(x,y)=(\omega,\omega^2)$. Dividing each equation by one of its terms gives the table; the $3$rd row forces $a^3=1$, and the last forces $a^2=1$.
+\end{proof}
+
+\subsection{The 3-row classification}\label{n7:sec:ccc}
+We first state the full $3$-row classification. We prove its $CCC$ part here, then the $AAA$ and $BBB$ parts in Subsection~\ref{sec:ab}, and the $ACC$ and $BCC$ parts in Subsection~\ref{n7:sec:mixed}.
+\begin{theorem}\label{global}\label{ccc:classification}
+Every regular $3\times7$ matrix is equivalent to $1$ of the $6$ $CCC$ families $\mathcal F_1,\ldots,\mathcal F_6$ below, or to $1$ of $45$ isolated classes:
+$$
+\begin{array}{c|rrrrr|r}
+\text{type}&AAA&ACC&BBB&BCC&CCC&\text{total}\\\hline
+\text{isolated classes}&4&12&2&16&11&45.
+\end{array}
+$$
+The families have dimensions $3,2,2,1,1,1$ and none can be omitted. The isolated representatives are pairwise inequivalent and lie outside the families. Family images may intersect, and parameters need not be unique.
+\end{theorem}
+\begin{proof}[Proof of the $CCC$ part]
+We begin with the families and isolated representatives for this part. The other types are treated in Theorems~\ref{ab:main} and \ref{mixed:mixed}, which complete the proof of the full statement.
+
+Put $w=e^{2\pi i/3}$. All parameters below range independently over $\mathbb T$.
+$$
+\mathcal F_1(a,b,c)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+1&w&w^2&a&-a&a&-a\\
+    1&w^2&w&b&c&-b&-c\end{pmatrix}.
+$$
+$$
+\mathcal F_2(a,b)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+-1&w&w^2&1&1&a&-a\\
+    -1&w^2&w&b&-b&1&1\end{pmatrix}.
+$$
+$$
+\mathcal F_3(a,b)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+-ab&w&w^2&1&-a&a&ab\\
+    -ab&w^2&w&b&ab&1&-b\end{pmatrix}.
+$$
+$$
+\mathcal F_4(a)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+1&w&w^2&wa&-wa&a&-a\\
+    1&w&w^2&a&wa&-a&-wa\end{pmatrix}.
+$$
+$$
+\mathcal F_5(a)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+1&w&w^2&w/a&-w/a&w^2a&-w^2a\\
+    1&-wa&a&w&w^2&wa&-a\end{pmatrix}.
+$$
+$$
+\mathcal F_6(a)=
+\begin{pmatrix}1&1&1&1&1&1&1\\
+1&w&w^2&a&-a&a^{-1}&-a^{-1}\\
+    1&-w^2/a&wa&w&-wa&w^2/a&w^2\end{pmatrix}.
+$$
+\label{ccc:s:validity}
+For the isolated $CCC$ classes put $w=e^{\pi i/12}$ and write $[r;s]_w=(\mathbf1;w^r;w^s)$. With
+$$
+\begin{aligned}
+ r_A&=(0,8,16,1,13,2,14),\\
+ r_B&=(0,8,16,1,13,10,22),\\
+ r_C&=(0,8,16,2,14,6,18).
+\end{aligned}
+$$
+the representatives are
+$$
+\begin{array}{c|c|rrrrrrr}
+ &r&\multicolumn{7}{c}{s}\\ \hline
+E_1&r_A&0&2&11&8&23&14&16\\
+E_2&r_A&0&2&23&11&8&14&16\\
+E_3&r_A&0&6&5&17&14&12&22\\
+E_4&r_A&0&6&17&14&5&12&22\\
+E_5&r_B&0&10&7&19&16&22&8\\
+E_6&r_B&0&10&19&16&7&22&8\\
+E_7&r_B&0&22&9&6&21&12&14\\
+E_8&r_B&0&22&21&9&6&12&14\\
+E_9&r_C&0&4&2&10&16&18&12\\
+E_{10}&r_C&0&16&2&4&10&18&12\\
+E_{11}&r_C&0&16&14&22&4&12&6
+\end{array}
+$$
+The last $3$ use $12$th roots. The family decompositions are given below; $123|45|67$ denotes the indicated triple and pairs.
+$$
+\begin{array}{c|c|c|c}
+ &u&v&u\bar{v}\\ \hline
+\mathcal F_1&123|45|67&123|46|57&123|46|57\\
+\mathcal F_2&234|15|67&236|17|45&123|45|67\\
+\mathcal F_3&234|17|56&236|15|47&123|45|67\\
+\mathcal F_4&123|45|67&123|46|57&147|25|36\\
+\mathcal F_5&123|45|67&145|26|37&167|24|35\\
+\mathcal F_6&123|45|67&147|26|35&156|24|37
+\end{array}
+$$
+
+\label{ccc:s:supports}\label{ccc:s:solving}
+Put $w=e^{2\pi i/3}$ and normalize
+$$u=(1,w,w^2,a,-a,b,-b).$$
+The cyclic permutations of the triple, flips of the pairs, and exchange of the pairs form a group of order $24$. Its orbits on the $\binom73\cdot3=105$ support partitions of $v$ are
+$$
+\begin{array}{c|c|r|r}
+\text{case}&\text{support of }v&|T_u\cap T_v|&\text{orbit size}\\ \hline
+1&123|45|67&3&1\\
+2&123|46|57&3&2\\
+3&124|35|67&2&12\\
+4&124|36|57&2&24\\
+5&145|23|67&1&6\\
+6&145|26|37&1&12\\
+7&146|23|57&1&12\\
+8&146|25|37&1&24\\
+9&456|12|37&0&12
+\end{array}
+$$
+For each support, rotate $v$ at its smallest triple position to $1$ and allow both triple orientations. Its pair phases, together with $a,b$, give $4$ unknown angles. Allowing all $105$ supports and both orientations for $u\bar{v}$ gives $9\cdot2\cdot105\cdot2=3780$ systems. Each quotient phase has the form
+$$
+ \theta_j=\gamma_j+m_jx,\qquad
+ \gamma_j\in\tfrac16\mathbb{Z}/\mathbb{Z},\quad m_j\in\mathbb{Z}^4.
+$$
+and a support imposes
+$$
+\begin{aligned}
+ \theta_{i_1}-\theta_{i_0}&=\varepsilon/3\ (1),&
+ \theta_{i_2}-\theta_{i_0}&=2\varepsilon/3\ (1),\\
+ \theta_{p_1}-\theta_{p_0}&=1/2\ (1),&
+ \theta_{q_1}-\theta_{q_0}&=1/2\ (1).
+\end{aligned}
+$$
+Thus every solution is obtained from integer congruences $Ax=b\ (1)$.
+
+For completeness, an equation on a branch $x=c+Bt$ becomes $rt=h\ (1)$. An integer unimodular change gives $rV=(g,0,\ldots,0)$; retain all $g$ values
+$$(h+k)/g,\qquad k=0,\ldots,g-1.$$
+and leave the remaining coordinates free. A zero row is checked directly. Induction proves exhaustiveness. Independently, choose an invertible rank minor $M$ and solve
+$$
+ x_P=M^{-1}(b_I-A_{I,F}x_F)+g,\qquad
+ g\in M^{-1}\mathbb{Z}^r/\mathbb{Z}^r.
+$$
+Enumerate the $|\det M|$ elements of the finite group and check the remaining equations, whose residuals are constant on each real affine branch. Clearing denominators gives integral torus directions. Both solvers agree system by system:
+$$
+\begin{array}{c|r|rrrr}
+ &\text{consistent systems}&d=3&d=2&d=1&d=0\\ \hline
+1&26&2&24&0&0\\
+2&111&2&26&96&0\\
+3&88&0&8&84&0\\
+4&263&0&6&90&288\\
+5&56&0&0&56&0\\
+6&232&0&0&40&256\\
+7&232&0&0&40&256\\
+8&274&0&0&54&352\\
+9&196&0&0&4&192\\ \hline
+\text{total}&1478&4&64&464&1344
+\end{array}
+$$
+There are $1876$ branches and $838$ distinct dephased tori.
+
+\label{ccc:s:coverage}
+Each resulting torus admits a checked integral coordinate chart
+$$y=k+Ct,\qquad C_P=I,\quad k_P=0,$$
+For a source $y=s+Dt$, inclusion is equivalent to
+\begin{equation}\label{ccc:coverage-identities}
+ s-k-Cs_P\in\mathbb{Z}^{14},
+ \qquad D=CD_P.
+\end{equation}
+After row and column permutations and dephasing, these identities assign every source torus to a displayed representative. The assignments recorded in \texttt{coverage.json} have counts
+$$
+\begin{array}{c|rrrrrr}
+\text{target}&\mathcal F_1&\mathcal F_2&\mathcal F_3&\mathcal F_4&\mathcal F_5&\mathcal F_6\\ \hline
+\text{assigned}&293&138&244&43&40&44
+\end{array}
+$$
+$$
+\begin{array}{c|rrrrrrrrrrr}
+\text{target}&E_1&E_2&E_3&E_4&E_5&E_6&E_7&E_8&E_9&E_{10}&E_{11}\\ \hline
+\text{assigned}&6&6&6&6&2&2&2&2&2&1&1
+\end{array}
+$$
+These are coverage counts, not numbers of moduli components. Direct checks of all $3!7!$ transformations for each of the $17$ representatives exclude inclusions in different families of equal or larger dimension and exclude equivalences involving the $11$ points. A connected torus cannot be covered by finitely many proper affine subtori, proving irredundancy. Compactness of the family images proves isolation. The support table proves validity of the families; \texttt{independent\_verification.json} gives the exceptional cycle partitions.
+\end{proof}
+
+\subsection{The AAA and BBB classes}\label{sec:ab}
+\begin{theorem}\label{ab:main}
+With $w=e^{2\pi i/7}$, there are exactly $4$ $AAA$ classes, represented by
+$$
+ \mathcal{A}_l=
+ \begin{pmatrix}
+  1&1&1&1&1&1&1\\
+  1&w&w^2&w^3&w^4&w^5&w^6\\
+  w^{\pi_l(0)}&w^{\pi_l(1)}&w^{\pi_l(2)}&
+  w^{\pi_l(3)}&w^{\pi_l(4)}&w^{\pi_l(5)}&w^{\pi_l(6)}
+ \end{pmatrix},
+$$
+$$
+\begin{array}{c|rrrrrrr}
+l &\pi_l(0)&\pi_l(1)&\pi_l(2)&\pi_l(3)&\pi_l(4)&\pi_l(5)&\pi_l(6)\\\hline
+1&0&2&4&6&1&3&5\\
+2&0&3&6&2&5&1&4\\
+3&0&2&5&1&6&4&3\\
+4&0&2&6&5&3&1&4
+\end{array}
+$$
+For $w=e^{2\pi i/5}$, there are exactly $2$ $BBB$ classes, represented by
+$$
+ \boxed{\quad
+ \mathcal{B}_s=
+ \begin{pmatrix}
+ 1&1&1&1&1&1&1\\
+ 1&w&w^2&w^3&w^4&si&-si\\
+ -si&w^{-1}&w^{-2}&w^{-3}&w^{-4}&si&1
+ \end{pmatrix},\qquad s\in\{1,-1\}.
+ \quad}
+$$
+Conjugation fixes $\mathcal A_1,\mathcal A_2$, exchanges $\mathcal A_3,\mathcal A_4$, and exchanges $\mathcal B_+,\mathcal B_-$.
+\end{theorem}
+\begin{proof}
+For $AAA$, put $w=e^{2\pi i/7}$ and normalize $u_j=w^j$, $v_j=w^{\pi(j)}$, with $\pi(0)=0$. Both $\pi$ and $\pi-\mathrm{id}$ must permute $\mathbb Z/7$. Checking the $6!$ possibilities gives exactly
+\begin{center}\begin{tabular}{@{}clc@{}}\toprule
+Class & All normalized permutations in the class & Size\\\midrule
+\(\mathcal{A}_1\)&\texttt{0246135\quad0415263\quad0654321}&$3$\\
+\(\mathcal{A}_2\)&\texttt{0362514\quad0531642}&$2$\\
+\(\mathcal{A}_3\)&\texttt{0251643\quad0316524\quad0364215\quad0462531}&$7$\\[-2pt]
+ &\texttt{0532614\quad0541362\quad0635142}&\\
+\(\mathcal{A}_4\)&\texttt{0265314\quad0352164\quad0361542\quad0431625}&$7$\\[-2pt]
+ &\texttt{0514632\quad0536241\quad0642513}&\\\bottomrule
+\end{tabular}\end{center}
+Choose ordered rows $(b,r,s)$ and an anchor $a$, and put
+$$f(j)=e_r(j)-e_b(j),\qquad g(j)=e_s(j)-e_b(j).$$
+The complete equivalence action is
+\begin{equation}
+ \boxed{\quad \pi'\bigl(f(j)-f(a)\bigr)=g(j)-g(a)\ (7).\quad} \label{ab:eq1}
+\end{equation}
+Indeed, the chosen row and anchor remove all phases, and the $2$nd row forces the remaining column order. The $6\cdot7$ choices give exactly the $4$ disjoint orbits above. Conjugation acts by $\pi(j)\mapsto-\pi(-j)$.
+
+\label{ab:triangle}
+For $BBB$, put $w=e^{2\pi i/5}$ and rotate the $5$-cycles of $u,v$ into $\mu_5$. Let $U,V,W$ be the antipodal supports of $u,v,u\bar{v}$, and put $O=(U\cup V)^c$, $Q=W^c$. Since $Q$ meets $O$, the $5$-cycle on $Q$ is exactly $\mu_5$. If $U=V$, the $2$ equal quotient entries on $U$ must split between $Q,W$; their common value then belongs to both $\mu_5$ and $-\mu_5$. If $U\cap V=\varnothing$, $W$ can equal neither $U$ nor $V$, since the quotient ratio on either support belongs to $-\mu_5\setminus\{-1\}$. Each support therefore has an entry in $Q$ and its inherited partner in $-\mu_5$. Those $2$ partners would form $W$, but cannot be antipodal.
+
+Hence $U=\{i,k\}$, $V=\{j,k\}$. Write
+$$
+ u_i=-a,\quad u_k=a,\quad u_j=\alpha\in\mu_5,
+ \qquad v_j=-b,\quad v_k=b,\quad v_i=\beta\in\mu_5.
+$$
+\begin{equation}
+ X=z_i=-a/\beta,\qquad Y=z_j=-\alpha/b,\qquad Z=z_k=a/b,
+ \qquad XY/Z=\alpha/\beta\in\mu_5. \label{ab:eq2}
+\end{equation}
+If $W$ met $O$, $2$ of $X,Y,Z$ would belong to $\mu_5$; the identity would put the $3$rd there too. Thus $W$ lies in $\{i,j,k\}$. The alternatives $W=\{i,k\}$ or $\{j,k\}$ respectively force $b=\beta$ or $a=\alpha$, contradicting the remaining entry's membership in $\mu_5$. Therefore
+$$U=\{i,k\},\qquad V=\{j,k\},\qquad W=\{i,j\}.$$
+Products over the $5$-cycles give $(a/b)(\beta/\alpha)=1$, while $X=-Y$ gives $ab=-\alpha\beta$. Thus
+\begin{equation}
+ \frac a\alpha=\frac b\beta=t,\qquad t^2=-1,
+ \qquad t=si\quad(s=\pm1). \label{ab:eq3}
+\end{equation}
+After scaling by $\alpha^{-1},\beta^{-1}$ and ordering columns as $j,O,k,i$, the normal form is
+\begin{equation}
+ \begin{pmatrix}
+ 1&1&1&1&1&1&1\\
+ 1&w&w^2&w^3&w^4&t&-t\\
+ -t&w^{\pi(1)}&w^{\pi(2)}&w^{\pi(3)}&w^{\pi(4)}&t&1
+ \end{pmatrix}. \label{ab:eq4}
+\end{equation}
+The permutations of $\{1,2,3,4\}$ with distinct nonzero differences are
+$$
+\begin{array}{rrrr|c}
+\pi(1)&\pi(2)&\pi(3)&\pi(4)&\pi(j)\\\hline
+2&4&1&3&2j\\
+3&1&4&2&3j\\
+4&3&2&1&4j
+\end{array}
+$$
+Row exchanges induce $r\mapsto r^{-1}$ and $r\mapsto1-r$, preserving $t$ and acting transitively on $r=2,3,4$. This gives $\mathcal B_s$.
+
+The antipodal supports are unique, and
+$$
+ t=\frac{H_{2k}H_{1j}}{H_{1k}H_{2j}},
+ \quad \{k\}=U\cap V,\quad\{j\}=V\cap W.
+$$
+is unchanged by phases, column permutations, and the generating row swaps, which replace $t$ by $t$ or $-1/t=t$. It distinguishes the $2$ signs. Conjugation exchanges them. All displayed decompositions follow by substitution.
+\end{proof}
+
+\subsection{The ACC and BCC classes}\label{n7:sec:mixed}
+We next treat the mixed types. We choose the all-ones row at the common vertex of the $2$ edges of type $C$. The other rows then each consist of a triple and $2$ antipodal pairs; their mutual quotient has type $A$ or $B$. We must determine the relative positions and phases of these cycles, and then identify the solutions under row and column equivalence.
+
+The normal form below makes the last step particularly transparent. Both nonconstant rows already have type $C$, so we can read the remaining condition from their quotient. For $ACC$ its $7$ entries must form a single cycle; for $BCC$ they must form a $5$-cycle and an antipodal pair. The proof first finds all solutions with unrestricted phases, then checks the displayed representatives and their equivalences. Thus the root orders in the final lists are conclusions of the calculation, rather than assumptions imposed on it.
+
+Put $w=e^{2\pi i/21}$ and $\omega=w^7$. Set
+\begin{equation}
+\boxed{\quad
+ M(x,y,z,t)=
+ \begin{pmatrix}
+ 1&1&1&1&1&1&1\\
+ 1&\omega&\omega^2&\omega z&-\omega z&\omega^2t&-\omega^2t\\
+ 1&\omega/x&\omega^2/y&\omega&-\omega/x&\omega^2&-\omega^2/y
+ \end{pmatrix}.\quad} \label{mixed:eq1}
+\end{equation}
+Its last $2$ rows have type $C$, and
+\begin{equation}
+ u\bar{v}=(1,x,y,z,xz,t,yt). \label{mixed:eq2}
+\end{equation}
+\begin{theorem}\label{mixed:mixed}
+There are exactly $12$ $ACC$ classes and $16$ $BCC$ classes. For $ACC$, use $w=e^{2\pi i/21}$, $\omega=w^7$, and take $(x,y,z,t)=(w^{3p},w^{3q},w^{3r},w^{3s})$ with
+$$
+\begin{array}{c|rrrr@{\qquad\qquad}c|rrrr}
+ &p&q&r&s&&p&q&r&s\\\hline
+1&1&3&4&6&7&2&5&4&3\\
+2&1&5&2&6&8&2&6&1&5\\
+3&1&6&2&5&9&4&3&1&6\\
+4&1&6&4&3&10&4&3&2&5\\
+5&2&3&4&5&11&4&5&2&3\\
+6&2&5&1&6&12&4&6&1&3
+\end{array}
+$$
+For $BCC$, use $w=e^{2\pi i/15}$ and $\omega=w^5$, choose
+$$
+ (j,k)\in S=\{(1,2),(1,3),(2,1),(3,1)\},\qquad
+ \varepsilon\in\{1,-1\},\qquad h=\varepsilon iw^{-3(j+k)}.
+$$
+and take both placements
+\begin{equation}
+ \boxed{\ (x,y,z,t)=(h,w^{3j},-h,w^{3k})
+ \quad\hbox{or}\quad (w^{3j},h,w^{3k},-h).\ } \label{mixed:eq3}
+\end{equation}
+The representatives are pairwise inequivalent. They use respectively $42$nd and $60$th roots.
+\end{theorem}
+\begin{proof}\label{mixed:s:supports}\label{mixed:s:solving}
+Normalize $u=(1,\omega,\omega^2,a,-a,b,-b)$. The same $9$ support orbits and $2$ orientations for $v$ apply. For the quotient, type $A$ has $6!=720$ anchored exponent assignments; type $B$ has $\binom75 4!=504$. Writing its phases as $q_j=c_j+B_j\theta$ gives
+\begin{equation}
+ (B_j-B_i)\theta=\delta-c_j+c_i\ (1). \label{mixed:eq5}
+\end{equation}
+The $2$ congruence solvers above process $12960$ and $9072$ systems. Their exact results are
+\begin{center}\begin{tabular}{@{}clrrr@{}}\toprule
+Case & Support of \(v\) & Orbit size & \(ACC\) points & \(BCC\) points\\\midrule
+$1$&\(123\mid45\mid67\)&$1$&$0$&$0$\\
+$2$&\(123\mid46\mid57\)&$2$&$0$&$0$\\
+$3$&\(124\mid35\mid67\)&$12$&$0$&$0$\\
+$4$&\(124\mid36\mid57\)&$24$&$0$&$0$\\
+$5$&\(145\mid23\mid67\)&$6$&$0$&$0$\\
+$6$&\(145\mid26\mid37\)&$12$&$0$&$0$\\
+$7$&\(146\mid23\mid57\)&$12$&$0$&$0$\\
+$8$&\(146\mid25\mid37\)&$24$&$24$&$32$\\
+$9$&\(456\mid12\mid37\)&$12$&$0$&$0$\\\bottomrule
+\end{tabular}\end{center}
+\begin{center}\begin{tabular}{@{}lrr@{}}\toprule
+Exact result & \(ACC\)&\(BCC\)\\\midrule
+Systems tested by both solvers &$12{,}960$&$9{,}072$\\
+Consistent systems &$24$&$16$\\
+Distinct solutions &$24$&$32$\\
+Root order of \(x,y,z,t\) &$7$&$20$\\
+Root order of matrix entries &$42$&$60$\\\bottomrule
+\end{tabular}\end{center}
+All consistent systems have rank $4$. Only support $8$ survives, with the same triple orientation as $u$:
+$$
+ u=(1,\omega,\omega^2,a,-a,b,-b),\qquad
+ v=(1,c,d,\omega,-c,\omega^2,-d).
+$$
+The substitutions $x=\omega/c$, $y=\omega^2/d$, $z=a/\omega$, $t=b/\omega^2$ give \eqref{mixed:eq1}. With $w=e^{2\pi i/21}$ and $\omega=w^7$, the $24$ $ACC$ tuples are exactly
+\begin{equation}
+ \{0,p,q,r,p+r,s,q+s\}=\mathbb{Z}/7,
+ \qquad (x,y,z,t)=(w^{3p},w^{3q},w^{3r},w^{3s}). \label{mixed:eq7}
+\end{equation}
+With $w=e^{2\pi i/15}$ and $\omega=w^5$, the $32$ $BCC$ tuples are \eqref{mixed:eq3} with all $8$ ordered pairs $j,k\in\{1,2,3,4\}$ satisfying $j\ne k$ and $j+k\ne0\ (5)$. Their quotient has the pair $(h,-h)$ and the $5$-cycle
+$$
+ 1,\quad w^{3j},\quad w^{3k},\quad w^{3(j+k)},\quad
+ -h^2=w^{-6(j+k)}.
+$$
+This verifies validity without a root-order assumption in the search.
+
+\label{mixed:s:equivalence}\label{mixed:equivalence}
+In each type-$C$ row the triple and pairs lie in distinct $\mu_6$ cosets, so their supports are unique:
+\begin{equation}
+ u:\ 123\mid45\mid67,
+ \qquad v:\ 146\mid25\mid37. \label{mixed:eq8}
+\end{equation}
+The all-ones row is the unique vertex incident to both $C$ edges, and column $1$ is the unique common triple position. An equivalence fixes both; dephasing removes all scalars. Keeping $u,v$ fixes every column. Exchanging them forces column order $(1,4,6,2,5,3,7)$ and induces
+\begin{equation}
+ \Phi(x,y,z,t)=(z^{-1},t^{-1},x^{-1},y^{-1}). \label{mixed:eq4}
+\end{equation}
+A fixed point would give $xz=yt=1$, hence $3$ copies of $1$ in \eqref{mixed:eq2}, impossible for either type. Thus every orbit has size $2$. On the $BCC$ list, $\Phi$ preserves the placement and sign and sends $(j,k)$ to $(-k,-j)$. The displayed representatives select exactly $1$ from each orbit.
+\end{proof}
+Together these classifications prove Theorem~\ref{global}: different types are inequivalent. Each type locus is compact and hence closed in the monomial quotient; the finite type loci and the $11$ remaining $CCC$ points are isolated.
+
+\subsection{Common supports and special configurations}\label{sec:common}\label{sec:examples}
+\begin{lemma}\label{common:common}
+Put $w=e^{2\pi i/3}$ and let $\omega\in\{w,w^2\}$. If $u,v,u\bar{v}$ have type $C$ and the chosen triple supports of $u,v$ coincide, then their nonconstant rows are equivalent to $1$ of
+\begin{align}
+&\begin{pmatrix}
+1&\omega &\omega ^2&a&-a&a&-a\\
+1&\omega ^2&\omega &b&c&-b&-c
+\end{pmatrix},\label{common:fam1}\\[5pt]
+&\begin{pmatrix}
+1&\omega &\omega ^2&a&-a&ab&-ab\\
+1&\omega ^2&\omega &c&-c&-bc&bc
+\end{pmatrix},\label{common:fam2}\\[5pt]
+&\begin{pmatrix}
+1&\omega &\omega ^2&\omega a&-\omega a&a&-a\\
+1&\omega &\omega ^2&a&\omega a&-a&-\omega a
+\end{pmatrix}.\label{common:fam3}
+\end{align}
+Here all parameters are unit phases. Conversely every displayed pair has this property.
+\end{lemma}
+\begin{proof}
+Normalize $u=(1,\omega,\omega^2,a,-a,b,-b)$. The tail pairings coincide or cross:
+$$
+\begin{array}{c|c}
+u&v\\ \hline
+(a,-a,b,-b)&(c,-c,d,-d)\\
+(a,-a,b,-b)&(c,d,-c,-d).
+\end{array}
+$$
+For opposite triple orientations, their contribution to the inner product is $0$. The respective equations are
+$$
+2a\bar{c}+2b\bar{d}=0,
+\qquad d=-\frac{bc}{a}.
+$$
+$$
+a\bar{c}-a\bar{d}-b\bar{c}+b\bar{d}
+=(a-b)(\bar{c}-\bar{d})=0.
+$$
+They give \eqref{common:fam2} and \eqref{common:fam1}; in the case $c=d$, exchange rows and the middle tail columns.
+
+For equal orientations, the quotient starts with $1,1,1$, forcing tail multiset $\{\omega,\omega^2,-1,-1\}$. Coincident pairings cannot produce it. For crossed pairings put
+$$
+(s_1,s_2,s_3,s_4)
+=(a\bar{c},-a\bar{d},-b\bar{c},b\bar{d}).
+$$
+Then $s_1s_4=s_2s_3$, so opposite positions contain $\{\omega,\omega^2\}$ and $\{-1,-1\}$. The tail permutations $(12)(34),(13)(24)$ preserve both matchings and allow
+$$
+(s_1,s_2,s_3,s_4)=(\omega ,-1,-1,\omega ^2).
+$$
+Hence $c=\omega^2a$, $d=a$, $b=c$, giving \eqref{common:fam3}. Substitution verifies all $3$ converses.
+\end{proof}
+For any odd prime $p$, the construction
+$$
+\begin{aligned}
+ u&=(1,w,w^2,\ldots,w^{p-1},i,-i),\\
+ v&=(-i,w^{-1},w^{-2},\ldots,w^{-(p-1)},i,1),\\
+ u\bar{v}&=(i,w^2,w^4,\ldots,w^{2(p-1)},1,-i).
+\end{aligned}
+$$
+with $w=e^{2\pi i/p}$ gives type $(p+2,p+2,p+2)$, since multiplication by $2$ permutes the nonzero residues modulo $p$.
+
+Put $w=e^{\pi i/12}$ and $\omega=w^W$, with $W\in\{8,16\}$. The following configuration realizes $E_1,\ldots,E_8$:
+$$
+ \begin{gathered}\begin{pmatrix}
+ 1&\omega&\omega^2&w^r&-\omega^{1+e}w^{2r}&-w^r&\omega^{1+e}w^{2r}\\
+ 1&-\omega^2w^{-r}&\omega^{1+e}w^{2r}&\omega&\omega^2&\omega^2w^{-r}&-\omega^{1+e}w^{2r}
+ \end{pmatrix},\\[4pt]
+ w^{4r}=-\omega,\quad r\in\mathbb Z/24,\quad e\in\{0,1\}.\end{gathered}
+$$
+The $16$ choices give
+$$
+\begin{array}{c|c|cc}
+W&r&e=0&e=1\\\hline
+8&5,23&E_3&E_8\\
+8&11,17&E_4&E_7\\
+16&1,19&E_1&E_6\\
+16&7,13&E_2&E_5
+\end{array}
+$$
+For $w=e^{2\pi i/3}$, $s,t\in\{1,-1\}$, the matrices
+$$
+ Y_{s,t}=
+ \begin{pmatrix}
+ 1&1&1&1&1&1&1\\
+ 1&w&w^2&si&ti&-si&-ti\\
+ 1&siw^2&tiw&w&w^2&-siw^2&-tiw
+ \end{pmatrix}.
+$$
+instead belong to continuous families:
+$$
+ Y_{s,-s}=\mathcal F_5(-siw),\qquad
+ Y_{s,s}^{(5\,7)}=\mathcal F_6(si),
+$$
+The superscript exchanges columns $5$ and $7$. For the other cube-root orientation $\omega=w^2$, equal signs give $\mathcal F_6(si)$ in column order $(1,3,2,5,6,7,4)$; opposite signs give $\mathcal F_5(siw)$ in order $(1,3,2,5,4,7,6)$. Exact transformations are in \path{code/ccc/special_example_checks.json}.
+
+\subsection{The square families}\label{sec:square}\label{sec:computation}
+Put $w=e^{2\pi i/3}$ and $q\in\mathbb T$. The Petrescu family \cite{pet,szo} and its conjugate in {\hypersetup{allcolors=black}\href{https://wiki.aalto.fi/spaces/Butson/pages/120482304/}{Aalto catalogue}} normalization \cite{LOSz} are
+$$
+\renewcommand{\arraystretch}{1.22}
+P_7^q=
+\begin{pmatrix}
+-q&q&w&1&w&1&w\\
+q&-q&w&1&1&w&w\\
+w&w&-w&1&w&w&1\\
+1&1&1&-1&w&w&w\\
+w&1&w&w&-\bar{q} w&\bar{q} w&1\\
+1&w&w&w&\bar{q} w&-\bar{q} w&1\\
+w&w&1&w&1&1&-1
+\end{pmatrix}.
+$$
+$$
+\renewcommand{\arraystretch}{1.22}
+R_7^q=
+\begin{pmatrix}
+1&1&1&1&1&1&1\\
+1&1&1&w&-1&-1&w^2\\
+1&-w^2&w^2&w^2&q&-q&w\\
+1&w&-1&1&qw^2&-qw^2&w^2\\
+1&-1&-w&-1&-q&q&-w^2\\
+1&w^2&w&qw&q&-qw&-q\\
+1&w^2&w&-qw&qw&-q&q
+\end{pmatrix}.
+$$
+We now state the square classification. Its proof occupies the rest of this section, through Subsection~\ref{sec:completion}.
+\begin{theorem}\label{square:classification}\label{completion:theorem}
+Every regular complex Hadamard matrix of order $7$ is equivalent to
+$$
+ \boxed{\qquad F_7,\qquad P_7^q,\qquad R_7^q,
+          \qquad q\in\mathbb{T}.\qquad}
+$$
+Conjugation is not included in equivalence; parameter uniqueness is not asserted.
+\end{theorem}
+We first verify the displayed families, then treat the isolated triples and reduce the affine cases to the remaining completions in Subsection~\ref{sec:completion}. The argument there closes the proof. Code and exact certificates are in \texttt{code002\_work/N7/}, restored as explained in Subsection~\ref{app:repro}.
+
+\begin{proposition}\label{square:valid}
+Both families are regular for every $q$, with all row quotients of type $C$. Moreover, for
+$$r=(1,2,7,3,4,6,5),\qquad c=(4,7,3,5,2,1,6).$$
+we have
+\begin{equation}\label{square:conjugacy}
+ \boxed{\quad R_7^q=D\!\left(
+           (\bar{P}_7^q)_{r,c}\right),\qquad q\in\mathbb{T}.\quad}
+\end{equation}
+The seeds $P_7^1,R_7^1$ are inequivalent and both have dephased defect $3$.
+\end{proposition}
+\begin{proof}
+For this proof put $w=e^{\pi i/3}$ and write entries as $w^{E_{ij}}q^{D_{ij}}$. For every row pair the certificate gives a triple and $2$ pairs with constant $q$-degree on each block, and root-exponent differences $2$ on the triple and $3$ on the pairs. This proves regularity. Comparing the root and parameter exponents proves \eqref{square:conjugacy}. Exhaustive row orders and dephasing anchors distinguish the seeds. The linearized equations
+$$
+ \sum_{j=1}^7 H_{ij}\bar{H}_{kj}(X_{ij}-X_{kj})=0
+ \quad(i<k),\qquad X_{ij}\in\mathbb{R}.
+$$
+give, by rational row reduction,
+$$
+\begin{array}{c|rrr}
+ &\text{real variables}&\text{rank}&\text{dimension}\\\hline
+\text{undephased tangent space}&49&33&16\\
+\text{dephased tangent space}&36&33&3
+\end{array}
+$$
+Subtracting the $13$ trivial phase directions gives defect $3$; it need not equal the dimension of the displayed affine family.
+\end{proof}
+
+\subsection{Extensions of the isolated classes}\label{sec:isolated}
+\begin{theorem}\label{iso:cleanup}\label{iso:reduction}\label{pilot:E9}
+Among the $45$ isolated $3$-row classes, only $\mathcal A_1,\mathcal A_2$ admit a regular $4$th row. With $w=e^{2\pi i/7}$ and $f_k=(1,w^k,\ldots,w^{6k})$, their complete normalized extension lists are
+$$
+\begin{array}{c|c|c}
+\text{seed}&\text{its rows}&\text{all normalized additional rows}\\\hline
+\mathcal A_1&(f_0,f_1,f_2)&f_3,f_4,f_5,f_6\\
+\mathcal A_2&(f_0,f_1,f_3)&f_2,f_4,f_5,f_6
+\end{array}
+$$
+Their square completion is $F_7$. Consequently every regular $K\times7$ matrix, $4\le K\le7$, is a Fourier row submatrix or has every triple in the $6$ affine $CCC$ families.
+\end{theorem}
+\begin{proof}
+All seed entries have orders dividing $840$. Write $r_j^{(i)}=e^{2\pi i d_{ij}/840}$ and $x_j=e^{2\pi iX_j}$, $X_1=0$. A cycle condition is
+$$
+X_j-X_k=\frac{d_{ij}-d_{ik}}{840}+\frac{l}{p}\ (1),
+\qquad p\in\{2,3,5,7\}.
+$$
+There are respectively $720,504,210$ support systems of types $A,B,C$. A labelled graph on the columns solves each system: traversal assigns a rational offset from the root of each component, and inconsistent cycles reject it. Each component not containing column $1$ contributes $1$ free phase. Thus no continuous extension is missed.
+
+The unpruned check first tests every normalized $A$ quotient against every seed row. Otherwise it processes all $714^2$ pairs of $B,C$ supports, merges identical complete loci, and imposes all $714$ supports for the $3$rd quotient:
+\begin{center}\begin{tabular}{@{}lr@{}}\toprule
+Unpruned exact check & Count\\\midrule
+Distinct candidates with at least $1$ new $A$ edge, summed by seed&$96{,}752$\\
+Surviving candidates ($4$ each for $\mathcal A_1,\mathcal A_2$)&$8$\\
+Pairs of $B/C$ support systems&$22{,}940{,}820$\\
+Consistent pairs before merging&$7{,}136$\\
+Distinct pair solution loci, summed by seed&$3{,}608$\\
+$3$rd-row support systems imposed on these loci&$2{,}576{,}112$\\
+Surviving all-$B/C$ extension loci&$0$\\\bottomrule
+\end{tabular}\end{center}
+The only survivors are the $8$ Fourier rows above. Weighted graph elimination with the established type exclusions independently gives the same result; see \texttt{code/isolated45/}. If a larger matrix has an isolated triple, every further row is therefore Fourier. Otherwise Theorem~\ref{global} puts all triples in the affine families.
+\end{proof}
+
+\subsection{Completing the family F4}\label{sec:f4}\label{pilot:square}
+Put $w=e^{2\pi i/3}$. Fix the seed and column order, and normalize every added row by $x_1=1$.
+\begin{proposition}\label{pilot:rows}\label{pilot:completion}
+For every $a\in\mathbb T$, the seed
+$$
+\mathcal F_4(a)=\begin{pmatrix}
+1&1&1&1&1&1&1\\
+1&w&w^2&wa&-wa&a&-a\\
+1&w&w^2&a&wa&-a&-wa
+\end{pmatrix}
+$$
+has exactly the $7$ regular additional rows
+$$
+\begin{array}{c|rrrrrrr}
+ &1&2&3&4&5&6&7\\\hline
+x^{(1)}&1&w^2&-1&aw^2&w&1&-aw^2\\
+x^{(2)}&1&w^2&-w^2&a&w^2&w&-a\\
+x^{(3)}&1&-w&w&aw&w^2&w&-aw\\
+x^{(4)}&1&-1&w&aw^2&1&w^2&-aw^2\\
+x^{(5)}&1&1&1&-1&w&w^2&-1\\
+x^{(6)}&1&-1&-w^2&-aw&-w&-1&aw\\
+x^{(7)}&1&-w&-1&-a&-1&-w^2&a
+\end{array}
+$$
+Their maximal compatible subsets are
+$$\boxed{\quad\{1,3,5,6\},\qquad \{2,4,5,7\}.\quad}$$
+They give respectively $7,12,8,2$ extensions at $4,5,6,7$ rows. Every partial extension extends to one of these $2$ squares.
+\end{proposition}
+\begin{proof}
+By the isolated-class theorem, only $CCC$ extensions remain. Their support equations have the form
+$$
+X_i-X_j=c+n\theta\ (1),\qquad c\in\tfrac1{840}\mathbb Z,
+\quad n\in\mathbb Z.
+$$
+A spanning forest expresses the row phases in terms of $\theta$ and component phases. Remaining edges give $n\theta+c=0\ (1)$; retain all $|n|$ branches when $n\ne0$. Processing $210^2$ support pairs and every $3$rd support gives exactly $7$ unrestricted branches and $42$ redundant points, the latter their values at $a\in\mu_6$. Every final graph is connected. The first $3$ entries distinguish the $7$ rows. The original unrestricted check also excludes every non-$CCC$ edge pattern; \texttt{code/f4/} verifies the list independently.
+
+Put $U=(1,3,6)$, $V=(2,4,7)$. Row $5$ is orthogonal to all others, each of $U,V$ is a clique, and their cross products are
+$$
+\bigl(\langle x^{(i)},x^{(j)}\rangle\bigr)_{i\in U,\,j\in V}
+=
+\begin{pmatrix}
+1+3w^2&1-4w^2&5+w^2\\
+1-4w^2&1+3w^2&5+w^2\\
+5+w^2&5+w^2&-3-2w^2
+\end{pmatrix}.
+$$
+All entries are nonzero. The $12$ orthogonal pairs have fixed $C$ decompositions, so the compatibility graph consists of $2$ copies of $K_4$ sharing vertex $5$.
+
+Appending rows $(1,3,5,6)$ or $(2,4,5,7)$ gives $H_+(a),H_-(a)$ with
+$$
+\boxed{\quad H_+(a)=D\bigl((P_7^{-w^2a})_{r_+,c_+}\bigr),
+\qquad H_-(a)=D\bigl((R_7^{-a})_{r_-,c_-}\bigr).\quad}
+$$
+$$
+\begin{aligned}
+r_+&=(5,1,2,3,4,6,7),&c_+&=(7,4,3,5,2,1,6),\\
+r_-&=(1,6,7,3,4,2,5),&c_-&=(1,3,2,6,4,7,5).
+\end{aligned}
+$$
+These are entrywise monomial identities. Thus every square containing an $\mathcal F_4$ triple belongs to the $2$ Petrescu branches.
+\end{proof}
+
+\subsection{The affine extension census}\label{sec:affine4}\label{census:fibres}\label{census:verification}
+Put
+$$
+w=e^{\pi i/3},\quad \omega=w^2,\quad
+\Omega=\mu_6,\quad S=\Omega\setminus\{1,-1\},\quad
+U=\{w,w^{-1}\},\quad T=\{-1,\omega,\omega^2\}.
+$$
+\begin{theorem}\label{census:complete}
+The joint spaces of seed parameters and normalized regular $4$th rows have the following maximal connected affine components:
+\begin{center}\begin{tabular}{@{}lrrrr@{}}\toprule
+Seed & Seed parameters & Circle components & Point components & Total\\\midrule
+$\mathcal{F}_1$&$3$&$120$&$0$&$120$\\
+$\mathcal{F}_2$&$2$&$32$&$16$&$48$\\
+$\mathcal{F}_3$&$2$&$32$&$54$&$86$\\
+$\mathcal{F}_4$&$1$&$7$&$0$&$7$\\
+$\mathcal{F}_5$&$1$&$0$&$30$&$30$\\
+$\mathcal{F}_6$&$1$&$0$&$42$&$42$\\\midrule
+Total&&$191$&$142$&$333$\\\bottomrule
+\end{tabular}\end{center}
+Every component is a point or circle. The seed parameters admitting a $4$th row are precisely
+$$\begin{array}{c|l}
+\mathcal F_1& a\in\mu_3,\ b\in\Omega\setminus\{a^2,-a^2\},\ c\in\mathbb T,\\
+&\text{or }a\in-\mu_3,\ c\in\Omega\setminus\{a^2,-a^2\},\ b\in\mathbb T\\
+\mathcal F_2&a\in S\text{ or }b\in S\\
+\mathcal F_3&a\in U\text{ or }b\in U\text{ or }ab\in\{\omega,\omega^2\},\\
+&\text{or }(a,b)\in T^2,\ a\ne b\\
+\mathcal F_4&a\in\mathbb T\\
+\mathcal F_5,\mathcal F_6&a\in\Omega.
+\end{array}$$
+The fibres of $\mathcal F_4,\mathcal F_6$ have $7$ rows. Those of $\mathcal F_5$ have $7$ rows at $a=\pm \omega$ and $4$ at the other $6$th roots.
+\end{theorem}
+\begin{proof}
+Only $CCC$ supports are required by Theorem~\ref{iso:cleanup}. Their equations are
+$$
+X_i-X_j=c+n\cdot\theta\ (1),\qquad
+c\in\tfrac16\mathbb Z/\mathbb Z,\quad n\in\mathbb Z^d.
+$$
+A forest eliminates the row phases; the $2$ exact congruence solvers then retain every torsion branch in the seed parameters. Enumerating $210^2$ pairs before imposing the $3$rd support gives
+\begin{center}\begin{tabular}{@{}lrrr@{}}\toprule
+Seed & Pair components & Raw final components & Maximal components\\\midrule
+$\mathcal{F}_1$&$1{,}209$&$840$&$120$\\
+$\mathcal{F}_2$&$800$&$200$&$48$\\
+$\mathcal{F}_3$&$6{,}882$&$248$&$86$\\
+$\mathcal{F}_4$&$744$&$49$&$7$\\
+$\mathcal{F}_5$&$1{,}366$&$30$&$30$\\
+$\mathcal{F}_6$&$1{,}366$&$42$&$42$\\\bottomrule
+\end{tabular}\end{center}
+The $264600$ initial pairs and $2597070$ restrictions produce $1409$ raw components; exact torus containment leaves $333$. Both solvers agree on the complete loci. The file \texttt{affine4\_catalogue.txt} lists every seed entry and row entry as $w^k t^e$, $e\in\{-1,0,1\}$. Projection gives the stated seed sets. The scripts in \texttt{code/affine4/} verify the formulas and cycle certificates.
+\end{proof}
+These counts concern fixed-seed extension spaces; components can intersect and need not be inequivalent as $4$-row matrices. For $\mathcal F_3$, $8$ circles project to the $2$ points $(w,w),(w^{-1},w^{-1})$; all other circle components project bijectively onto seed circles.
+
+\begin{proposition}\label{census:reduction}\label{census:consequences}
+A regular square outside $F_7,P_7^q,R_7^q$ must have every triple equivalent to an admissible $\mathcal F_2$ seed or to $\mathcal F_3(w,w)$ or $\mathcal F_3(w^{-1},w^{-1})$.
+\end{proposition}
+\begin{proof}
+A square requires $4$ distinct added rows. For $\mathcal F_1$, each of the $24$ disjoint seed circles has $5$ row formulas, $2$ containing an $\mathcal F_4$ triple identically. Thus at most $3$ rows avoid $\mathcal F_4$. For $\mathcal F_5$, both $7$-row fibres are wholly covered and each $4$-row fibre has $2$ covered rows. For $\mathcal F_6$ all rows are covered. Proposition~\ref{pilot:completion} treats $\mathcal F_4$.
+
+Each of the $6$ seed circles for $\mathcal F_3$ has $4$ formulas, $2$ covered identically. Write $\operatorname{Off}(E)=\{(a,b)\in E^2:a\ne b\}$. The exceptional fibres lie at
+$$
+\begin{aligned}
+D_1={}&(\{1\}\times S)\cup(S\times\{1\})\\
+ &\quad\cup\{(w,\omega),(\omega,w),(\omega^2,w^{-1}),(w^{-1},\omega^2)\},\\
+D_2={}&\operatorname{Off}(T)\cup\operatorname{Off}(\{-1,w,w^{-1}\}),\\
+D_3={}&\{(w,w),(w^{-1},w^{-1})\}.
+\end{aligned}
+$$
+with the following exact counts:
+\begin{center}\begin{tabular}{@{}lrrl@{}}\toprule
+Seed set & Number of points & $4$th-row fibre & Rows avoiding $\mathcal{F}_4$\\\midrule
+$D_1$&$12$&$5$ points&$2$\\
+$D_2$&$12$&$7$ points&$0$\\
+$D_3$&$2$&$4$ circles&Retained\\\bottomrule
+\end{tabular}\end{center}
+Only $D_3$ can remain. Recognition checks every ordered triple, oriented cycle support and compatible column order; matching $\mathcal F_4$ imposes affine equalities, including special parameter values. Among the $333$ components, $173$ are covered identically, $100$ at finitely many values, and $60$ never; all $320$ special incidences occur at $t\in\mu_6$. The transformation certificates prove every positive match.
+\end{proof}
+
+\subsection{The remaining completions}\label{sec:completion}\label{completion:f2}\label{completion:f3}\label{completion:proof}
+\begin{proposition}
+Every square extending an admissible $\mathcal F_2$ seed or either remaining $\mathcal F_3$ seed contains an $\mathcal F_4$ triple.
+\end{proposition}
+\begin{proof}
+For $\mathcal F_2$, each of the $8$ seed circles has $4$ row formulas. They are mutually regular and orthogonal identically, hence form a square. Outside
+$$E=\{(a,b)\in\Omega^2:a\in S\text{ or }b\in S\},\qquad |E|=32.$$
+they exhaust the fibre. Restricting the full census to $E$ gives
+\begin{center}\small \begin{tabular}{@{}lrrlr@{}}\toprule
+Seed condition & Seeds & Rows & Compatibility graph & Squares\\\midrule
+$1$ parameter in $S$, the other $\pm1$ &$16$&$5$&$K_4\sqcup K_1$&$1$\\
+$a,b\in S$, $a^2=b^2$ &$8$&$4$&$K_4$&$1$\\
+$a,b\in S$, $a^2\ne b^2$ &$8$&$7$&$2$ $K_4$'s sharing $1$ vertex&$2$\\\bottomrule
+\end{tabular}\end{center}
+All $40$ exceptional completions specialize the $8$ circle completions.
+
+\label{completion:witnesses}
+Append the records below from \texttt{affine4\_catalogue.txt}, in increasing order with prefix \texttt{F2-}. The indicated ordered submatrix dephases to $\mathcal F_4(q)$:
+\begin{center}\small \begin{tabular}{@{}lllll@{}}\toprule
+$(a,b)$ & Appended records & Rows & Columns & $q$\\\midrule
+$(t,w)$ &$001$--$004$&($2,4,7$)&($1,3,4,7,5,2,6$)&$-1/t$\\
+$(t,w^2)$&$005$--$008$&($2,5,6$)&($1,5,2,7,3,4,6$)&$w/t$\\
+$(t,w^4)$&$009$--$012$&($2,4,7$)&($1,3,5,7,4,2,6$)&$-1/t$\\
+$(t,w^5)$&$013$--$016$&($2,5,6$)&($1,4,2,7,3,5,6$)&$w/t$\\
+$(w,t)$ &$017$--$020$&($3,5,6$)&($1,2,6,5,7,3,4$)&$-1/t$\\
+$(w^2,t)$&$021$--$024$&($3,4,7$)&($1,7,3,5,2,6,4$)&$w/t$\\
+$(w^4,t)$&$025$--$028$&($3,5,6$)&($1,2,7,5,6,3,4$)&$-1/t$\\
+$(w^5,t)$&$029$--$032$&($3,4,7$)&($1,6,3,5,2,7,4$)&$w/t$\\\bottomrule
+\end{tabular}\end{center}
+For $\mathcal F_3(\alpha,\alpha)$, $\alpha=w$ or $w^{-1}$, the complete added-row fibres are the following $4$ circles $Y_i(t)$:
+$$
+\begin{array}{rrrrrrr}
+1&t&w&w^5&-1&-1&-t\\
+1&t&-1&w^5&w&-1&-t\\
+1&w&t&-1&-t&w^5&-1\\
+1&-1&t&-1&-t&w^5&w
+\end{array}
+$$
+for $\alpha=w$, and
+$$
+\begin{array}{rrrrrrr}
+1&t&-1&-1&-t&w&w^5\\
+1&t&w^5&-1&-t&w&-1\\
+1&-1&t&w&w^5&-1&-t\\
+1&w^5&t&w&-1&-1&-t
+\end{array}
+$$
+for $\alpha=w^{-1}$. Since
+$$
+\langle Y_i(t),Y_i(s)\rangle=5+2t\bar{s},
+\qquad |5+2t\bar{s}|\ge3.
+$$
+a square takes exactly $1$ row from each circle. The first $3$ orthogonality conditions are
+$$
+1+\frac{t_1}{t_2}=0,\qquad
+\frac{1+\alpha}{t_3}+(1+\bar{\alpha})t_1=0,\qquad
+\frac{1+\alpha}{t_4}-(1+\bar{\alpha})t_1=0.
+$$
+and, as $(1+\alpha)/(1+\bar{\alpha})=\alpha$, force
+$$
+\boxed{\ (t_1,t_2,t_3,t_4)=(t,-t,-\alpha/t,\alpha/t),\quad t\in\mathbb{T}.\ }
+$$
+The other inner products vanish identically, with fixed $C$ decompositions. The triple $(Y_1(t),Y_3(-\alpha/t),Y_4(\alpha/t))$ dephases to $\mathcal F_4(q)$ in the following column orders:
+\begin{center}\begin{tabular}{@{}lll@{}}\toprule
+$\alpha$ & Column order & $q$\\\midrule
+$w$ &($1,6,4,7,3,5,2$)&$-w/t$\\
+$w^{-1}$ &($1,6,4,5,3,7,2$)&$1/t$\\\bottomrule
+\end{tabular}\end{center}
+All divisions use unit parameters or nonzero constants, so no exceptional parameter is omitted. The checker in \texttt{code/completion/} verifies these identities and the finite graphs exactly.
+\end{proof}
+The isolated-class theorem, the affine census and this proposition put every non-Fourier square in a Petrescu branch. Conversely, $F_7$ is regular and Proposition~\ref{square:valid} proves regularity of both branches. This completes the proof of Theorem~\ref{square:classification}.
+
+\section{Order 8: supports and completion criteria}\label{sec:N8part1}
+
+The order-$8$ classification proceeds from normalized $3$-row matrices to completed squares. A row quotient has type A ($4$ $2$-cycles), B ($2$ $3$-cycles and $1$ $2$-cycle), or C (a $5$-cycle and a $3$-cycle). We first record where the cycles sit, then impose the phase conditions that make those supports into actual row quotients. Exact extension equations tell us which further rows can be added and, ultimately, which triples extend to squares.
+
+Sections 3 and 4 carry out this local analysis. Section 3 enumerates the possible supports and their phase solutions, develops the exact test for adding rows, and treats the AAA triples, including the parameter values where their completion behavior changes. Section 4 passes from these triple-level results to the generic square families and then checks every exceptional parameter locus. This is where continuous families, isolated squares, and lower-dimensional intersections are distinguished.
+
+The global step uses a dichotomy. If a square contains a C-pair, then its C-pairs form disjoint cliques, and we classify the possible C-containing squares. If no quotient has type C, every quotient admits A or B; we prove that such a square contains an AAA triple and use the AAA completion analysis. Section 5 combines these branches into the full classification and compares it with the finite catalogue. Section 6 records the finite registries, residue lists, square and cycle certificates, and code needed to check the constructions and exclusions.
+
+\begin{center}\small
+\begin{tabular}{@{}p{.11\textwidth}>{\raggedright\arraybackslash}p{.34\textwidth}>{\raggedright\arraybackslash}p{.45\textwidth}@{}}\toprule
+Section&Main step&What it gives\\\midrule
+3&Supports, phase equations, and row extensions&Every possible triple profile and the exact completion loci of the AAA classes.\\
+4&Generic and exceptional square completions&All square families above the affine triples, with special parameter loci included.\\
+5&The global A/B and C branches&The complete order-$8$ classification, equivalences, and catalogue comparison.\\
+6&Certificates and verification&Finite data and exact witnesses for the completions and exclusions.\\
+\bottomrule\end{tabular}
+\end{center}
+\subsection{Profiles and support equations}\label{sec:definitions}\label{sec:census}
+The prime partitions of $8$ give
+$$\boxed{A=2+2+2+2,\qquad B=3+3+2,\qquad C=5+3.}$$
+Unlike order $7$, profiles can overlap: with $w=e^{2\pi i/3}$, $(1,w,w^2,-1,-w,-w^2,1,-1)$ admits both A and B. A C quotient admits neither: its $5$ pentagon entries have pairwise ratios of order $5$ and must occupy different A or B blocks, of which there are only $4$ or $3$.
+
+A square is \emph{A-admitting} when every row quotient admits A; additional B decompositions are allowed. A chosen support specifies the cycle positions. Support classes, completions of a fixed triple, and monomial classes of squares are counted separately. Conjugation and transposition remain separate operations.
+
+Even a profile need not determine its support. In a vector with four entries $1$ and four entries $-1$, every bijection between the positive and negative positions gives an antipodal matching, hence an A support. There are $4!=24$ such matchings, all describing the same vector. Thus the support counts below record combinatorial presentations, not different vectors or equivalence classes of matrices.
+
+There are
+$$
+N_A=\frac{8!}{(2!)^4 4!}=105,\qquad
+N_B=\binom82\frac12\binom63=280,\qquad
+N_C=\binom83=56.
+$$
+undecorated supports. For supports $P,Q,R$ of $u,v,u/v$, assign a phase to each block and distinct labels in $\mathbb F_p$ to its $p$ positions, anchoring the least position at $0$. The column equations are
+$$
+\alpha_{P(j)}-\beta_{Q(j)}-\gamma_{R(j)}
+=\sum_{p\in\{2,3,5\}}\frac{-a_{pj}+b_{pj}+c_{pj}}p\ (1).
+$$
+or, with $m$ blocks,
+\begin{equation}\label{eq:phase}
+Lz=r\ (1),\qquad L\in M_{8\times m}(\mathbb{Z}).
+\end{equation}
+The $2$ free row-phase gauges give dephased dimension
+\begin{equation}\label{eq:dimension}
+d=m-\operatorname{rank} L-2.
+\end{equation}
+\begin{lemma}
+Let $K$ be a saturated integral basis of the left kernel of $L$. A label lift is feasible precisely when
+$$K(-a_p+b_p+c_p)=0\ (p),\qquad p=2,3,5.$$
+For a feasible label lift, if $ULV=D$ is a signed Smith decomposition with nonzero diagonal $d_1,\ldots,d_s$, the dephased solution set has $\prod_i|d_i|$ connected components of dimension \eqref{eq:dimension}.
+\end{lemma}
+\begin{proof}
+Writing $b=Ur$, $z=Vy$, the nonzero equations have solutions
+$$y_i=(b_i+n_i)/d_i\ (1),\qquad 0\le n_i<|d_i|,$$
+The zero rows give $Kr=0\ (1)$, equivalent to the separate prime conditions because $2,3,5$ are coprime. The remaining coordinates are free. Dephasing removes the $2$ gauges.
+\end{proof}
+The Smith factors also explain why the number of components can exceed the number of label lifts. For example, $2s=0\ (1)$ on the phase circle has the $2$ solutions $s=0$ and $s=1/2$. If another phase $t$ is free, the solution set consists of $2$ circles. Dividing by $2$ and keeping only $s=0\ (1)$ would lose the second circle. In the AAA row of the census, the $23$ feasible supports have $1$ normalized label lift each, yet yield $38$ components because the exact Smith branches must also be counted.
+\begin{theorem}\label{thm:census}
+The canonical chosen-support census is
+\begin{center}\small \begin{tabular}{lrrlrr}\toprule Profile & Supports & Feasible & Dimension: count & Lifts & Components\\\midrule
+AAA&$31$&$23$&$2:12,\ 3:9,\ 4:2$&$23$&$38$\\
+AAB&$82$&$47$&$1:40,\ 2:7$&$178$&$236$\\
+AAC&$23$&$7$&$0:5,\ 1:2$&$272$&$368$\\
+ABB&$181$&$65$&$0:52,\ 1:13$&$916$&$1394$\\
+ABC&$76$&$14$&$0:14$&$272$&$304$\\
+ACC&$20$&$0$&$--$&$0$&$0$\\
+BBB&$194$&$39$&$0:31,\ 1:7,\ 2:1$&$652$&$1040$\\
+BBC&$141$&$5$&$0:5$&$176$&$176$\\
+BCC&$52$&$0$&$--$&$0$&$0$\\
+CCC&$15$&$6$&$0:4,\ 1:1,\ 2:1$&$2016$&$2016$\\
+\midrule Total&$815$&$206$&&$4{,}505$&$5{,}572$\\\bottomrule\end{tabular}\end{center}
+Thus ACC and BCC are impossible. Components include all label lifts and Smith torsion, before residual automorphisms or alternative decompositions are identified.
+\end{theorem}
+\begin{proof}
+Fix the first support and enumerate the other $2$. The raw counts are
+\begin{center}\small \begin{tabular}{lrrl}\toprule Profile & Tested & Feasible & Dimension: count\\\midrule
+AAA&$11{,}025$&$10{,}176$&$2:6588,\ 3:3480,\ 4:108$\\
+AAB&$29{,}400$&$21{,}792$&$1:20640,\ 2:1152$\\
+AAC&$5{,}880$&$2{,}976$&$0:2688,\ 1:288$\\
+ABB&$78{,}400$&$39{,}360$&$0:34176,\ 1:5184$\\
+ABC&$15{,}680$&$4{,}992$&$0:4992$\\
+ACC&$3{,}136$&$0$&$--$\\
+BBB&$78{,}400$&$15{,}294$&$0:14256,\ 1:1026,\ 2:12$\\
+BBC&$15{,}680$&$504$&$0:504$\\
+BCC&$3{,}136$&$0$&$--$\\
+CCC&$3{,}136$&$856$&$0:810,\ 1:45,\ 2:1$\\
+\midrule Total&$243{,}873$&$95{,}950$&\\\bottomrule\end{tabular}\end{center}
+The intersection tensor $n_{ijk}=|P_i\cap Q_j\cap R_k|$ classifies support triples under column permutations: equal tensors allow a column bijection in each cell. Quotient-axis permutations and permutations of equal-sized blocks supply the remaining finite symmetries. Generator traversal and direct minimization give identical canonical tensors and recover the raw counts. For each tensor, enumerate anchored root labels, apply the lemma and check $ULV=D$ and every reconstructed seed directly. An independent Smith calculation reproduces all counts.
+\end{proof}
+Setting free coordinates to $0$ gives the following seed orders and multiplicities:
+\begin{center}\begin{tabular}{ll}\toprule
+Profile&Seed order: number of components\\\midrule
+AAA&$2:38$\\
+AAB&$6:200,\ 12:36$\\
+AAC&$30:368$\\
+ABB&$6:694,\ 12:508,\ 24:128,\ 30:64$\\
+ABC&$30:304$\\
+BBB&$6:392,\ 12:648$\\
+BBC&$30:176$\\
+CCC&$15:2016$\\\bottomrule
+\end{tabular}\end{center}
+Their least common multiple is $120$. These are chosen seed orders, not minimal Butson levels or counts of inequivalent families.
+
+\begin{proposition}\label{prop:Ccliques}
+In a regular order-$8$ partial matrix, C-edges form disjoint cliques.
+\end{proposition}
+\begin{proof}
+If $r/s$ and $s/t$ admit C, ACC and BCC exclude A and B for $r/t$. Hence $r/t$ admits C.
+\end{proof}
+A new row is therefore C-related to all or none of a CCC triple, and to at most $1$ row of an AAA triple.
+
+\subsection{Exact extension and compatibility}\label{sec:method}
+For an unknown row $w_j=e(x_j)$ and prescribed row $h_j=e(y_j)$, a decorated $p$-cycle imposes
+$$x_j-x_i=y_j-y_i+\frac{k_j-k_i}{p}\ (1).$$
+There are $105$ decorated A supports, $1120$ B supports and $2688$ C supports per quotient. Allowing all $3913$ choices at each old row is exhaustive. A weighted forest on the columns expresses each $x_j$ through its component phase; closing edges impose rational integer congruences on the base parameters. Hermite and signed Smith reduction retain every affine locus and torsion branch. With $c$ graph components, normalization $x_1=0$ leaves $c-1$ free row phases.
+
+For a prescribed triple at fixed base parameters, normalized additional rows form the vertices of a graph; an edge means a regular quotient of any profile. A square completion is a $5$-clique. On a varying base, both row-appearance and pair-compatibility loci must be included. Refine unsuccessful strata by these loci and their intersections, retaining disconnected row families. Their free phases remain variables until the mutual quotient conditions have also been solved. A symbolic $5$-clique settles existence on its whole stratum; unsuccessful surfaces and curves require their lower-dimensional events.
+
+\begin{lemma}
+If the base entries lie in $\mu_M$ and a row-support graph is connected, every normalized solution lies in $\mu_{\operatorname{lcm}(M,30)}^8$. Without C, replace $30$ by $6$. For disconnected supports, the same finite group contains at least $1$ solution whenever the system is consistent.
+\end{lemma}
+\begin{proof}
+Edge weights belong to the stated rational phase group. Summing them along paths proves the connected assertion; choosing root phases in that group proves the existence assertion for disconnected graphs.
+\end{proof}
+Thus a finite-root search can disprove row existence without connectedness, but complete row counts require connectedness or explicit free phases. Independent finite generators enumerate cycle partitions and rotations; every accepted row passes an exact multiplicity test. Finite-field root sums serve only as rejection filters.
+
+Affine entries are written as
+\begin{equation}\label{eq:affinephase}
+ H_{ij}(x)=e\bigl(c_{ij}+a_{ij1}x_1+\cdots+a_{ijd}x_d\bigr),
+ \qquad c_{ij}\in\mathbb{Q}/\mathbb{Z},\quad a_{ijk}\in\mathbb{Z}.
+\end{equation}
+Their dimension is the rank of the dephased coefficient matrix. For proposed row and column orders $p,q$, equivalence reduces to the $64$ coefficient identities obtained from
+\begin{equation}\label{eq:dephase}
+ h_{p(i),q(j)}-h_{p(1),q(j)}-h_{p(i),q(1)}+h_{p(1),q(1)}.
+\end{equation}
+Generic computations treat base phases as independent variables, retaining base-only equations only when identically satisfied. Free extension phases are still solved and may have special values.
+
+\subsection{Uniform AAA completions}\label{sec:aaa}
+The canonical registry has $23$ feasible AAA supports and $38$ affine components; its labels $0,\ldots,22$ are fixed in Subsection~\ref{app:registry}.
+The next theorem summarizes the completion loci for all AAA components. We prove the uniform assertion here and the exceptional assertions in Subsections~\ref{sec:class21} and \ref{sec:class11}.
+\begin{theorem}\label{thm:AAAexistence}\label{thm:summary}
+Every component of the $19$ classes
+$$\mathcal U=\{0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,20\}$$
+has an A-admitting square completion at every parameter value. The other classes have precisely the loci
+\begin{center}\begin{tabular}{rlll}\toprule
+Class&Components&Parameter dimension&Completion locus\\\midrule
+$21$&$2$&$2$&$8$ circles in each component\\
+$22$&$2$&$2$&$9$ circles in each component\\
+$19$&$1$&$3$&$9$ surfaces\\
+$11$&$1$&$3$&$7$ surfaces, $10$ circles, $32$ points\\\bottomrule
+\end{tabular}\end{center}
+All listed surfaces and circles admit A-admitting completions. The $32$ additional class-$11$ points require mixed A/B completions.
+\end{theorem}
+\begin{proof}[Proof of the uniform part]
+Smith reduction reconstructs all $38$ components. On the $32$ components in $\mathcal U$, symbolic A-support graphs contain $5$-cliques. The $32$ squares in Subsection~\ref{app:uniformcerts} certify them: all $28$ row quotients split into opposite Laurent-monomial pairs identically. The exceptional assertions are proved in Theorem~\ref{thm:21} for classes $21,22$ and Theorem~\ref{thm:19} for classes $11,19$. Together these give the full statement.
+\end{proof}
+The $2$ maximal triple classes have $4$ base parameters. The following completions have an additional parameter $t$:
+\begin{equation}\label{eq:HA0}
+H_A^{(0)}=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&x&-x&x&-x&1&-1\\
+1&-y&z&-w&-z&w&-1&y\\
+1&t&tz/y&w&-tz/y&-w&-1&-t\\
+1&-t&-tz/y&w&tz/y&-w&-1&t\\
+1&y&-z&-w&z&w&-1&-y\\
+1&1&-1&-1&-1&-1&1&1\\
+1&-1&-x&x&-x&x&1&-1
+\end{pmatrix},
+\end{equation}
+\begin{equation}\label{eq:HA1}
+H_A^{(1)}=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&-x&x&y&-y&1&-1\\
+1&-z&-w&-w&w&w&-1&z\\
+1&z&t&-t&ty/x&-ty/x&-1&-z\\
+1&z&-t&t&-ty/x&ty/x&-1&-z\\
+1&-z&w&w&-w&-w&-1&z\\
+1&1&-1&-1&-1&-1&1&1\\
+1&-1&x&-x&-y&y&1&-1
+\end{pmatrix}.
+\end{equation}
+\begin{proposition}
+For arbitrary $x,y,z,w,t\in\mathbb T$, both displayed squares have all row and column quotients A-admitting.
+\end{proposition}
+\begin{proof}
+Each quotient splits into $4$ opposite Laurent-monomial pairs. For example, the quotient of rows $2$ and $3$ in $H_A^{(0)}$ is
+$$(1,y^{-1},x/z,x/w,-x/z,-x/w,-1,-y^{-1}).$$
+The symbolic checker verifies all $28$ row pairs and $28$ column pairs of each square.
+\end{proof}
+The real square $W_{r,c}=(-1)^{r\cdot c}$, $r,c\in\mathbb F_2^3$, is also A-admitting: every nonzero character takes each sign $4$ times. Multiple pairings of repeated entries illustrate why support counts differ from matrix counts.
+
+\label{sec:correction}
+\begin{proposition}
+The generic completions of the $2$ maximal AAA components require $3$ $5$-parameter family types and the additional $4$-parameter type $F_{8,4}$.
+\end{proposition}
+\begin{proof}
+The components have respectively $45$ and $23$ connected rows, plus $3$ and $1$ free row families. Their connected graphs have $21$ and $8$ $5$-cliques. Each free family has a compatible fixed triangle; $2$ opposite free phases complete it. The resulting $4$ templates give $3$ equivalence types.
+
+Solving all pair equations at special free phases adds no row to the first component, but adds $2$ rows to the second. Its augmented graph has $25$ vertices and $10$ $5$-cliques; $9$ lie in its $5$-parameter template and the last gives $F_{8,4}$. Every $5$-parameter template has a permanent row quotient with $4$ equal entries and $4$ opposite entries. A generic $F_{8,4}$ has none, proving it cannot be omitted.
+\end{proof}
+For the upper rows
+$$
+ (1,-1,-x,x,y,-y,1,-1),\qquad
+ (1,-z,-w,-w,w,w,-1,z).
+$$
+the new $4$-parameter completion appends
+$$
+\begin{pmatrix}
+1 & -\frac{z}{w} & x & -x & -1 & -1 & 1 & \frac{z}{w} \\
+1 & z & xw & -xw & yw & -yw & -1 & -z \\
+1 & -w & w & w & -yw & yw & -1 & -w \\
+1 & \frac{z}{w} & -1 & -1 & -y & y & 1 & -\frac{z}{w} \\
+1 & w & -xw & xw & -w & -w & -1 & w
+\end{pmatrix}
+$$
+Every row quotient admits A; dephased coefficient rank is $4$. Section~\ref{sec:N8part2} gives the full square formulas and generic classification.
+
+\subsection{The 2-parameter exceptional classes}\label{sec:class21}\label{sec:class22}
+For $\epsilon=\pm1$, the $2$ components of each class have normal forms
+$$
+T_{21,\epsilon}(x,y)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&-xy&xy&-x&x&\epsilon y&-\epsilon y\\
+1&-x/y&-\epsilon x&x&x/y&-x&-1&\epsilon x
+\end{pmatrix}.
+$$
+$$
+T_{22,\epsilon}(x,y)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&y&-y&-y/x&y/x&-\epsilon y&\epsilon y\\
+1&-1/x&-\epsilon&y/x&1/x&-y/x&-1&\epsilon
+\end{pmatrix}.
+$$
+\begin{theorem}\label{thm:21}\label{thm:22}
+A regular square completion exists precisely on the following loci:
+$$\begin{array}{c|l}
+21&x=\pm1\ \text{or}\ y=\pm1\ \text{or}\ x=\pm y\ \text{or}\ xy=\pm1,\\[2pt]
+22&x=\pm1\ \text{or}\ y=\pm1\ \text{or}\ x=\pm y\ \text{or}\ xy=1\\
+&\hspace{12pt}\text{or}\ x=y^2\ \text{or}\ y=-x^2.
+\end{array}$$
+Both signs have the same criterion. These are respectively $8$ and $9$ circles, all with A-admitting completions.
+\end{theorem}
+\begin{proof}
+The $16$ and $18$ symbolic witnesses indexed in Subsection~\ref{app:circlecerts} prove sufficiency.
+
+For class $21$, use $x=e(t-s)$, $y=e(t)$. The $16$ A-row event circles consist of the $8$ successful circles
+$$
+t=0,\tfrac{1}{2};\qquad s=0,\tfrac{1}{2};\qquad
+s-t=0,\tfrac{1}{2};\qquad s-2t=0,\tfrac{1}{2}.
+$$
+and
+$$
+t=\tfrac14,\tfrac34;\qquad s-t=\tfrac14,\tfrac34;\qquad
+s+t=0,\tfrac{1}{2};\qquad2s-t=0,\tfrac{1}{2}.
+$$
+There are also $34$ isolated A-support loci. Off events there are $6$ regular rows and $1$ edge; on unsuccessful circles there are $7$ rows and clique number at most $3$. Full decorated-support projection excludes C rows everywhere and confines B rows to points. All lower row loci, pair events and intersections leave $64$ residual points per component:
+\begin{center}\begin{tabular}{lrr}\toprule
+Quantity&Value&Points per component\\\midrule
+Candidates&$7$&$16$\\&$8$&$40$\\&$10$&$8$\\\midrule
+Clique number&$2$&$8$\\&$3$&$56$\\\bottomrule
+\end{tabular}\end{center}
+All surviving supports there are connected. The modulus $\operatorname{lcm}(6,\text{base-entry orders})$ is $12$ or $24$, and independent finite enumeration reproduces all $128$ lists. None has a $5$-clique.
+
+For class $22$, write $x=e(a)$, $y=e(b)$; its raw Smith coordinates are $a=s$, $b=t+1/2$. Besides the $9$ successful circles, the A-row events consist of $a+b=1/2$, $a-2b=1/2$, $2a-b=0$ and $24$ isolated loci. Off events there are $6$ rows with no edge; each unsuccessful circle has $8$ generic rows and no edge. Full projection excludes every C row and confines B rows to points. After all pair events, $50$ points per component remain: $48$ have $8$ candidates and clique number $3$, while $2$ have $12$ candidates and clique number $1$.
+The $2$ larger fibres occur at $(a,b)=(1/6,1/3),(5/6,2/3)$. All residual supports are connected, with rows in $\mu_{12}$. Independent enumeration reproduces all $100$ lists, none with a $5$-clique. The residues in Subsection~\ref{app:finite} include every exceptional pair compatibility.
+\end{proof}
+
+\subsection{The 3-parameter exceptional classes}\label{sec:class19}\label{sec:class11}
+The normal forms are
+$$
+T_{19}(x,y,z)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&xy/z&-xy/z&-y/z&y/z&x&-x\\
+1&-1/z&y/z&-x/z&1/z&-y/z&-1&x/z
+\end{pmatrix}.
+$$
+$$
+T_{11}(x,y,z)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&-1&-xy/z&xy/z&y/z&-y/z&y&-y\\
+1&-1/z&-y/z&-y/z&1/z&y/z&-1&y/z
+\end{pmatrix}.
+$$
+with Smith coordinates $(x,y,z)=(e(s),e(t),e(u))$.
+\begin{theorem}\label{thm:19}\label{thm:11}
+The completion locus of $T_{19}$ is exactly the union of $9$ surfaces
+$$
+\boxed{x=\pm1,\qquad y=\pm z,\qquad z=\pm xy,
+\qquad y=\pm xz,\qquad x=yz,}
+$$
+The completion locus of $T_{11}$ is exactly the union of the $7$ surfaces
+$$y=\pm1,\qquad z=\pm1,\qquad z=\pm y,\qquad z=-y^2;$$
+the $10$ circles
+$$
+\begin{array}{ll}
+x=\pm1,&y=z^2,\\
+x=\pm1,&yz=1,\\
+y=\pm x,&z=x^2,\\
+y=-x^2,&z=\pm x,\\
+yz=-1,&z=\pm x;
+\end{array}
+$$
+and the $32$ points below. With $w=e^{\pi i/6}$ and $(x,y,z)=(w^i,w^j,w^k)$, take every indicated combination:
+\begin{center}\begin{tabular}{cl}\toprule
+$i$&$(j,k)$\\\midrule
+$1,7$&$(4,3),(4,9),(5,9),(11,3)$\\
+$2,8$&$(5,3),(10,3),(10,9),(11,9)$\\
+$4,10$&$(1,3),(2,3),(2,9),(7,9)$\\
+$5,11$&$(1,9),(7,3),(8,3),(8,9)$\\\bottomrule
+\end{tabular}\end{center}
+All surfaces and circles admit A-admitting completions. The $32$ points lie outside them and admit mixed A/B completions only.
+\end{theorem}
+\begin{proof}
+We begin with an example: at $(x,y,z)=(w,w^4,w^3)$ the square $H_{ij}=w^{E_{ij}}$ has
+$$
+E=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&6&8&2&1&7&4&10\\
+0&3&7&7&9&1&6&1\\
+0&9&4&10&3&1&6&7\\
+0&6&4&1&7&9&10&3\\
+0&6&0&6&6&3&0&9\\
+0&0&8&8&4&7&1&4\\
+0&0&1&4&10&6&7&6
+\end{pmatrix}.
+$$
+Its $28$ row quotients comprise $20$ A-only, $4$ A-and-B, and $4$ B-only pairs, as do the other $31$ witnesses.
+
+Full support projection gives $20$ A-row surfaces for class $11$ and $22$ for class $19$; respectively $7$ and $9$ have symbolic square witnesses. Off proper row loci there are only $4$ regular additional rows. Each of the remaining $13$ surfaces has no generic $5$-clique after all profiles are admitted.
+
+Outside the certified surfaces every feasible row support is connected. Refine by all lower row loci, pair events and intersections. This gives $126$ curves for class $11$ and $168$ for class $19$; exactly the $10$ displayed class-$11$ circles have square witnesses. B rows occur on curves, and class $19$ also has AAC rows at $384$ points. No C row occurs outside the successful class-$11$ surfaces. These mixed cases are all retained.
+
+After refining unsuccessful curves and removing successful loci, the finite residues contain $616$ and $1504$ points:
+\begin{center}\begin{tabular}{rrrr}\toprule
+Candidates&Clique number&Class $11$ points&Class $19$ points\\\midrule
+$5$&$1$&$32$&$352$\\$6$&$1$&$64$&$416$\\$6$&$3$&$32$&$64$\\
+$7$&$1$&$0$&$32$\\$7$&$2$&$32$&$64$\\$7$&$3$&$32$&$128$\\$7$&$5$&$32$&$0$\\
+$8$&$3$&$352$&$320$\\$10$&$2$&$0$&$32$\\$10$&$3$&$32$&$96$\\$12$&$1$&$8$&$0$\\\midrule
+\multicolumn{2}{r}{Total}&$616$&$1504$\\\bottomrule
+\end{tabular}\end{center}
+Explicit monomial transformations reduce the $2120$ base triples to $132$ finite triples; each transformed seed and row is checked entrywise. Independent finite-root generation reproduces every complete row list. Exact cycle recognition gives precisely the $32$ class-$11$ $5$-cliques and none in class $19$. At each successful point only $4$ rows are A-related to all $3$ seed rows, so an A-admitting square is impossible. The $26$ surface/circle witnesses and the $32$ point witnesses are independently verified. Their code and certificate index is in Section~\ref{sec:N8part4}.
+\end{proof}
+This proves Theorem~\ref{thm:AAAexistence}. Completion existence is now settled for every AAA support; the next section classifies all completions over the successful loci.
+
+\section{Order 8: generic and exceptional completions}\label{sec:N8part2}
+\subsection{The affine families}\label{sec:square_scope}\label{sec:families}\label{sec:invariants}
+The parameter index in $F_{8,5a},\ldots,M_{8,1}$ denotes dimension. The final index of $I_{8,12}$ denotes minimal Butson level. The source names $F_{5a}$, $F_{5b}$, $F_{5c}$, $F_4$, $F_2$, $K_2$, $M_1$, $I_{12}$ correspond to these names with the order-$8$ index inserted; machine identifiers retain their original spelling.
+
+\begin{theorem}\label{thm:families}
+The following $9$ affine families are regular, generically locally maximal in the dephased regular locus, and generically distinct under equivalence:
+$$F_{8,5a},F_{8,5b},F_{8,5c},F_{8,4},F_{8,4}^{t},F_{8,2},F_{8,2}^{t},K_{8,2},M_{8,1}$$
+Their dimensions are $5,5,5,4,4,2,2,2,1$. The first $8$ admit A on every row and column quotient. Generically $M_{8,1}$ has $24$ A-only and $4$ B-only quotients in each direction.
+\end{theorem}
+\begin{proof}
+We begin with the matrices. All parameters in the following dephased formulas range independently over $\mathbb T$. The transpose families are literal transposes.
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5a}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -bd & bd & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & -\frac{bd}{a} & d & \frac{bd}{a} & -d & -1 & \frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -\frac{1}{c} & \frac{bd}{a} & -d & -\frac{bd}{a} & d & -1 & \frac{1}{c} \\
+1 & -1 & bd & -bd & bd & -bd & 1 & -1 \\
+1 & \frac{1}{c} & e & \frac{ae}{b} & -e & -\frac{ae}{b} & -1 & -\frac{1}{c} \\
+1 & \frac{1}{c} & -e & -\frac{ae}{b} & e & \frac{ae}{b} & -1 & -\frac{1}{c}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5b}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -bd & bd & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & -\frac{bd}{a} & d & \frac{bd}{a} & -d & -1 & \frac{1}{c} \\
+1 & \frac{1}{c} & -\frac{bd}{a} & -d & \frac{bd}{a} & d & -1 & -\frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -1 & bd & -bd & bd & -bd & 1 & -1 \\
+1 & e & \frac{bd}{a} & cde & -\frac{bd}{a} & -cde & -1 & -e \\
+1 & -e & \frac{bd}{a} & -cde & -\frac{bd}{a} & cde & -1 & e
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,5c}(a,b,c,d,e)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & ad & -ad & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & d & d & -d & -d & -1 & \frac{1}{c} \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & -\frac{1}{c} & -d & -d & d & d & -1 & \frac{1}{c} \\
+1 & -1 & -ad & ad & bd & -bd & 1 & -1 \\
+1 & \frac{1}{c} & e & -e & \frac{be}{a} & -\frac{be}{a} & -1 & -\frac{1}{c} \\
+1 & \frac{1}{c} & -e & e & -\frac{be}{a} & \frac{be}{a} & -1 & -\frac{1}{c}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,4}(a,b,c,d)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & ad & -ad & -bd & bd & 1 & -1 \\
+1 & -\frac{1}{c} & d & d & -d & -d & -1 & \frac{1}{c} \\
+1 & \frac{1}{cd} & -ad & ad & -1 & -1 & 1 & -\frac{1}{cd} \\
+1 & \frac{1}{c} & ad^{2} & -ad^{2} & bd^{2} & -bd^{2} & -1 & -\frac{1}{c} \\
+1 & d & -d & -d & -bd^{2} & bd^{2} & -1 & d \\
+1 & -\frac{1}{cd} & -1 & -1 & bd & -bd & 1 & \frac{1}{cd} \\
+1 & -d & -ad^{2} & ad^{2} & d & d & -1 & -d
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,4}^{t}(a,b,c,d)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -\frac{1}{c} & \frac{1}{cd} & \frac{1}{c} & d & -\frac{1}{cd} & -d \\
+1 & ad & d & -ad & ad^{2} & -d & -1 & -ad^{2} \\
+1 & -ad & d & ad & -ad^{2} & -d & -1 & ad^{2} \\
+1 & -bd & -d & -1 & bd^{2} & -bd^{2} & bd & d \\
+1 & bd & -d & -1 & -bd^{2} & bd^{2} & -bd & d \\
+1 & 1 & -1 & 1 & -1 & -1 & 1 & -1 \\
+1 & -1 & \frac{1}{c} & -\frac{1}{cd} & -\frac{1}{c} & d & \frac{1}{cd} & -d
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,2}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & b & -b & -\frac{b}{a} & \frac{b}{a} & a & -a \\
+1 & -a & \frac{b}{a} & b & -\frac{b}{a} & -b & -1 & a \\
+1 & \frac{1}{a} & \frac{b}{a^{2}} & -\frac{b}{a} & \frac{b}{a} & -\frac{b}{a^{2}} & -\frac{1}{a} & -1 \\
+1 & 1 & -1 & -1 & -1 & -1 & 1 & 1 \\
+1 & a & -b & \frac{b}{a} & -\frac{b}{a} & b & -a & -1 \\
+1 & -\frac{1}{a} & -\frac{b}{a} & -\frac{b}{a^{2}} & \frac{b}{a} & \frac{b}{a^{2}} & -1 & \frac{1}{a} \\
+1 & -1 & -\frac{b}{a^{2}} & \frac{b}{a^{2}} & \frac{b}{a} & -\frac{b}{a} & \frac{1}{a} & -\frac{1}{a}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle F_{8,2}^{t}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -1 & -a & \frac{1}{a} & 1 & a & -\frac{1}{a} & -1 \\
+1 & b & \frac{b}{a} & \frac{b}{a^{2}} & -1 & -b & -\frac{b}{a} & -\frac{b}{a^{2}} \\
+1 & -b & b & -\frac{b}{a} & -1 & \frac{b}{a} & -\frac{b}{a^{2}} & \frac{b}{a^{2}} \\
+1 & -\frac{b}{a} & -\frac{b}{a} & \frac{b}{a} & -1 & -\frac{b}{a} & \frac{b}{a} & \frac{b}{a} \\
+1 & \frac{b}{a} & -b & -\frac{b}{a^{2}} & -1 & b & \frac{b}{a^{2}} & -\frac{b}{a} \\
+1 & a & -1 & -\frac{1}{a} & 1 & -a & -1 & \frac{1}{a} \\
+1 & -a & a & -1 & 1 & -1 & \frac{1}{a} & -\frac{1}{a}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle K_{8,2}(a,b)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & a & -b^{2} & -\frac{b^{2}}{a} & -1 & -a & \frac{b^{2}}{a} & b^{2} \\
+1 & \frac{a}{b} & -1 & \frac{b}{a} & 1 & -\frac{a}{b} & -\frac{b}{a} & -1 \\
+1 & -b & b & \frac{b^{2}}{a} & -\frac{b}{a} & -1 & \frac{b}{a} & -\frac{b^{2}}{a} \\
+1 & -a & -b & b & -\frac{a}{b} & \frac{a}{b} & -1 & a \\
+1 & -1 & b & -\frac{b}{a} & \frac{b}{a} & -b & -\frac{b^{2}}{a} & \frac{b^{2}}{a} \\
+1 & -\frac{a}{b} & -b & -1 & \frac{a}{b} & a & b & -a \\
+1 & b & b^{2} & -b & -1 & b & -b & -b^{2}
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+\medskip
+With $w=e^{2\pi i/3}$, the mixed circle is
+\begin{center}\small\setlength{\arraycolsep}{3.4pt}
+\begin{adjustbox}{max width=\textwidth}$\displaystyle M_{8,1}(a)=\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & -wa^{2} & a & wa & -1 & wa^{2} & -a & -wa \\
+1 & a & -a & a^{3} & -a^{3} & -a^{4} & a^{4} & -1 \\
+1 & wa & -\frac{w}{a} & -wa & \frac{w}{a} & w^2 & -1 & -w^2 \\
+1 & -1 & \frac{w}{a} & -a^{3} & wa^{2} & -wa^{2} & a^{3} & -\frac{w}{a} \\
+1 & wa^{2} & w & -wa^{4} & -wa^{2} & -w^2a^{4} & -a^{4} & w^2 \\
+1 & -a & -w & -1 & -\frac{w}{a} & w & a & \frac{w}{a} \\
+1 & -wa & -1 & wa^{4} & a^{3} & -wa^{4} & -a^{3} & wa
+\end{pmatrix}$\end{adjustbox}
+\end{center}
+Formal cycle recognition verifies every row and column quotient of each displayed matrix. Coefficient ranks give the asserted dimensions.
+
+For a quotient $q$, let $m(q)$ count antipodal perfect matchings of its positions. If its opposite value groups have multiplicities $n_1,n_1,\ldots,n_s,n_s$, then
+$$m(q)=\prod_{j=1}^s n_j!.$$
+Set $m(q)=0$ when A is impossible. The ordered row and column distributions are monomial invariants:
+\begin{center}\small \begin{tabular}{cll}\toprule Type&Row distribution&Column distribution\\\midrule
+$F_{8,5a}$ & $1^{[16]},\;4^{[8]},\;24^{[4]}$ & $1^{[16]},\;4^{[8]},\;24^{[4]}$\\
+$F_{8,5b}$ & $1^{[16]},\;4^{[8]},\;24^{[4]}$ & $1^{[8]},\;2^{[16]},\;24^{[4]}$\\
+$F_{8,5c}$ & $1^{[8]},\;2^{[16]},\;24^{[4]}$ & $1^{[16]},\;4^{[8]},\;24^{[4]}$\\
+$F_{8,4}$ & $1^{[4]},\;2^{[24]}$ & $1^{[24]},\;24^{[4]}$\\
+$F_{8,4}^{t}$ & $1^{[24]},\;24^{[4]}$ & $1^{[4]},\;2^{[24]}$\\
+$F_{8,2}$ & $1^{[12]},\;2^{[12]},\;4^{[3]},\;24^{[1]}$ & $1^{[12]},\;2^{[12]},\;6^{[4]}$\\
+$F_{8,2}^{t}$ & $1^{[12]},\;2^{[12]},\;6^{[4]}$ & $1^{[12]},\;2^{[12]},\;4^{[3]},\;24^{[1]}$\\
+$K_{8,2}$ & $1^{[20]},\;2^{[8]}$ & $1^{[20]},\;2^{[8]}$\\
+$I_{8,12}$ & $0^{[4]},\;1^{[12]},\;2^{[8]},\;6^{[4]}$ & $0^{[4]},\;1^{[12]},\;2^{[8]},\;6^{[4]}$\\
+$M_{8,1}$ & $0^{[4]},\;1^{[24]}$ & $0^{[4]},\;1^{[24]}$\\
+\bottomrule\end{tabular}\end{center}
+Here $m^{[r]}$ means $r$ pairs with $m$ matchings. These distinct distributions separate the generic types; specializations may meet.
+
+Near a fixed dephased square, choose continuous real lifts of its $49$ free entry phases. For each decorated support holding at the square, subtract its phase equations at that point; the resulting conditions are homogeneous linear equations in the phase increments. Every failing decorated support remains absent in a sufficiently small neighborhood, since there are only finitely many. The regular locus is therefore locally a finite union of these exact linear spaces.
+
+For a generic A quotient, write $P,N$ for opposite groups with the same monomial. Every possible pairing implies
+$$\sum_{j\in P}\delta q_j-\sum_{j\in N}\delta q_j=0.$$
+Stacking these common equations over row pairs gives ranks $44,45,47$ for the $5$-, $4$-, and $2$-dimensional families. Their kernels equal the displayed coefficient spaces. No B or C support holds generically, so the local regular locus equals the family. For mixed supports, intersect their constraint row spaces to obtain common equations and then check the remaining alternatives. For $M_{8,1}$ the common rank is $48$ and its kernel is precisely the displayed circle. Exact nonzero minors certify all ranks. Finally, the matching table proves generic inequivalence.
+\end{proof}
+The transpose identifications are
+$$
+ F_{8,5a}^{t}\sim F_{8,5a},\quad
+ F_{8,5b}^{t}\sim F_{8,5c},\quad
+ K_{8,2}^{t}\sim K_{8,2},\quad M_{8,1}^{t}\sim M_{8,1},
+ \quad I_{8,12}^{t}\sim I_{8,12}.
+$$
+Their exact monomial witnesses include parameter substitutions. The $2$ transpose pairs displayed separately are generically inequivalent.
+
+To verify a family embedding, solve its target parameters from a full-rank coefficient minor, retaining all torsion choices, and check all $64$ dephased entries. The archive has $1519$ such generic witnesses, including the initial targets. Matching counts prune permutations but never replace the entrywise check.
+
+\subsection{Generic completion of prescribed triples}\label{sec:genericrows}\label{sec:genericsquares}
+\begin{theorem}\label{thm:generic}
+Every regular square completion over a generic triple in any of the $38$ AAA components belongs to
+$$F_{8,5a},\quad F_{8,5b},\quad F_{8,5c},\quad F_{8,4},\quad F_{8,4}^{t},\quad F_{8,2}.$$
+Every such square is A-admitting. Classes $11,19,21,22$ have no generic completion.
+\end{theorem}
+\begin{proof}
+Apply all $3913$ decorated supports per quotient. Weighted component equations retain every free added-row phase; a base-only congruence survives precisely when identically satisfied. Thus every generic regular row occurs. Remove a contained row family only after an explicit affine substitution, determined by its anchor entries and checked in all $8$ coordinates.
+
+For every pair of retained families, enumerate all quotient supports and solve their joint congruences. Choose $5$ families, allowing repeated choices with independent phases, and intersect all $10$ pair conditions. Discard only empty branches, branches restricting the generic base, and loci contained in retained larger loci. Every square follows one such sequence of its realized supports; conversely every surviving branch has all $28$ regular quotients.
+
+Smith splitting of
+$$A y+B x+c=0\ (1),$$
+retains every torsion residue and free phase. Independent rational reconstruction and cycle recognition give $1512$ parameterizations:
+$$
+\begin{array}{c|rrrr}
+\text{dimension}&2&3&4&5\\\hline
+\text{parameterizations}&874&542&77&19.
+\end{array}
+$$
+All have exact monomial embeddings into the $6$ stated families, and all row quotients admit A. The checker also verifies dephasing and parameter rank. These are counts of presentations, with overlaps allowed.
+\end{proof}
+
+\subsection{The isolated square and the mixed circle}\label{sec:i12}\label{sec:mixedcircle}
+\begin{theorem}\label{thm:isolated}
+Each of the $32$ isolated successful class-$11$ triples has exactly $1$ square completion, up to phases and order of the added rows. All give the same monomial class $I_{8,12}$, of minimal Butson level $12$ and locally isolated in the regular locus. Its row and column profiles are
+$$20\text{ A-only},\qquad4\text{ A and B},\qquad4\text{ B-only}.$$
+\end{theorem}
+\begin{proof}
+We begin with a canonical representative. With $w=e^{\pi i/6}$, write $I_{8,12}=(w^{E_{ij}})$ with exponent matrix
+$$
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 3 & 6 & 6 & 6 & 9 \\
+0 & 1 & 5 & 9 & 1 & 5 & 9 & 6 \\
+0 & 4 & 8 & 6 & 10 & 2 & 3 & 9 \\
+0 & 6 & 2 & 11 & 9 & 8 & 3 & 5 \\
+0 & 6 & 11 & 5 & 3 & 11 & 9 & 5 \\
+0 & 7 & 6 & 1 & 7 & 3 & 9 & 1 \\
+0 & 10 & 6 & 7 & 4 & 9 & 3 & 1
+\end{pmatrix}.
+$$
+
+Each complete list of $7$ candidate rows has exactly $1$ $5$-clique. Canonicalization over every pivot row and column and all remaining column orders, followed by row sorting, identifies the $32$ squares. All transformations are checked entrywise. The dephased representative has a primitive $12$th-root entry, hence a primitive cross ratio; every equivalent Butson level is divisible by $12$.
+
+The equations common to every support have rank $48$. For a selected B-only quotient there are $4$ feasible supports, each killing the remaining direction: adjoining an appropriate constraint gives determinants $1,-1,1,-1$. Thus every local support branch has dimension $0$.
+\end{proof}
+The exact profile locations and triple census are
+\begin{center}\begin{tabular}{ll}\toprule
+Profile admitted&Row pairs\\\midrule
+B only&$(1,3),(2,4),(5,8),(6,7)$\\
+Both A and B&$(1,4),(2,3),(5,7),(6,8)$\\
+A only&All other $20$ pairs\\\bottomrule
+\end{tabular}\end{center}
+\begin{center}\begin{tabular}{llr}\toprule
+Exact edge profiles&Admissible triple types&Number\\\midrule
+A-only, A-only, A-only&AAA only&$16$\\
+A-only, A-only, B-only&AAB only&$16$\\
+A-only, A-only, AB&AAA and AAB&$16$\\
+A-only, B-only, AB&AAB and ABB&$8$\\\midrule
+Total&&$56$\\\bottomrule
+\end{tabular}\end{center}
+The B-admitting graph is the union of cycles $(1,3,2,4)$ and $(5,8,6,7)$, with B-only and AB edges alternating. Triples within a cycle give $8$ mixed-profile cases; the other triples give $16$ of each remaining kind. Counting admitted types with overlap gives $32$ AAA, $40$ AAB, $8$ ABB and no BBB. The transpose has the same census. The exponent matrix is entry $739$, indexed from $0$, in the Aalto catalogue file \texttt{BH-8-12.txt}.
+
+\begin{proposition}
+The family $M_{8,1}(a)$ is A-admitting exactly when $a^{12}=1$. Generically the $4$ pairs
+$$(1,6),\qquad(2,5),\qquad(3,4),\qquad(7,8).$$
+are B-only and the other $24$ are A-only.
+\end{proposition}
+\begin{proof}
+For each of the $4$ quotients, enumerate all $105$ antipodal matchings. Their equations have the form
+$$k t=c\ (1),\qquad a=e(t),\quad k\in\mathbb{Z},\ c\in\mathbb{Q}/\mathbb{Z}.$$
+Solving every nonzero $k$ equation with all $|k|$ branches, then checking the remaining equations, gives exactly $a\in\mu_{12}$ for each pair. The fixed symbolic decompositions verify the remaining profiles.
+\end{proof}
+At $a=e(1/18)$, the exponent matrix is
+$$
+\begin{pmatrix}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 17 & 1 & 7 & 9 & 8 & 10 & 16 \\
+0 & 1 & 10 & 3 & 12 & 13 & 4 & 9 \\
+0 & 7 & 14 & 16 & 5 & 12 & 9 & 3 \\
+0 & 9 & 5 & 12 & 8 & 17 & 3 & 14 \\
+0 & 8 & 6 & 1 & 17 & 7 & 13 & 12 \\
+0 & 10 & 15 & 9 & 14 & 6 & 1 & 5 \\
+0 & 16 & 9 & 10 & 3 & 1 & 12 & 7
+\end{pmatrix}.
+$$
+It has $24$ A-only and $4$ B-only row quotients and minimal level $18$, since the dephased entry $a$ is a primitive cross ratio. The local regular locus of catalogue entry $753$ at level $12$ has a surface in $K_{8,2}$ and $2$ equivalent presentations of this circle. Its A-admitting intersection therefore does not reveal the circle's generic mixed profile.
+
+\subsection{Completion on all closed parameter loci}\label{sec:fullABmethod}
+For an affine triple $T(t)=(\mathbf1;u(t);v(t))$, use all $105+1120=1225$ decorated A/B supports per new quotient. Solving their weighted column graphs gives records
+\begin{equation}\label{eq:fullrowrecord}
+ \left\{\begin{array}{l}
+ Lt+c=0\ (1),\\
+ w_j=e\bigl(a_j+b_j\cdot t+d_j\cdot s\bigr),
+ \quad s\in(\mathbb{R}/\mathbb{Z})^f.
+ \end{array}\right.
+\end{equation}
+Here closing edges impose the base lattice, while disconnected components supply all free row phases $s$, possibly more than $1$.
+
+The generic calculation describes rows that exist throughout the open part of a base component; it does not settle what can happen where an additional phase equation becomes true. Such an equation may cut out a circle, surface or finite set on which new rows appear or previously separate row families become compatible. We therefore treat each proper locus as a new base stratum and repeat the extension analysis there. An all-parameter classification therefore requires the exceptional strata and their intersections to be exhausted as well, including loci where existing rows become compatible without any new row appearing.
+
+\begin{theorem}\label{lem:fullrowcover}\label{prop:closedstrata}\label{thm:fullcompletionprocedure}
+These records give the complete A/B $4$th-row cover. Recursively splitting proper base intersections into connected Smith components, and solving every $5$-row compatibility system on each closed stratum, terminates and gives every A/B square completion.
+\end{theorem}
+\begin{proof}
+Every regular added row realizes an enumerated triple of supports. Tree edges, closing equations and free component phases describe exactly its solutions. Merging identical records or removing a contained record by a checked affine substitution preserves the cover.
+
+On a connected base stratum, retain records whose base equations hold identically. If a square uses a row outside this list, its base lies in a proper intersection. Split that intersection by Smith form and recurse; dimension strictly decreases. On the first stratum where all $5$ rows occur, choose their families, allowing repetition with independent phases. Enumerate all A/B supports for the $10$ mutual quotients and intersect their equations, including every base restriction. Smith splitting retains every connected branch. Conversely, each branch supplies the $3$ original, $15$ old-new and $10$ new-new regular quotients. Independent cycle recognition verifies the output formulas.
+\end{proof}
+All reductions between base strata use certified equivalences of triples. Circle substitutions retain orientation, translation and every finite branch; alternative AAA matchings retain their support tensors. Conjugation and transposition are not used as equivalences.
+
+\subsection{Completeness over the AAA locus}\label{sec:AAAexceptionalcomplete}\label{sec:AAAuniformcomplete}
+\begin{theorem}\label{thm:AAAexceptionalcomplete}\label{thm:AAAuniformcomplete}\label{cor:AAAABcomplete}
+Every A/B regular square containing AAA belongs to the $9$ continuous families of Theorem~\ref{thm:families} or to $I_{8,12}$, including all exceptional parameter loci. For AAA classes $11,19,21,22$, the first $8$ continuous families and $I_{8,12}$ suffice.
+\end{theorem}
+\begin{proof}
+The existence criteria restrict the $4$ exceptional classes to their successful surfaces, circles and $32$ isolated points. Apply the complete row cover and closed-stratum procedure to these loci. The exact exhaustion gives
+$$\begin{array}{l|rr}
+&21,22&11,19\\\hline
+\text{raw row records}&9356+10164&14585+19421\\
+\text{lattice loci}&28846&106633\\
+\text{Smith branches}&32534&119397\\
+\text{distinct square formulas}&396&1557
+\end{array}$$
+The second calculation uses $16$ surfaces, $128$ circles and $824$ point presentations, reduced by triple equivalences to $177$ searches; $50$ further cases reduce to classes $21,22$. All $1953$ formulas pass cycle checks and embed into the first $8$ families:
+\begin{center}\begin{tabular}{lrr}
+\toprule
+Target family & Classes $21$ and $22$ & Classes $11$ and $19$\\
+\midrule
+$F_{8,5a}$&$107$&$224$\\
+$F_{8,5b}$&$148$&$437$\\
+$F_{8,5c}$&$44$&$128$\\
+$F_{8,4}$&$45$&$79$\\
+$F_{8,4}^{t}$&$31$&$548$\\
+$F_{8,2}$&$8$&$56$\\
+$F_{8,2}^{t}$&$10$&$32$\\
+$K_{8,2}$&$3$&$53$\\
+\midrule
+Total&$396$&$1557$\\
+\bottomrule
+\end{tabular}\end{center}
+The $32$ isolated points give $I_{8,12}$ by Theorem~\ref{thm:isolated}.
+
+For the $32$ uniformly completable components, retain all base equations in $548310$ checked row records. Recursive intersection gives $15865$ nodes:
+\begin{center}\begin{tabular}{cr}
+\toprule
+Base dimension & Nodes in the recursive cover\\
+\midrule
+$4$&$2$\\
+$3$&$26$\\
+$2$&$292$\\
+$1$&$3301$\\
+$0$&$12244$\\
+\midrule
+Total&$15865$\\
+\bottomrule
+\end{tabular}\end{center}
+Certified point and circle equivalences remove $12168$ and $3247$ aliases. Alternative AAA supports reduce $50$ further problems to the exceptional classes, leaving $400$ searches. Their $845666$ lattice loci give $610840$ Smith branches after lattice deduplication and then $10048$ distinct square formulas:
+\begin{center}\begin{tabular}{cr}
+\toprule
+Formula dimension & Number of formulas\\
+\midrule
+$0$&$1984$\\
+$1$&$3684$\\
+$2$&$2522$\\
+$3$&$1222$\\
+$4$&$605$\\
+$5$&$31$\\
+\midrule
+Total&$10048$\\
+\bottomrule
+\end{tabular}\end{center}
+Every formula has a checked embedding, with assignment counts
+\begin{center}\begin{tabular}{lr}
+\toprule
+Target & Verified square formulas\\
+\midrule
+$F_{8,5a}$ & $1517$\\
+$F_{8,5b}$ & $2776$\\
+$F_{8,5c}$ & $581$\\
+$F_{8,4}$ & $416$\\
+$F_{8,4}^{t}$ & $3787$\\
+$F_{8,2}$ & $853$\\
+$F_{8,2}^{t}$ & $70$\\
+$K_{8,2}$ & $23$\\
+$M_{8,1}$ & $21$\\
+$I_{8,12}$ & $4$\\
+\midrule
+Total & $10048$\\
+\bottomrule
+\end{tabular}\end{center}
+Only $8$ formulas are not A-admitting: $4$ represent $I_{8,12}$, and $4$ lie in $M_{8,1}$, including $2$ constant formulas. All Smith decompositions are checked, all torsion branches retained, and all quotients and $64$-entry embedding identities independently verified. The completion procedure proves that these finite outputs exhaust the closed strata.
+\end{proof}
+The $12001$ formulas are a complete parametrized cover before equivalence, not pairwise inequivalent families. The C-containing sector is treated next.
+
+\section{Order 8: the complete classification}\label{sec:N8part3}
+\subsection{The maximal BBB branch}\label{sec:bbb}
+The unique $2$-dimensional BBB support class has $4$ label lifts and $2$ Smith branches per lift. Its $8$ components reduce by certified monomial transformations and unimodular parameter changes to the following family or its conjugate, $4$ components each. Put $w=e^{\pi i/6}$ and $\omega=w^4$:
+\begin{equation}\label{eq:BBB}
+\begin{aligned}
+u(a)&=(1,\omega,\omega^2,a\omega^2,a,a\omega,w^{11},w^5),\\
+v(b)&=(1,\omega^2,w^7,bw^7,bw^3,bw^{11},\omega,w),
+\end{aligned}
+\qquad a,b\in\mathbb{T}.
+\end{equation}
+The triple $(\mathbf1;u(a);v(b))$ has decompositions
+$$P=123|456|78,\qquad Q=127|456|38,\qquad R=128|456|37.$$
+for $u,v,u/v$, respectively. In particular,
+$$
+u/v=(1,w^8,w,(a/b)w,(a/b)w^9,
+       (a/b)w^5,w^7,w^4).
+$$
+verifies the third decomposition.
+\begin{theorem}\label{thm:BBB}
+This triple admits a regular $4$th row exactly on the $9$ circles
+$$\boxed{a^3=-1\quad\text{or}\quad b^3=-i\quad\text{or}\quad(a/b)^3=i}$$
+and $54$ additional points in $\mu_{120}^2$ listed in Subsection~\ref{app:bbbpoints}. It never admits a regular $5$th row. The same holds for the conjugate components.
+\end{theorem}
+\begin{proof}
+Full A/B/C support projection gives $9$ row circles and $135$ finite special points, with every feasible graph connected. The only surviving profiles are
+\begin{center}\begin{tabular}{lrr}\toprule
+Ordered profile&Circle loci&Point loci\\\midrule
+AAA&$0$&$9$\\
+AAB, ABA, BAA&$0$ each&$27$ each\\
+ABB, BAB, BBA&$3$ each&$60$ each\\\bottomrule
+\end{tabular}\end{center}
+Each circle has $1$ generic row; deleting points on the circles leaves $54$ points. The complete special fibres have counts
+$$
+\begin{array}{c|rrrr}
+\text{candidates}&1&2&3&8\\\hline
+\text{points}&36&72&18&9.
+\end{array}
+$$
+Independent finite-root generation reproduces every list. Exact cycle recognition rejects all $378$ pairs of candidates. Elsewhere there is at most $1$ added row, so no $5$th row exists. Conjugation preserves cycles.
+\end{proof}
+Subsection~\ref{app:bbbrows} gives the $9$ row formulas in the coordinates of \eqref{eq:BBB}.
+
+\subsection{Every A/B square contains AAA}\label{sec:ABhasAAA}
+A \emph{pure-B triple} has B-admitting quotients, none admitting A.
+\begin{theorem}\label{thm:pureBno5}\label{cor:ABAAA}
+A pure-B triple cannot extend to an A/B regular $5\times8$ matrix. Every A/B regular $K\times8$ matrix with $K\ge6$ therefore contains AAA.
+\end{theorem}
+\begin{proof}
+Enumerate all normalized labels on the $39$ feasible BBB supports. The $652$ consistent lifts split into $1040$ connected Smith components. Of these, $392$ have all $3$ edges A-admitting identically and $32$ have at least $1$ such edge; none contains a pure-B triple. The remaining components are
+$$
+ 548\ \text{fixed triples},\qquad
+ 60\ \text{circles},\qquad
+ 8\ \text{two-dimensional components}.
+$$
+The fixed triples reduce to $34$ equivalence classes, giving $102$ scans. The complete A/B row cover has $3830$ records, all with no free added-row phase. For every pair of raw records, including equal indices, impose both base lattices and all $1225$ quotient supports. No consistent pair locus occurs, including at special base parameters. Every hypothetical $5$-row extension would realize such a pair, a contradiction.
+
+Independently, closed-stratum recursion gives $1230$ nodes; after removing identically A-admitting bases and certified aliases, $110$ strata remain. Only $44$ have rows: $20$ circles with $1$ generic row, $16$ point fibres with $2$ rows, $6$ with $3$ rows and $2$ with $8$ rows. All $90$ finite candidate pairs fail exact A/B/C recognition. This reproduces the obstruction.
+
+Now color a row pair red if it admits A, blue otherwise. Blue means B-only. Every coloring of $K_6$ has a monochromatic triangle \cite{Ramsey}: among the $5$ edges from a vertex, $3$ share a color; either one edge among their endpoints has that color or all $3$ have the opposite color. A blue triangle would extend to $5$ rows, contradicting the first assertion. Hence a red, AAA triangle exists.
+\end{proof}
+
+\subsection{The maximal CCC branch}\label{sec:ccc}
+The $6$ feasible CCC support classes have dimensions $0,0,0,0,1,2$. The maximal class has common triangle and pentagon supports. With $w=e^{\pi i/15}$ and $\omega=w^{10}$, its normal form is
+\begin{equation}\label{eq:CCC}
+H_C(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&\omega&\omega^2&a&aw^{6}&aw^{12}&aw^{18}&aw^{24}\\
+1&\omega^2&\omega&b&bw^{12}&bw^{24}&bw^{6}&bw^{18}
+\end{pmatrix}.
+\end{equation}
+\begin{lemma}
+Every component of the maximal CCC support class is equivalent to a member of $H_C(a,b)$.
+\end{lemma}
+\begin{proof}
+Normalize the triangle labels to $(0,1,2)$ and $(0,2,1)$. On the pentagon, normalize the first labels to $(0,1,2,3,4)$. Of the $24$ permutations fixing $0$, precisely the slopes $k=2,3,4$ have a permutation difference from the identity:
+$$
+\begin{array}{c|ccccc|ccccc}
+k&\multicolumn{5}{c|}{f(0),\ldots,f(4)}&
+\multicolumn{5}{c}{f(j)-j\ (5)}\\\hline
+2&0&2&4&1&3&0&1&2&3&4\\
+3&0&3&1&4&2&0&2&4&1&3\\
+4&0&4&3&2&1&0&3&1&4&2
+\end{array}
+$$
+Swapping the nontrivial rows sends slope $3$ to $3^{-1}=2$; exchanging the first $2$ rows sends slope $4$ to $1-4=2$. Renormalize the triangle. The $2$ remaining block rotations are $a,b$, covering all $144$ label lifts.
+\end{proof}
+\begin{theorem}\label{thm:CCCpoints}\label{thm:CCCgraph}
+The triple $H_C(a,b)$ has a regular $4$th row precisely when
+$$\boxed{a\in\mu_{15},\qquad b=\omega a^2\ \text{or}\ b=\omega^2a^2.}$$
+At each of these $30$ points there are $10$ normalized rows: $8$ A-related and $2$ C-related to every prescribed row. Their full compatibility graph is $K_5\sqcup K_5$, each component containing $4$ A-related rows and $1$ C-related row. Every added row therefore has a unique square completion retaining the triple.
+\end{theorem}
+\begin{proof}
+Full decorated-support projection retains only AAA and CCC new-row profiles, exactly at the stated points. Every feasible graph is connected; the complete fibres have sizes $8$ and $2$. Independent finite-root enumeration reproduces them. Exact pair tests give the $2$ disjoint cliques.
+\end{proof}
+The fixed-triple extension counts are
+$$
+\begin{array}{c|rrrrr}
+\text{total rows}&4&5&6&7&8\\\hline
+\text{row sets}&10&20&20&10&2.
+\end{array}
+$$
+For example, at $(a,b)=(w^2,w^{14})$, the prescribed exponent rows are
+$$
+u=(0,10,20,2,8,14,20,26),\qquad
+v=(0,20,10,14,26,8,20,2).
+$$
+and the complete added-row list is
+\begin{center}\small \begin{tabular}{r|rrrrrrrr|c}\toprule Row&\multicolumn{8}{c|}{Exponents modulo $30$}&Profile\\\midrule
+$1$&$0$&$20$&$20$&$8$&$2$&$26$&$10$&$14$&CCC\\
+$2$&$0$&$20$&$20$&$26$&$14$&$2$&$10$&$8$&CCC\\
+$3$&$0$&$14$&$8$&$23$&$11$&$29$&$26$&$15$&AAA\\
+$4$&$0$&$14$&$8$&$29$&$23$&$17$&$2$&$15$&AAA\\
+$5$&$0$&$26$&$2$&$17$&$11$&$15$&$8$&$23$&AAA\\
+$6$&$0$&$2$&$14$&$17$&$15$&$23$&$8$&$29$&AAA\\
+$7$&$0$&$8$&$26$&$15$&$29$&$23$&$14$&$11$&AAA\\
+$8$&$0$&$8$&$26$&$15$&$23$&$11$&$2$&$17$&AAA\\
+$9$&$0$&$2$&$14$&$11$&$15$&$29$&$26$&$17$&AAA\\
+$10$&$0$&$26$&$2$&$29$&$17$&$15$&$14$&$11$&AAA\\
+\bottomrule\end{tabular}\end{center}
+Its $2$ components are $\{1,3,6,8,10\}$ and $\{2,4,5,7,9\}$.
+
+\label{sec:CCCcorrected}
+All $60$ squares have the representative $(K_{8,30})_{ij}=w^{M_{ij}}$ with
+$$
+M=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&13&28&27&21&12&15\\
+0&10&28&20&16&4&10&22\\
+0&12&27&16&1&15&24&9\\
+0&18&21&4&15&19&6&3\\
+0&20&12&10&24&6&0&18\\
+0&24&15&22&9&3&18&7
+\end{pmatrix}.
+$$
+\begin{theorem}\label{thm:CCCone}\label{thm:isolation}
+The maximal CCC branch yields exactly the class $K_{8,30}$. Its minimal Butson level is $30$, it is locally isolated in the regular locus, and it has no AAA triple. Its row and column C-graphs are $K_4\sqcup K_4$, with all remaining edges A-only.
+\end{theorem}
+\begin{proof}
+For each of the $60$ squares, canonicalization over all pivots and column orders, followed by row sorting, gives $M$. The saved transformations are independently checked using
+$$D_{ij}=E_{ij}-E_{rj}-E_{ic}+E_{rc}\ (30).$$
+Arbitrary equivalence phases cancel in these dephased cross ratios. For the $2$ example cliques, respective pivots $(1,2),(1,7)$ and row/column orders are
+$$\begin{array}{c|l|l}
+&\text{rows}&\text{columns}\\\hline
+1&(1,3,6,2,5,8,4,7)&(2,7,5,1,8,6,3,4)\\
+2&(1,2,5,4,7,8,3,6)&(7,3,8,1,4,5,2,6).
+\end{array}$$
+The cross ratio $w^{13}$ forces minimal level $30$.
+
+Each A quotient has $1$ support and each of the $12$ C quotients has $2$; no B support occurs. For all $2^{12}$ choices the dephased variation equations
+$$
+\theta_{ij}-\theta_{kj}-\theta_{il}+\theta_{kl}=0
+\qquad(j,l\text{ in the same quotient block}).
+$$
+have rank $49$ modulo $2$, hence over $\mathbb Q$. Every local support space is a point; the finitely many supports not passing through the square are excluded in a neighborhood. This proves regular isolation.
+
+Direct cycle checks give C-cliques $\{1,2,4,7\}$ and $\{3,5,6,8\}$ in both directions. Their $3$-row census is
+\begin{center}\begin{tabular}{lr}\toprule
+Triple type&Number of minors\\\midrule
+AAC&$48$\\
+CCC&$8$\\
+All other types&$0$\\\midrule
+Total&$56$\\\bottomrule
+\end{tabular}\end{center}
+Every triple contains a C-edge, excluding AAA.
+\end{proof}
+
+\subsection{All squares containing a C-pair}\label{sec:Ccomplete}
+This branch is reduced in stages. A chosen C-pair is normalized to $P(z)$ with one remaining phase. The addition of a fourth row forces that phase into a finite set; a fifth row then restricts the entries to a finite root group. The remaining rows can be checked in a finite compatibility graph, while the only positive-dimensional pair loci are tracked separately. This turns the C-containing classification into an exact finite problem without assuming at the outset that the square is Butson.
+
+We begin with the $3$ matrices that will occur in the classification, then establish the $2$ finite-root reductions. With $w=e^{\pi i/15}$ and $\omega=w^{10}$, write $H_{ij}=w^{E_{ij}}$. The matrices are
+$$
+E(K_{8,30})=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&13&28&27&21&12&15\\
+0&10&28&20&16&4&10&22\\
+0&12&27&16&1&15&24&9\\
+0&18&21&4&15&19&6&3\\
+0&20&12&10&24&6&0&18\\
+0&24&15&22&9&3&18&7\\
+\end{pmatrix}.
+$$
+$$
+E(L_{8,30})=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&21&2&19&17&4&15\\
+0&10&17&25&8&2&15&23\\
+0&12&4&23&27&15&19&8\\
+0&18&2&17&15&3&1&16\\
+0&20&19&15&4&16&5&1\\
+0&24&15&8&23&1&16&9\\
+\end{pmatrix}.
+$$
+$$
+E(L_{8,30}^{t})=\begin{pmatrix}
+0&0&0&0&0&0&0&0\\
+0&0&6&10&12&18&20&24\\
+0&6&21&17&4&2&19&15\\
+0&10&2&25&23&17&15&8\\
+0&12&19&8&27&15&4&23\\
+0&18&17&2&15&3&16&1\\
+0&20&4&15&19&1&5&16\\
+0&24&15&23&8&16&1&9\\
+\end{pmatrix}.
+$$
+Normalize a chosen C-pair to
+\begin{equation}\label{eq:Cpair}
+P(z)=\begin{pmatrix}
+1&1&1&1&1&1&1&1\\
+1&\omega&\omega^2&z&zw^{6}&zw^{12}&zw^{18}&zw^{24}
+\end{pmatrix},\qquad z\in\mathbb{T}.
+\end{equation}
+This uses only row and column phases and permutations, with $z$ initially arbitrary.
+
+\begin{lemma}\label{lem:Cmu30}\label{lem:Csigns}
+If a regular partial matrix containing $P(z)$ has at least $4$ rows, then $z\in\mu_{30}$. It can then be normalized to $P(1)$ or $P(-1)$.
+\end{lemma}
+\begin{proof}
+Put $z=e(t)$. Enumerate all $3913^2=15311569$ pairs of decorated supports for a normalized $3$rd row. Weighted forests give closing equations
+\begin{equation}\label{eq:Cbasecongruence}
+kt+\frac{a}{30}=0\ (1).
+\end{equation}
+Independent graph traversal solves each equation directly, retaining every torsion value. Both solvers give
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+$3$rd-row quotient types&AA&AB&BA&BB&CC\\\midrule
+Feasible decorated systems&$5220$&$3600$&$3600$&$1680$&$3138$\\\bottomrule
+\end{tabular}\end{center}
+and $14178$ row/locus records before containment. Every nontrivial base locus lies in $\mu_{30}$. Off this group, the $93$ unrestricted records reduce by explicit substitutions to $3$ circles:
+\begin{equation}\label{eq:Cgenericcircles}
+r_s(v)=(1,\omega^2,\omega,v,vw^{6s},vw^{12s},
+vw^{18s},vw^{24s}),\qquad s=2,3,4,\quad v\in\mathbb{T}.
+\end{equation}
+Different slopes have inner product $3$; for equal slopes, $\langle r_s(v),r_s(t)\rangle=3+5v\bar{t}\ne0$. Thus $2$ added rows cannot coexist.
+
+Cyclic triangle and pentagon reordering changes the exponent of $z$ by $6b-10a$. These are exactly the $15$ even residues modulo $30$, leaving the $2$ representatives $1,-1$.
+\end{proof}
+The complete normalized $3$rd-row cover over these pairs is
+\begin{center}\begin{tabular}{llrr}\toprule
+Base pair&Quotient types&Fixed rows&Circles\\\midrule
+$P(1)$&AA&$240$&$12$\\
+&AB&$96$&$0$\\
+&BA&$96$&$0$\\
+&BB&$80$&$0$\\
+&CC&$8$&$6$\\\midrule
+$P(-1)$&AB&$80$&$0$\\
+&BA&$80$&$0$\\
+&BB&$32$&$0$\\
+&CC&$0$&$3$\\\bottomrule
+\end{tabular}\end{center}
+For $P(1)$, its $18$ circles are $r_j(u)_k=e(c_k/30+m_ku)$ with
+{\small\setlength{\tabcolsep}{4pt}\begin{longtable}{rllc}\toprule
+$j$&Types&$(c_1,\ldots,c_8)$&Mask\\\midrule\endhead
+$1$&CC&$(0,20,10,0,12,24,6,18)$&\texttt{00011111}\\
+$2$&CC&$(0,20,10,0,18,6,24,12)$&\texttt{00011111}\\
+$3$&CC&$(0,20,10,0,24,18,12,6)$&\texttt{00011111}\\
+$4$&AA&$(0,0,2,6,21,17,15,15)$&\texttt{01100110}\\
+$5$&AA&$(0,0,2,24,15,17,15,9)$&\texttt{01100110}\\
+$6$&AA&$(0,0,8,6,21,15,23,15)$&\texttt{01100110}\\
+$7$&AA&$(0,0,8,24,15,15,23,9)$&\texttt{01100110}\\
+$8$&AA&$(0,0,14,12,15,27,15,29)$&\texttt{01101001}\\
+$9$&AA&$(0,0,14,18,15,15,3,29)$&\texttt{01101001}\\
+$10$&CC&$(0,0,20,10,12,24,6,18)$&\texttt{01110000}\\
+$11$&CC&$(0,0,20,10,18,6,24,12)$&\texttt{01110000}\\
+$12$&CC&$(0,0,20,10,24,18,12,6)$&\texttt{01110000}\\
+$13$&AA&$(0,0,26,12,11,27,15,15)$&\texttt{01101001}\\
+$14$&AA&$(0,0,26,18,11,15,3,15)$&\texttt{01101001}\\
+$15$&AA&$(0,15,5,20,0,15,27,12)$&\texttt{00001111}\\
+$16$&AA&$(0,15,5,20,0,21,15,6)$&\texttt{00001111}\\
+$17$&AA&$(0,25,15,10,0,15,27,12)$&\texttt{00001111}\\
+$18$&AA&$(0,25,15,10,0,21,15,6)$&\texttt{00001111}\\
+\bottomrule\end{longtable}}
+For $P(-1)$ the $3$ circles are \eqref{eq:Cgenericcircles}. No retained fixed row lies on a circle; the $P(1)$ circles have $3$ intersections. The fixed rows and all containment maps are in \path{code002_work/N8/n8_C_sector/}.
+
+\begin{lemma}\label{lem:Cmu60}
+Every regular partial matrix with at least $5$ rows and a C-pair can be normalized to $P(1)$ or $P(-1)$ with all entries in $\mu_{60}$.
+\end{lemma}
+\begin{proof}
+Enumerate every decorated quotient support between $2$ added families, allowing a circle twice with independent parameters. At $P(1)$, $528$ family pairs give $766$ loci:
+\begin{center}\begin{tabular}{lrr}\toprule
+Kinds of added families&Equation rank&Recorded loci\\\midrule
+Fixed, fixed&$0$&$376$\\
+Circle, fixed&$1$&$64$\\
+Circle, circle&$2$&$308$\\
+Circle, circle&$1$&$18$\\\bottomrule
+\end{tabular}\end{center}
+At $P(-1)$ there are $112$ compatible pairs, all fixed. Direct elimination gives primitive coefficients $\pm1$ in $1$ variable and determinant absolute value $1$ or $2$ in full-rank $2$-variable systems. Their solutions lie in $\mu_{30}$ or $\mu_{60}$. There is no unconstrained circle compatibility. The only positive-dimensional loci are
+\begin{equation}\label{eq:Cfreeline}
+u-v+\frac{c}{30}=0\ (1).
+\end{equation}
+with the $18$ entries
+\begin{center}\small \begin{tabular}{rrr@{\qquad}rrr}\toprule
+Circle $i$&Circle $j$&$c$&Circle $i$&Circle $j$&$c$\\\midrule
+$4$&$4$&$15$&$9$&$13$&$6$\\
+$4$&$7$&$6$&$13$&$13$&$15$\\
+$5$&$5$&$15$&$14$&$14$&$15$\\
+$5$&$6$&$18$&$15$&$15$&$15$\\
+$6$&$6$&$15$&$15$&$18$&$28$\\
+$7$&$7$&$15$&$16$&$16$&$15$\\
+$8$&$8$&$15$&$16$&$17$&$22$\\
+$8$&$14$&$12$&$17$&$17$&$15$\\
+$9$&$9$&$15$&$18$&$18$&$15$\\
+\bottomrule\end{tabular}\end{center}
+A self-line pairs opposite phases, so at most $2$ rows from the same circle can be compatible through self-lines. The $6$ cross-pairs of circles are disjoint, ruling out $3$ distinct circles. If $2$ rows belong to one circle and a third to its partner, the cross-line fixes the same phase difference for both pairs, forcing the first $2$ phases to coincide. This contradicts their being opposite. Hence $3$ added rows cannot be mutually compatible using only these lines.
+
+If one added row is fixed, compatibility forces every occurring circle phase into $\mu_{30}$. Otherwise, among at least $3$ added circle rows, some pair lies on a full-rank locus, anchoring its phases in $\mu_{60}$. Every further row is anchored by a full-rank relation or a free-line difference in $\mu_{30}$, so also lies in $\mu_{60}$.
+\end{proof}
+The finite-root reductions now give the classification and the uniqueness of completion.
+\begin{theorem}\label{thm:Ccomplete}\label{cor:Cunique}
+Every regular order-$8$ square containing a C-pair belongs to exactly $1$ of
+$$K_{8,30},\qquad L_{8,30},\qquad L_{8,30}^{t}.$$
+These classes are distinct, regularly isolated, and have minimal Butson level $30$. Every regular $K\times8$ matrix with $5\le K\le7$ and a C-pair has a unique regular square completion, up to phases and order of the added rows.
+\end{theorem}
+\begin{proof}
+Evaluate the circles at all $60$th roots, add fixed rows and deduplicate. Independent recursive cycle recognition gives the graphs
+\begin{center}\begin{tabular}{lrrrrrr}\toprule
+Base&Vertices&Edges&$3$-cliques&$4$-cliques&$5$-cliques&$6$-cliques\\\midrule
+$P(1)$&$1597$&$1492$&$320$&$240$&$96$&$16$\\
+$P(-1)$&$372$&$112$&$0$&$0$&$0$&$0$\\\bottomrule
+\end{tabular}\end{center}
+For at least $3$ added rows, Lemma~\ref{lem:Cmu60} makes this grid exhaustive. The $16$ $6$-cliques have disjoint $2$-element subcliques, and
+$$
+16\binom63=320,\qquad
+16\binom64=240,\qquad
+16\binom65=96.
+$$
+exhaust the smaller clique counts. Thus every $5$-, $6$-, or $7$-row partial matrix belongs to exactly $1$ square. The negative pair stops at $4$ rows.
+
+Independently, the affine completion engine intersects all pair conditions for $6$ added families. Its $14$ loci split into $16$ points at $P(1)$ and none at $P(-1)$, with no free phase and all entries in $\mu_{30}$. Their unordered row sets agree entrywise with the finite graph's $16$ squares.
+
+Complete pivot-and-permutation canonicalization gives multiplicities $12,2,2$ for the $3$ displayed, distinct matrices. Exact transformations certify all equalities. Each representative contains a primitive $30$th-root cross ratio, proving minimal level. A chosen C quotient remains outside the closed A and B loci in a neighborhood, so nearby regular matrices remain in this finite C-sector. The $3$ compact monomial orbits are disjoint, proving regular isolation.
+\end{proof}
+The lower-row boundary is also explicit: at $P(1)$ the unordered pairs of added rows comprise $18$ circles and $772$ points outside them; at $P(-1)$ there are $112$ points. Indeed, the $18$ free lines account for $720$ distinct grid edges, leaving $1492-720=772$; every isolated compatibility lies on the justified grid.
+
+The row and column cycle censuses are
+\begin{center}\begin{tabular}{lrrrrr}\toprule
+Matrix&A-pairs&C-pairs&AAA triples&AAC triples&CCC triples\\\midrule
+$K_{8,30}$&$16$&$12$&$0$&$48$&$8$\\
+$L_{8,30}$&$24$&$4$&$32$&$24$&$0$\\
+$L_{8,30}^{t}$&$24$&$4$&$32$&$24$&$0$\\
+\bottomrule\end{tabular}\end{center}
+The C-cliques of $K_{8,30}$ were given above. For $L_{8,30}$ and its transpose, they are $\{1,2\},\allowbreak\{3,8\},\allowbreak\{4,7\},\allowbreak\{5,6\}$ in both directions. All non-C pairs are A-only.
+
+\subsection{The complete family cover}\label{sec:globalN8}
+\begin{theorem}\label{thm:globalN8}
+Every regular complex Hadamard matrix of order $8$ is ordinarily monomially equivalent to a member of
+\begin{equation}\label{eq:globalfamilies}
+ F_{8,5a},\ F_{8,5b},\ F_{8,5c},\ F_{8,4},\ F_{8,4}^{t},\
+ F_{8,2},\ F_{8,2}^{t},\ K_{8,2},\ M_{8,1},
+\end{equation}
+or to $1$ of the $4$ isolated matrices
+\begin{equation}\label{eq:globalisolates}
+ I_{8,12},\qquad K_{8,30},\qquad L_{8,30},\qquad L_{8,30}^{t}.
+\end{equation}
+Conversely all these matrices are regular. The continuous dimensions are $5,5,5,4,4,2,2,2,1$; their generic types are distinct and locally maximal in the regular locus. The isolated classes are pairwise inequivalent. Conjugation and transposition are not included in equivalence.
+\end{theorem}
+\begin{proof}
+A C-pair puts the square in Theorem~\ref{thm:Ccomplete}. Otherwise every quotient admits A or B; Theorem~\ref{cor:ABAAA} supplies AAA, and Theorem~\ref{cor:AAAABcomplete} gives the remaining cover. The explicit cycle certificates prove the converse. The matching invariants and local support ranks distinguish the generic continuous types. The C-classes are mutually distinct; $I_{8,12}$ has no C quotient and is therefore distinct from them.
+\end{proof}
+\begin{corollary}\label{thm:deformationN8}\label{cor:onlyKnoAAA}\label{cor:globaldimension}\label{cor:transposeN8}
+At order $8$:
+\begin{enumerate}[label=\rm(\roman*)]
+\item Every regular matrix is an affine deformation of a Butson matrix, up to equivalence.
+\item The maximum regular local moduli dimension is $5$; the isolated classes are exactly \eqref{eq:globalisolates}.
+\item $K_{8,30}$ is the unique AAA-free regular square, up to equivalence.
+\item Transposition preserves regularity. It fixes the classes of $I_{8,12}$ and $K_{8,30}$, exchanges $L_{8,30}$ with $L_{8,30}^{t}$, and acts on continuous types as in \eqref{eq:globalfamilies} and the transpose identities of Subsection~\ref{sec:families}.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+Set all family parameters to $1$ to obtain Butson seeds; the isolated matrices are constant deformations. The finite affine cover has maximum rank $5$, unchanged by the finite equivalence action after dephasing. Every point on a positive-dimensional family has inequivalent nearby points; the other $4$ classes are isolated. The AAA assertion follows from the C-census and the A/B theorem. Finally, every displayed family and isolated square has regular column quotients; the explicit transpose witnesses give the identifications.
+\end{proof}
+
+\subsection{The finite catalogue comparison}\label{sec:aalto}
+\begin{theorem}\label{thm:catalogue}
+All $5469$ entries of the Aalto $B(8,q)$ catalogues for $q=2,4,6,8,10,12,14,16$ are regular, contain AAA and have exact monomial embeddings into the $9$ continuous families or $I_{8,12}$.
+\end{theorem}
+\begin{proof}
+Using the Aalto catalogue \cite{LOSz} and its {\hypersetup{allcolors=black}\href{https://wiki.aalto.fi/spaces/Butson/pages/122456122/}{format conventions}}, exact cycle recognition tests all quotients and all $56$ row triples. Independent substitution checks every embedding:
+\begin{center}\begin{tabular}{rrrrr}\toprule $q$&Catalogue classes&Regular&With AAA&Identified\\\midrule
+$2$&$1$&$1$&$1$&$1$\\
+$4$&$15$&$15$&$15$&$15$\\
+$6$&$36$&$36$&$36$&$36$\\
+$8$&$143$&$143$&$143$&$143$\\
+$10$&$299$&$299$&$299$&$299$\\
+$12$&$756$&$756$&$756$&$756$\\
+$14$&$1412$&$1412$&$1412$&$1412$\\
+$16$&$2807$&$2807$&$2807$&$2807$\\
+\midrule Total entries&$5469$&$5469$&$5469$&$5469$\\\bottomrule\end{tabular}\end{center}
+At level $12$ only $I_{8,12}$ is not A-admitting; all entries at the other listed levels are A-admitting. The $27$ entries outside the initial $7$-family cover have $41$ local branches: $38$ in $K_{8,2}$, $2$ in $M_{8,1}$ and the isolated $I_{8,12}$.
+\end{proof}
+The catalogue's completeness is the published input; entries at different levels may repeat classes. A C quotient in $B(8,q)$ forces both $3\mid q$ and $5\mid q$ through within-cycle ratios. Thus these levels do not test C. The global classification follows from support exhaustion, independently of this comparison.
+
+\section{Order 8: certificates and verification}\label{sec:N8part4}
+\subsection{The AAA registry}\label{app:registry}
+The first support is $P=12|34|56|78$; $Q,R$ are the supports of the third row and the quotient of the nonconstant rows. Dimensions are dephased, and branches include Smith torsion.
+\begin{longtable}{rrrlll}\toprule Class&$d$&Branches&$Q$&$R$&Completion locus\\\midrule\endhead
+$0$&$4$&$1$&$17|28|35|46$&$17|28|35|46$&All parameters\\
+$1$&$4$&$1$&$17|28|35|46$&$17|28|34|56$&All parameters\\
+$2$&$3$&$2$&$17|28|35|46$&$17|28|36|45$&All parameters\\
+$3$&$3$&$1$&$17|25|38|46$&$17|25|38|46$&All parameters\\
+$4$&$3$&$1$&$17|25|38|46$&$17|28|34|56$&All parameters\\
+$5$&$2$&$2$&$17|25|38|46$&$17|26|38|45$&All parameters\\
+$6$&$3$&$1$&$17|28|35|46$&$17|26|35|48$&All parameters\\
+$7$&$2$&$2$&$17|25|36|48$&$17|24|36|58$&All parameters\\
+$8$&$3$&$1$&$17|28|35|46$&$17|26|34|58$&All parameters\\
+$9$&$2$&$2$&$17|28|35|46$&$17|26|38|45$&All parameters\\
+$10$&$3$&$1$&$17|25|34|68$&$17|23|48|56$&All parameters\\
+$11$&$3$&$1$&$17|25|38|46$&$16|28|34|57$&\S\ref{sec:class11}\\
+$12$&$2$&$2$&$17|25|38|46$&$16|27|38|45$&All parameters\\
+$13$&$2$&$2$&$17|25|38|46$&$17|26|34|58$&All parameters\\
+$14$&$2$&$2$&$17|25|38|46$&$16|27|34|58$&All parameters\\
+$15$&$2$&$4$&$17|28|35|46$&$18|27|36|45$&All parameters\\
+$16$&$2$&$2$&$17|28|35|46$&$18|26|37|45$&All parameters\\
+$17$&$3$&$1$&$17|28|35|46$&$16|25|38|47$&All parameters\\
+$18$&$2$&$2$&$17|28|35|46$&$16|25|37|48$&All parameters\\
+$19$&$3$&$1$&$17|25|36|48$&$16|28|37|45$&\S\ref{sec:class19}\\
+$20$&$2$&$2$&$17|28|35|46$&$16|24|37|58$&All parameters\\
+$21$&$2$&$2$&$17|25|38|46$&$16|28|37|45$&\S\ref{sec:class21}\\
+$22$&$2$&$2$&$17|25|38|46$&$16|24|37|58$&\S\ref{sec:class22}\\
+\bottomrule\end{longtable}
+The natural coordinates equal the Smith exponentials for classes $11$ and $19$. For class $21$, $x=e(t-s)$, $y=e(t)$; for class $22$, $x=e(s)$, $y=e(t+1/2)$.
+
+\subsection{Finite residues}\label{app:finite}
+The class-$21$ residual set has $(s,t)=(i/24,j/24)$, with every listed $j$ used for each $i$:
+\begin{longtable}{rl}\toprule $i$&Values of $j$\\\midrule\endhead
+$2$&$4$, $10$, $16$, $22$\\
+$3$&$6$, $9$, $18$, $21$\\
+$4$&$6$, $10$, $18$, $22$\\
+$6$&$2$, $4$, $8$, $10$, $14$, $16$, $20$, $22$\\
+$8$&$2$, $6$, $14$, $18$\\
+$9$&$3$, $6$, $15$, $18$\\
+$10$&$2$, $8$, $14$, $20$\\
+$14$&$4$, $10$, $16$, $22$\\
+$15$&$6$, $9$, $18$, $21$\\
+$16$&$6$, $10$, $18$, $22$\\
+$18$&$2$, $4$, $8$, $10$, $14$, $16$, $20$, $22$\\
+$20$&$2$, $6$, $14$, $18$\\
+$21$&$3$, $6$, $15$, $18$\\
+$22$&$2$, $8$, $14$, $20$\\
+\bottomrule\end{longtable}
+It has $64$ points in each component, outside the successful circles. For class $22$, write $(x,y)=(e(i/12),e(j/12))$; the $50$-point residue is
+\begin{longtable}{rl}\toprule $i$&Values of $j$\\\midrule\endhead
+$1$&$3$, $4$, $9$, $10$\\
+$2$&$3$, $4$, $5$, $9$, $11$\\
+$3$&$1$, $2$, $4$, $5$, $7$, $8$, $10$, $11$\\
+$4$&$1$, $3$, $7$, $9$\\
+$5$&$2$, $3$, $8$, $9$\\
+$7$&$3$, $4$, $9$, $10$\\
+$8$&$3$, $5$, $9$, $11$\\
+$9$&$1$, $2$, $4$, $5$, $7$, $8$, $10$, $11$\\
+$10$&$1$, $3$, $7$, $8$, $9$\\
+$11$&$2$, $3$, $8$, $9$\\
+\bottomrule\end{longtable}
+The same parameter sets apply to both signs; their row lists are checked separately.
+
+\label{app:bbbpoints}
+For the BBB family \eqref{eq:BBB}, put $w=e^{\pi i/60}$ and $(a,b)=(w^i,w^j)$. The $54$ points outside its $9$ extension circles are
+\begin{longtable}{rl@{\qquad}rl}\toprule $i$ & Values of $j$ & $i$ & Values of $j$\\\midrule\endhead
+$0$&$0$, $15$, $20$, $60$, $75$, $100$&$65$&$10$\\
+$5$&$10$&$70$&$0$, $40$, $50$, $80$\\
+$10$&$10$, $20$, $50$, $90$&$75$&$45$\\
+$15$&$105$&$80$&$20$, $40$, $55$, $60$, $100$, $115$\\
+$25$&$50$&$85$&$50$\\
+$30$&$0$, $40$, $80$, $90$&$90$&$10$, $50$, $60$, $90$\\
+$35$&$85$&$95$&$25$\\
+$40$&$20$, $35$, $60$, $80$, $95$, $100$&$105$&$90$\\
+$45$&$90$&$110$&$0$, $10$, $40$, $80$\\
+$50$&$10$, $50$, $90$, $100$&$115$&$5$\\
+$55$&$65$&&\\
+\bottomrule\end{longtable}
+Conjugate both parameters and entries for the conjugate components.
+
+\subsection{Uniform square certificates}\label{app:uniformcerts}
+The matrix $H^{(c,b)}$ below extends class $c$, Smith branch $b$. Its first $3$ rows are the registered component; parameters are local to each display. In every row quotient, each Laurent monomial occurs with the same multiplicity as its negative. The $32$ formulas therefore prove A-admitting completion for all parameter values.
+{\small\setlength{\arraycolsep}{5pt}$$H^{(0,0)}(a,b,c,d)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-bd&bd&-bd&bd&1&-1\\1&-c^{-1}&-a^{-1}bd&d&a^{-1}bd&-d&-1&c^{-1}\\1&-ac^{-1}&bd&-d&-bd&d&-1&ac^{-1}\\1&-1&bd&-bd&bd&-bd&1&-1\\1&ac^{-1}&-bd&-d&bd&d&-1&-ac^{-1}\\1&1&-1&-1&-1&-1&1&1\\1&c^{-1}&a^{-1}bd&d&-a^{-1}bd&-d&-1&-c^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(1,0)}(a,b,c,d)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&ad&-ad&-bd&bd&1&-1\\1&-c^{-1}&d&d&-d&-d&-1&c^{-1}\\1&-1&-ad&ad&bd&-bd&1&-1\\1&-c^{-1}&-d&-d&d&d&-1&c^{-1}\\1&1&-1&-1&-1&-1&1&1\\1&c^{-1}&-ad&ad&-bd&bd&-1&-c^{-1}\\1&c^{-1}&ad&-ad&bd&-bd&-1&-c^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(2,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-ab&ab&1&-1\\1&-c^{-1}&-a&a&a&-a&-1&c^{-1}\\1&-a&a^{2}c&-a&-a^{2}c&a&-1&a\\1&-1&ab&-ab&ab&-ab&1&-1\\1&a&-a^{2}c&-a&a^{2}c&a&-1&-a\\1&1&-1&-1&-1&-1&1&1\\1&c^{-1}&a&a&-a&-a&-1&-c^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(2,1)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&ab&-ab&1&-1\\1&-c^{-1}&a&a&-a&-a&-1&c^{-1}\\1&-a&-a^{2}c&-a&a&a^{2}c&-1&a\\1&-1&ab&-ab&-ab&ab&1&-1\\1&a&a^{2}c&-a&a&-a^{2}c&-1&-a\\1&1&-1&-1&-1&-1&1&1\\1&c^{-1}&-a&a&-a&a&-1&-c^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(3,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-1&1&-1&1&1&-1\\1&-c^{-1}&-a^{-1}&b^{-1}&c^{-1}&-b^{-1}&-1&a^{-1}\\1&-ac^{-1}&1&-1&ac^{-1}&-1&1&-1\\1&-1&1&-b^{-1}&-1&b^{-1}&-1&1\\1&ac^{-1}&-1&-1&-ac^{-1}&-1&1&1\\1&1&-1&-b^{-1}&1&b^{-1}&-1&-1\\1&c^{-1}&a^{-1}&b^{-1}&-c^{-1}&-b^{-1}&-1&-a^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(4,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ac^{-1}&ac^{-1}&bc^{-1}&-bc^{-1}&1&-1\\1&-c^{-1}&-c^{-1}&-c^{-1}&c^{-1}&c^{-1}&-1&c^{-1}\\1&-1&ac^{-1}&-ac^{-1}&-bc^{-1}&bc^{-1}&1&-1\\1&-c^{-1}&c^{-1}&c^{-1}&-c^{-1}&-c^{-1}&-1&c^{-1}\\1&1&-1&-1&-1&-1&1&1\\1&c^{-1}&-ac^{-1}&ac^{-1}&-bc^{-1}&bc^{-1}&-1&-c^{-1}\\1&c^{-1}&ac^{-1}&-ac^{-1}&bc^{-1}&-bc^{-1}&-1&-c^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(5,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-1&1&-1&1&1&-1\\1&-b^{-1}&-a^{-1}&b^{-1}&b^{-1}&-b^{-1}&-1&a^{-1}\\1&-ab^{-1}&1&-1&ab^{-1}&-1&1&-1\\1&-1&1&-b^{-1}&-1&b^{-1}&-1&1\\1&ab^{-1}&-1&-1&-ab^{-1}&-1&1&1\\1&1&-1&-b^{-1}&1&b^{-1}&-1&-1\\1&b^{-1}&a^{-1}&b^{-1}&-b^{-1}&-b^{-1}&-1&-a^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(5,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-1&1&1&-1&1&-1\\1&b^{-1}&-a^{-1}&b^{-1}&-b^{-1}&-b^{-1}&-1&a^{-1}\\1&-ab^{-1}&-1&-1&-1&ab^{-1}&1&1\\1&-1&1&-b^{-1}&b^{-1}&-1&-1&1\\1&-b^{-1}&a^{-1}&b^{-1}&-b^{-1}&b^{-1}&-1&-a^{-1}\\1&ab^{-1}&1&-1&-1&-ab^{-1}&1&-1\\1&1&-1&-b^{-1}&b^{-1}&1&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(6,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-bc&bc&-bc&bc&1&-1\\1&-b^{-1}&-a^{-1}bc&c&a^{-1}bc&-c&-1&b^{-1}\\1&-ab^{-1}&bc&-c&-bc&c&-1&ab^{-1}\\1&-1&bc&-bc&bc&-bc&1&-1\\1&ab^{-1}&-bc&-c&bc&c&-1&-ab^{-1}\\1&1&-1&-1&-1&-1&1&1\\1&b^{-1}&a^{-1}bc&c&-a^{-1}bc&-c&-1&-b^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(7,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-1&1&1&-1&1&-1\\1&-b^{-1}&-a^{-1}&-b^{-1}&b^{-1}&a^{-1}&-1&b^{-1}\\1&-ab^{-1}&1&-1&-1&-1&1&ab^{-1}\\1&-1&1&b^{-1}&-b^{-1}&1&-1&-1\\1&ab^{-1}&-1&-1&-1&1&1&-ab^{-1}\\1&1&-1&b^{-1}&-b^{-1}&-1&-1&1\\1&b^{-1}&a^{-1}&-b^{-1}&b^{-1}&-a^{-1}&-1&-b^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(7,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&1&-1&-1&1&1&-1\\1&b^{-1}&a^{-1}&-b^{-1}&-b^{-1}&-a^{-1}&-1&b^{-1}\\1&-ab^{-1}&-1&-ab^{-1}&ab^{-1}&-1&1&ab^{-1}\\1&-ab^{-1}&1&ab^{-1}&b^{-1}&-1&-1&-b^{-1}\\1&-b^{-1}&-a^{-1}&b^{-1}&-b^{-1}&a^{-1}&-1&b^{-1}\\1&ab^{-1}&-1&-ab^{-1}&b^{-1}&1&-1&-b^{-1}\\1&ab^{-1}&-1&ab^{-1}&-ab^{-1}&-1&1&-ab^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(8,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&ac&-ac&-bc&bc&1&-1\\1&-b^{-1}&c&c&-c&-c&-1&b^{-1}\\1&-1&-ac&ac&bc&-bc&1&-1\\1&-b^{-1}&-c&-c&c&c&-1&b^{-1}\\1&1&-1&-1&-1&-1&1&1\\1&b^{-1}&-ac&ac&-bc&bc&-1&-b^{-1}\\1&b^{-1}&ac&-ac&bc&-bc&-1&-b^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(9,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-ab&ab&1&-1\\1&-b^{-1}&-a&a&a&-a&-1&b^{-1}\\1&-a&a^{2}b&-a&-a^{2}b&a&-1&a\\1&-1&ab&-ab&ab&-ab&1&-1\\1&a&-a^{2}b&-a&a^{2}b&a&-1&-a\\1&1&-1&-1&-1&-1&1&1\\1&b^{-1}&a&a&-a&-a&-1&-b^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(9,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&ab&-ab&1&-1\\1&b^{-1}&a&a&-a&-a&-1&-b^{-1}\\1&-a&-a&a^{2}b&-a^{2}b&a&-1&a\\1&-1&ab&-ab&-ab&ab&1&-1\\1&-b^{-1}&a&-a&a&-a&-1&b^{-1}\\1&a&-a&-a^{2}b&a^{2}b&a&-1&-a\\1&1&-1&-1&-1&-1&1&1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(10,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&ac&-ac&-a^{-1}b&a^{-1}b&1&-1\\1&a^{-1}&c&-c&-a^{-1}&-a^{-1}&-1&a^{-1}\\1&-1&-ac&ac&-1&-1&1&1\\1&-a^{-1}&-a^{-1}&-a^{-1}&a^{-1}&a^{-1}&-1&a^{-1}\\1&-a^{-1}&a^{-1}&a^{-1}&a^{-2}b&-a^{-2}b&-1&-a^{-1}\\1&1&-1&-1&a^{-1}b&-a^{-1}b&1&-1\\1&a^{-1}&-c&c&-a^{-2}b&a^{-2}b&-1&-a^{-1}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(12,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-b&b&-1&1&b&-b\\1&-b^{-1}&-a^{-1}b&1&b^{-1}&-1&-1&a^{-1}b\\1&-ab^{-1}&b&-1&ab^{-1}&-1&1&-b\\1&-1&b&-b&-1&1&-b&b\\1&ab^{-1}&-b&-1&-ab^{-1}&-1&1&b\\1&1&-1&-1&1&1&-1&-1\\1&b^{-1}&a^{-1}b&1&-b^{-1}&-1&-1&-a^{-1}b
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(12,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&b&-b&1&-1&-b&b\\1&b^{-1}&a^{-1}b&-1&-b^{-1}&1&-1&-a^{-1}b\\1&-b&a^{-1}b^{2}&b&-b&-1&b&-a^{-1}b^{2}\\1&-1&-a^{-1}b&-1&-1&1&1&a^{-1}b\\1&-b^{-1}&-1&1&b^{-1}&1&-1&-1\\1&b&-b&-b&b&-1&b&-b\\1&1&-a^{-1}b^{2}&b&-1&-1&-b&a^{-1}b^{2}
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(13,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab^{-1}&ab^{-1}&1&-1&1&-1\\1&-b^{-1}&-b^{-1}&-b^{-1}&b^{-1}&b^{-1}&-1&b^{-1}\\1&-1&ab^{-1}&-ab^{-1}&-1&-1&1&1\\1&-b^{-1}&b^{-1}&b^{-1}&-b^{-1}&b^{-1}&-1&-b^{-1}\\1&1&-1&-1&-1&1&1&-1\\1&b^{-1}&-ab^{-1}&ab^{-1}&-1&-b^{-1}&-1&1\\1&b^{-1}&ab^{-1}&-ab^{-1}&1&-b^{-1}&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(13,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab^{-1}&ab^{-1}&-1&1&1&-1\\1&b^{-1}&-b^{-1}&-b^{-1}&-b^{-1}&b^{-1}&-1&b^{-1}\\1&-1&-1&-1&1&-1&1&1\\1&-1&ab^{-1}&-ab^{-1}&b^{-1}&1&-1&-b^{-1}\\1&-b^{-1}&b^{-1}&b^{-1}&-b^{-1}&-b^{-1}&-1&b^{-1}\\1&1&-ab^{-1}&ab^{-1}&b^{-1}&-1&-1&-b^{-1}\\1&1&ab^{-1}&-ab^{-1}&-1&-1&1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(14,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-a&a&1&-1&b&-b\\1&-b^{-1}&-1&-1&b^{-1}&1&-1&1\\1&-a&a&-a&-a&-1&a&a\\1&-1&1&1&-1&1&-1&-1\\1&a&a&-a&a&-1&-a&-a\\1&1&-a&a&-1&-1&-b&b\\1&b^{-1}&-1&-1&-b^{-1}&1&1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(14,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&a&-a&-1&1&-b&b\\1&b^{-1}&1&1&-b^{-1}&-1&-1&-1\\1&-1&-a&a&-1&-1&1&1\\1&-b^{-1}&-a&a&b^{-1}&1&-1&-1\\1&-b^{-1}&a&-a&b^{-1}&-1&b&-b\\1&1&-1&-1&1&-1&-b&b\\1&b^{-1}&-1&-1&-b^{-1}&1&b&-b
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(15,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-ab&ab&1&-1\\1&-1&-a&a&a&-a&-1&1\\1&-ab&a^{2}b^{2}&-ab&ab&-a^{2}b^{2}&ab&-1\\1&-1&a&-a&-a&a&-1&1\\1&ab&-a^{2}b^{2}&-ab&ab&a^{2}b^{2}&-ab&-1\\1&1&-1&-1&-1&-1&1&1\\1&1&ab&ab&-ab&-ab&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(15,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-ab&ab&-1&1\\1&1&-a&a&a&-a&-1&-1\\1&-ab&-1&-1&ab&ab&1&-ab\\1&-1&ab&-ab&ab&-ab&-1&1\\1&-1&1&1&-1&-1&1&-1\\1&ab&-1&-1&-ab&-ab&1&ab\\1&1&a&-a&-a&a&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(15,2)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&ab&-ab&1&-1\\1&-1&a&a&-a&-a&-1&1\\1&-ab&a^{2}b^{2}&-a^{2}b^{2}&-ab&ab&ab&-1\\1&-1&-a&-a&a&a&-1&1\\1&ab&-a^{2}b^{2}&a^{2}b^{2}&-ab&ab&-ab&-1\\1&1&-1&-1&-1&-1&1&1\\1&1&ab&-ab&ab&-ab&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(15,3)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&ab&-ab&-1&1\\1&1&a&a&-a&-a&-1&-1\\1&-ab&-1&ab&-1&ab&1&-ab\\1&-1&ab&-ab&-ab&ab&-1&1\\1&-1&1&-1&1&-1&1&-1\\1&ab&-1&-ab&-1&-ab&1&ab\\1&1&-a&-a&a&a&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(16,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-b&b&-a^{-1}b&a^{-1}b&a&-a\\1&-a&-a^{-1}b&b&a^{-1}b&-b&-1&a\\1&-a&a^{-1}b&-b&b&-a^{-1}b&a&-1\\1&-1&b&-b&-a^{-1}b&a^{-1}b&-a&a\\1&a&-a^{-1}b&-b&a^{-1}b&b&-1&-a\\1&a&a^{-1}b&b&-b&-a^{-1}b&-a&-1\\1&1&-1&-1&-1&-1&1&1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(16,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&b&-b&-a^{-1}b&a^{-1}b&a&-a\\1&-a&a^{-1}b&b&-a^{-1}b&-b&-1&a\\1&-1&-a^{-2}b&a^{-2}b&a^{-1}b&-a^{-1}b&a^{-1}&-a^{-1}\\1&-a^{-1}&-a^{-1}b&-a^{-2}b&a^{-1}b&a^{-2}b&-1&a^{-1}\\1&a&-b&a^{-1}b&-a^{-1}b&b&-a&-1\\1&1&-1&-1&-1&-1&1&1\\1&a^{-1}&a^{-2}b&-a^{-1}b&a^{-1}b&-a^{-2}b&-a^{-1}&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(17,0)}(a,b,c)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-bc&bc&-c&c&b&-b\\1&-a^{-1}b&-a^{-1}bc&c&a^{-1}bc&-c&-1&a^{-1}b\\1&-ab^{-1}&ab^{-1}c&-c&c&-ab^{-1}c&ab^{-1}&-1\\1&-1&bc&-bc&-c&c&-b&b\\1&ab^{-1}&-ab^{-1}c&-c&c&ab^{-1}c&-ab^{-1}&-1\\1&1&-1&-1&-1&-1&1&1\\1&a^{-1}b&a^{-1}bc&c&-a^{-1}bc&-c&-1&-a^{-1}b
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(18,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-a&a&b&-b\\1&-1&-a&a&a&-a&-1&1\\1&-a&a^{2}&-a&a&-a^{2}&a&-1\\1&-1&ab&-ab&-a&a&-b&b\\1&a&-a^{2}&-a&a&a^{2}&-a&-1\\1&1&-1&-1&-1&-1&1&1\\1&1&a&a&-a&-a&-1&-1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(18,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-ab&ab&-a&a&-b&b\\1&1&a&a&-a&-a&-1&-1\\1&-a&-a&a^{2}&a&-a^{2}&a&-1\\1&-1&ab&-ab&-a&a&b&-b\\1&-1&a&-a&a&-a&-1&1\\1&a&-a&-a^{2}&a&a^{2}&-a&-1\\1&1&-1&-1&-1&-1&1&1
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(20,0)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&a&-a&-a&a&b&-b\\1&-1&ab^{-1}&a&-ab^{-1}&-a&-1&1\\1&-1&-a&-a&a&a&-b&b\\1&-1&-ab^{-1}&a&ab^{-1}&-a&1&-1\\1&1&-a&-1&-a&-1&a&a\\1&1&-1&1&-1&1&-1&-1\\1&1&a&-1&a&-1&-a&-a
+\end{pmatrix}$$}
+\medskip
+{\small\setlength{\arraycolsep}{5pt}$$H^{(20,1)}(a,b)=
+\begin{pmatrix}
+1&1&1&1&1&1&1&1\\1&-1&-a&a&-a&a&-b&b\\1&1&ab^{-1}&a&-ab^{-1}&-a&-1&-1\\1&-1&-a&ab&a&-ab&b&-b\\1&-1&a&-ab&-a&ab&b&-b\\1&-1&a&-a&a&-a&-b&b\\1&1&-ab^{-1}&-a&ab^{-1}&a&-1&-1\\1&1&-1&-1&-1&-1&1&1
+\end{pmatrix}$$}
+\subsection{Exceptional completion certificates}\label{app:circlecerts}\label{app:threecerts}
+The following files give the positive witnesses for the exceptional loci. Paths in the table are relative to \texttt{code002\_work/N8/proofs/}; each record specifies the base substitution and $5$ added rows.
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+Locus&Squares&Certificate file\\\midrule
+Class $21$ circles&$16$&\path{AAA_class21/outputs/class21_square_templates.json}\\
+Class $22$ circles&$18$&\path{AAA_class22/outputs/class22_square_templates.json}\\
+Classes $11,19$ surfaces&$16$&\path{AAA_classes11_19/outputs/good_planes.json}\\
+Class $11$ circles&$10$&\path{AAA_classes11_19/outputs/good_lines.json}\\
+Class $11$ isolated points&$32$&\path{AAA_classes11_19/outputs/point_squares.json}\\\bottomrule
+\end{tabular}
+\end{center}
+Their parameter maps cover whole connected tori. Substitution into the prescribed triples and exact opposite-monomial pairing verify every surface/circle square, including intersections. For example, $x=1$, $\epsilon=1$ in class $21$ is completed by
+$$
+\begin{pmatrix}
+1&-y^{-1}&1&-1&-y^{-1}&-1&y^{-1}&y^{-1}\\
+1&-1&y&-y&1&1&-1&-1\\
+1&y^{-1}&-y^{-1}&-y^{-1}&y^{-1}&-1&1&-1\\
+1&y^{-1}&y^{-1}&y^{-1}&-y^{-1}&-1&-y^{-1}&-y^{-1}\\
+1&1&-1&-1&-1&1&-y&y
+\end{pmatrix}.
+$$
+For class $22$ at $x=1$, $\epsilon=1$, we can append
+$$
+\begin{pmatrix}
+1&-1&1&-1&y&-1&1&-y\\
+1&-1&-y&1&-1&1&y&-1\\
+1&1&-1&-y&y&y&-1&-y\\
+1&1&y&y&-1&-y&-y&-1\\
+1&1&-y&-1&-y&-1&y&y
+\end{pmatrix}.
+$$
+These rectangular witnesses illustrate the verification; the complete lists are in the files above.
+
+\subsection{BBB circle rows}\label{app:bbbrows}
+For \eqref{eq:BBB}, each displayed pair $(a,b)$ has the following normalized row, with $w=e^{\pi i/6}$ and $q\in\mathbb T$. It is unique off the finite special set. All formulas hold on their entire circles.
+$$a=q,\quad b=w^{11}:\qquad \begin{pmatrix}
+1&w^{4}&w^{10}q&w^{2}q&-q&w^{7}q&w^{8}&wq
+\end{pmatrix}$$
+$$a=q,\quad b=w^{7}:\qquad \begin{pmatrix}
+1&w^{4}&-q&w^{2}q&w^{3}q&w^{10}q&w^{8}&w^{9}q
+\end{pmatrix}$$
+$$a=q,\quad b=w^{3}:\qquad \begin{pmatrix}
+1&w^{4}&w^{2}q&w^{11}q&-q&w^{10}q&w^{8}&w^{5}q
+\end{pmatrix}$$
+$$a=w^{10},\quad b=q:\qquad \begin{pmatrix}
+1&w^{8}&w^{4}&wq&w^{9}q&w^{2}q&w^{5}q&w^{8}q
+\end{pmatrix}$$
+$$a=-1,\quad b=q:\qquad \begin{pmatrix}
+1&w^{8}&w^{4}&w^{10}q&w^{9}q&w^{5}q&wq&w^{4}q
+\end{pmatrix}$$
+$$a=w^{2},\quad b=q:\qquad \begin{pmatrix}
+1&w^{8}&w^{4}&wq&-q&w^{5}q&w^{9}q&q
+\end{pmatrix}$$
+$$a=w^{9}q,\quad b=q:\qquad \begin{pmatrix}
+1&1&w^{9}q^{-1}&w^{3}&-1&-1&w^{3}q^{-1}&w^{9}
+\end{pmatrix}$$
+$$a=w^{5}q,\quad b=q:\qquad \begin{pmatrix}
+1&1&w^{5}q^{-1}&-1&-1&w^{3}&w^{11}q^{-1}&w^{9}
+\end{pmatrix}$$
+$$a=wq,\quad b=q:\qquad \begin{pmatrix}
+1&1&wq^{-1}&-1&w^{3}&-1&w^{7}q^{-1}&w^{9}
+\end{pmatrix}$$
+\subsection{Cycle certificates for the square families}\label{app:cycles}
+A string such as $12\;34\;56\;78$ gives antipodal pairs; $123\;456\;78$ gives $2$ triangles and a pair. These supports refer to the exact formulas in Subsection~\ref{sec:families}. On each block, the quotient is a common monomial times the indicated prime roots, so every certificate is an identity in all parameters.
+
+\begingroup\setlength{\topsep}{3pt}\setlength{\partopsep}{0pt}\setlength{\parskip}{0pt}
+\begin{center}\small
+$F_{8,5a}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;34\;56\;78$ & $3,5$ & $13\;24\;57\;68$ \\
+$1,3$ & $17\;28\;35\;46$ & $3,6$ & $17\;28\;35\;46$ \\
+$1,4$ & $13\;24\;57\;68$ & $3,7$ & $12\;34\;56\;78$ \\
+$1,5$ & $17\;28\;35\;46$ & $3,8$ & $12\;34\;56\;78$ \\
+$1,6$ & $12\;34\;56\;78$ & $4,5$ & $17\;28\;35\;46$ \\
+$1,7$ & $17\;28\;35\;46$ & $4,6$ & $12\;34\;56\;78$ \\
+$1,8$ & $17\;28\;35\;46$ & $4,7$ & $17\;28\;35\;46$ \\
+$2,3$ & $17\;28\;35\;46$ & $4,8$ & $17\;28\;35\;46$ \\
+$2,4$ & $12\;34\;56\;78$ & $5,6$ & $17\;28\;35\;46$ \\
+$2,5$ & $17\;28\;35\;46$ & $5,7$ & $12\;34\;56\;78$ \\
+$2,6$ & $13\;24\;57\;68$ & $5,8$ & $12\;34\;56\;78$ \\
+$2,7$ & $17\;28\;35\;46$ & $6,7$ & $17\;28\;35\;46$ \\
+$2,8$ & $17\;28\;35\;46$ & $6,8$ & $17\;28\;35\;46$ \\
+$3,4$ & $17\;28\;35\;46$ & $7,8$ & $13\;24\;57\;68$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,5b}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;34\;56\;78$ & $3,5$ & $17\;28\;35\;46$ \\
+$1,3$ & $17\;28\;35\;46$ & $3,6$ & $17\;28\;35\;46$ \\
+$1,4$ & $17\;28\;35\;46$ & $3,7$ & $13\;24\;57\;68$ \\
+$1,5$ & $13\;24\;57\;68$ & $3,8$ & $13\;24\;57\;68$ \\
+$1,6$ & $12\;34\;56\;78$ & $4,5$ & $17\;28\;35\;46$ \\
+$1,7$ & $17\;28\;35\;46$ & $4,6$ & $17\;28\;35\;46$ \\
+$1,8$ & $17\;28\;35\;46$ & $4,7$ & $13\;24\;57\;68$ \\
+$2,3$ & $17\;28\;35\;46$ & $4,8$ & $13\;24\;57\;68$ \\
+$2,4$ & $17\;28\;35\;46$ & $5,6$ & $12\;34\;56\;78$ \\
+$2,5$ & $12\;34\;56\;78$ & $5,7$ & $17\;28\;35\;46$ \\
+$2,6$ & $13\;24\;57\;68$ & $5,8$ & $17\;28\;35\;46$ \\
+$2,7$ & $17\;28\;35\;46$ & $6,7$ & $17\;28\;35\;46$ \\
+$2,8$ & $17\;28\;35\;46$ & $6,8$ & $17\;28\;35\;46$ \\
+$3,4$ & $12\;34\;56\;78$ & $7,8$ & $12\;34\;56\;78$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,5c}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;34\;56\;78$ & $3,5$ & $13\;24\;57\;68$ \\
+$1,3$ & $17\;28\;35\;46$ & $3,6$ & $17\;28\;34\;56$ \\
+$1,4$ & $13\;24\;57\;68$ & $3,7$ & $12\;34\;56\;78$ \\
+$1,5$ & $17\;28\;35\;46$ & $3,8$ & $12\;34\;56\;78$ \\
+$1,6$ & $12\;34\;56\;78$ & $4,5$ & $17\;28\;35\;46$ \\
+$1,7$ & $17\;28\;34\;56$ & $4,6$ & $12\;34\;56\;78$ \\
+$1,8$ & $17\;28\;34\;56$ & $4,7$ & $17\;28\;34\;56$ \\
+$2,3$ & $17\;28\;34\;56$ & $4,8$ & $17\;28\;34\;56$ \\
+$2,4$ & $12\;34\;56\;78$ & $5,6$ & $17\;28\;34\;56$ \\
+$2,5$ & $17\;28\;34\;56$ & $5,7$ & $12\;34\;56\;78$ \\
+$2,6$ & $13\;24\;57\;68$ & $5,8$ & $12\;34\;56\;78$ \\
+$2,7$ & $17\;28\;35\;46$ & $6,7$ & $17\;28\;35\;46$ \\
+$2,8$ & $17\;28\;35\;46$ & $6,8$ & $17\;28\;35\;46$ \\
+$3,4$ & $17\;28\;35\;46$ & $7,8$ & $13\;24\;57\;68$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,4}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;34\;56\;78$ & $3,5$ & $12\;34\;56\;78$ \\
+$1,3$ & $17\;28\;35\;46$ & $3,6$ & $13\;28\;47\;56$ \\
+$1,4$ & $15\;28\;34\;67$ & $3,7$ & $17\;23\;48\;56$ \\
+$1,5$ & $17\;28\;34\;56$ & $3,8$ & $15\;28\;34\;67$ \\
+$1,6$ & $17\;23\;48\;56$ & $4,5$ & $17\;23\;48\;56$ \\
+$1,7$ & $13\;28\;47\;56$ & $4,6$ & $17\;28\;34\;56$ \\
+$1,8$ & $17\;25\;34\;68$ & $4,7$ & $12\;34\;56\;78$ \\
+$2,3$ & $17\;28\;34\;56$ & $4,8$ & $17\;28\;35\;46$ \\
+$2,4$ & $13\;28\;47\;56$ & $5,6$ & $15\;28\;34\;67$ \\
+$2,5$ & $17\;28\;35\;46$ & $5,7$ & $17\;25\;34\;68$ \\
+$2,6$ & $17\;25\;34\;68$ & $5,8$ & $13\;28\;47\;56$ \\
+$2,7$ & $15\;28\;34\;67$ & $6,7$ & $17\;28\;35\;46$ \\
+$2,8$ & $17\;23\;48\;56$ & $6,8$ & $12\;34\;56\;78$ \\
+$3,4$ & $17\;25\;34\;68$ & $7,8$ & $17\;28\;34\;56$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,4}^{t}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;35\;47\;68$ & $3,5$ & $13\;25\;48\;67$ \\
+$1,3$ & $17\;24\;36\;58$ & $3,6$ & $13\;25\;48\;67$ \\
+$1,4$ & $17\;24\;36\;58$ & $3,7$ & $17\;24\;36\;58$ \\
+$1,5$ & $14\;27\;38\;56$ & $3,8$ & $16\;28\;37\;45$ \\
+$1,6$ & $14\;27\;38\;56$ & $4,5$ & $13\;25\;48\;67$ \\
+$1,7$ & $13\;25\;46\;78$ & $4,6$ & $13\;25\;48\;67$ \\
+$1,8$ & $12\;35\;47\;68$ & $4,7$ & $17\;24\;36\;58$ \\
+$2,3$ & $16\;28\;37\;45$ & $4,8$ & $16\;28\;37\;45$ \\
+$2,4$ & $16\;28\;37\;45$ & $5,6$ & $12\;35\;46\;78$ \\
+$2,5$ & $18\;26\;34\;57$ & $5,7$ & $14\;27\;38\;56$ \\
+$2,6$ & $18\;26\;34\;57$ & $5,8$ & $18\;26\;34\;57$ \\
+$2,7$ & $12\;35\;47\;68$ & $6,7$ & $14\;27\;38\;56$ \\
+$2,8$ & $13\;24\;56\;78$ & $6,8$ & $18\;26\;34\;57$ \\
+$3,4$ & $12\;34\;56\;78$ & $7,8$ & $12\;35\;47\;68$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,2}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;34\;56\;78$ & $3,5$ & $17\;28\;35\;46$ \\
+$1,3$ & $17\;28\;35\;46$ & $3,6$ & $12\;37\;48\;56$ \\
+$1,4$ & $18\;27\;36\;45$ & $3,7$ & $13\;24\;57\;68$ \\
+$1,5$ & $13\;24\;57\;68$ & $3,8$ & $15\;23\;48\;67$ \\
+$1,6$ & $18\;27\;36\;45$ & $4,5$ & $18\;27\;36\;45$ \\
+$1,7$ & $17\;28\;35\;46$ & $4,6$ & $14\;23\;58\;67$ \\
+$1,8$ & $12\;34\;56\;78$ & $4,7$ & $12\;37\;48\;56$ \\
+$2,3$ & $14\;26\;37\;58$ & $4,8$ & $13\;26\;48\;57$ \\
+$2,4$ & $15\;24\;37\;68$ & $5,6$ & $18\;27\;36\;45$ \\
+$2,5$ & $12\;34\;56\;78$ & $5,7$ & $17\;28\;35\;46$ \\
+$2,6$ & $13\;26\;48\;57$ & $5,8$ & $12\;34\;56\;78$ \\
+$2,7$ & $15\;23\;48\;67$ & $6,7$ & $15\;26\;34\;78$ \\
+$2,8$ & $15\;26\;37\;48$ & $6,8$ & $15\;24\;37\;68$ \\
+$3,4$ & $15\;26\;34\;78$ & $7,8$ & $14\;26\;37\;58$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$F_{8,2}^{t}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $12\;36\;47\;58$ & $3,5$ & $13\;26\;48\;57$ \\
+$1,3$ & $15\;26\;37\;48$ & $3,6$ & $14\;27\;38\;56$ \\
+$1,4$ & $15\;23\;46\;78$ & $3,7$ & $15\;23\;46\;78$ \\
+$1,5$ & $15\;24\;37\;68$ & $3,8$ & $15\;28\;34\;67$ \\
+$1,6$ & $15\;28\;36\;47$ & $4,5$ & $14\;23\;56\;78$ \\
+$1,7$ & $13\;26\;48\;57$ & $4,6$ & $13\;24\;57\;68$ \\
+$1,8$ & $14\;23\;56\;78$ & $4,7$ & $15\;28\;34\;67$ \\
+$2,3$ & $15\;27\;38\;46$ & $4,8$ & $15\;26\;37\;48$ \\
+$2,4$ & $15\;24\;37\;68$ & $5,6$ & $12\;36\;47\;58$ \\
+$2,5$ & $15\;28\;36\;47$ & $5,7$ & $15\;26\;37\;48$ \\
+$2,6$ & $15\;23\;46\;78$ & $5,8$ & $15\;23\;46\;78$ \\
+$2,7$ & $14\;27\;38\;56$ & $6,7$ & $15\;27\;38\;46$ \\
+$2,8$ & $13\;24\;57\;68$ & $6,8$ & $15\;24\;37\;68$ \\
+$3,4$ & $12\;34\;58\;67$ & $7,8$ & $12\;34\;58\;67$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$K_{8,2}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $15\;26\;38\;47$ & $3,5$ & $16\;23\;48\;57$ \\
+$1,3$ & $13\;26\;47\;58$ & $3,6$ & $14\;25\;37\;68$ \\
+$1,4$ & $16\;23\;48\;57$ & $3,7$ & $12\;36\;45\;78$ \\
+$1,5$ & $17\;28\;34\;56$ & $3,8$ & $15\;26\;38\;47$ \\
+$1,6$ & $12\;36\;45\;78$ & $4,5$ & $13\;26\;47\;58$ \\
+$1,7$ & $14\;25\;37\;68$ & $4,6$ & $15\;24\;38\;67$ \\
+$1,8$ & $15\;24\;38\;67$ & $4,7$ & $13\;24\;58\;67$ \\
+$2,3$ & $15\;24\;38\;67$ & $4,8$ & $12\;36\;45\;78$ \\
+$2,4$ & $14\;25\;37\;68$ & $5,6$ & $13\;24\;58\;67$ \\
+$2,5$ & $12\;36\;45\;78$ & $5,7$ & $15\;24\;38\;67$ \\
+$2,6$ & $17\;28\;34\;56$ & $5,8$ & $14\;25\;37\;68$ \\
+$2,7$ & $16\;23\;48\;57$ & $6,7$ & $13\;26\;47\;58$ \\
+$2,8$ & $13\;26\;47\;58$ & $6,8$ & $16\;23\;48\;57$ \\
+$3,4$ & $17\;28\;34\;56$ & $7,8$ & $17\;28\;34\;56$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\begin{center}\small
+$M_{8,1}$\par\nopagebreak[4]\smallskip\nopagebreak[4]
+\begin{tabular}{cl@{\qquad}cl}\toprule Pair&Cycle blocks&Pair&Cycle blocks\\\midrule
+$1,2$ & $15\;26\;37\;48$ & $3,5$ & $14\;27\;36\;58$ \\
+$1,3$ & $18\;23\;45\;67$ & $3,6$ & $17\;24\;35\;68$ \\
+$1,4$ & $17\;24\;35\;68$ & $3,7$ & $12\;38\;47\;56$ \\
+$1,5$ & $12\;38\;47\;56$ & $3,8$ & $15\;26\;37\;48$ \\
+$1,6$ & $138\;25\;467$ & $4,5$ & $13\;28\;46\;57$ \\
+$1,7$ & $14\;27\;36\;58$ & $4,6$ & $18\;23\;45\;67$ \\
+$1,8$ & $13\;28\;46\;57$ & $4,7$ & $15\;26\;37\;48$ \\
+$2,3$ & $13\;28\;46\;57$ & $4,8$ & $12\;38\;47\;56$ \\
+$2,4$ & $14\;27\;36\;58$ & $5,6$ & $15\;26\;37\;48$ \\
+$2,5$ & $16\;238\;457$ & $5,7$ & $18\;23\;45\;67$ \\
+$2,6$ & $12\;38\;47\;56$ & $5,8$ & $17\;24\;35\;68$ \\
+$2,7$ & $17\;24\;35\;68$ & $6,7$ & $13\;28\;46\;57$ \\
+$2,8$ & $18\;23\;45\;67$ & $6,8$ & $14\;27\;36\;58$ \\
+$3,4$ & $128\;34\;567$ & $7,8$ & $123\;456\;78$ \\
+\bottomrule\end{tabular}
+\end{center}
+
+\endgroup
+\subsection{Code and certificate index}\label{app:repro}
+The accompanying \texttt{code002.zip} contains the Python and C++ sources, exact inputs, saved outputs and reproduction instructions. Its source folders are
+\begin{center}\small\begin{tabular}{@{}ll@{}}\toprule
+Folder & Purpose\\\midrule
+\texttt{N7/} & Order-$7$ triples, row extensions and square completions.\\
+\texttt{N8\_AAA/} & Generic AAA completions and family comparisons.\\
+\texttt{N8\_AB/} & Complete A/B completions and the BBB exclusion.\\
+\texttt{N8\_C/} & C-pair extensions and the $3$ level-$30$ classes.\\
+\texttt{N8\_supports/} & Exceptional AAA classes and supporting exact solvers.\\
+\texttt{N8\_checks/} & Row and column cycle censuses.\\
+\bottomrule\end{tabular}\end{center}
+The files \texttt{N7\_data.zip} and \texttt{N8\_data.zip} retain the inputs and saved results. After extracting \texttt{code002.zip}, run \texttt{python3 run.py prepare} from its folder to create the sibling directory \texttt{code002\_work/}. This restores the paths used by the original programs and by the certificate references in this paper. Within Section 2, paths beginning with \texttt{code/} are relative to \texttt{code002\_work/N7/}. The file \texttt{SOURCE\_INDEX.md} maps restored source paths to the folders above.
+
+Use Python $3.10$ or later and install \texttt{requirements.txt}, including SymPy $1.14.0$. The command \texttt{python3 run.py check} runs the $16$ supplied certificate checks. These verify saved enumeration records and identities; some final checkers also use saved verification records. This command does not rerun the exhaustive searches. The file \texttt{README.md} lists their separate reproduction commands and the GNU C++17 requirements. Assertions must remain enabled.
+
+The JSON certificates retain row supports, congruences, square formulas and equivalence witnesses. In the A/B completion stages, \path{completion_squares.json} records the affine squares, \path{completion_embeddings.json} their entrywise identifications, and \path{final_verification.json} the completed checks.
+
+\subsection{Concluding remarks}\label{sec:conclusion}
+We end by explaining how to read the classification and what remains to be understood. Theorem~\ref{thm:globalN8} gives a complete family cover: every regular square of order $8$ belongs, up to equivalence, to one of the $9$ continuous families or to one of the $4$ isolated classes. The formulas are valid at every unit-modulus parameter value. In particular, the exceptional values are part of the classification, together with the generic points. The support calculations in Sections~\ref{sec:N8part1}--\ref{sec:N8part3} account for the extra rows and square completions that can appear when a parameter satisfies an additional relation.
+
+A family cover does not give unique coordinates on the space of equivalence classes. Parameters within one family can describe equivalent matrices, and different families can meet at special values. The matching distributions distinguish the generic types, while the saved monomial witnesses identify particular coincidences exactly. A fuller description would determine all parameter symmetries within each family and all intersections between families. For example, an identification at one parameter value does not by itself identify a neighborhood of that point; the local regular branches must also be compared. The local phase calculations and equivalence witnesses retained here provide starting data for this question. Such coincidences concern the identifications within the proved cover, and cannot add a family outside it.
+
+We should make the same distinction for the labels of partial matrices. A chosen cycle support records how a row quotient is decomposed, and a matrix may admit several such decompositions. Thus the support registry organizes the equations to be solved, but its labels need not distinguish the underlying matrices. Likewise, finding one square above a prescribed triple settles its completion existence, whereas describing every square above that triple requires the full compatibility calculation. This is why the successful surfaces and circles were treated with all their special parameter values retained. A formula that supplies a completion everywhere on a circle need not supply every completion at its exceptional points.
+
+The separation between the A/B and C cases also explains the reach of the triple method. The pure-B obstruction and the Ramsey argument force an AAA triple in every A/B square, so the prescribed-AAA calculation covers that whole sector. Among the C-containing squares, $L_{8,30}$ and $L_{8,30}^{t}$ each have $32$ AAA triples, whereas $K_{8,30}$ has none. The latter is therefore the unique regular square missed by a method starting exclusively from AAA. The arbitrary-C-pair calculation supplies it and at the same time determines the partial extensions, including uniqueness of square completion, up to phases and order of the added rows, once $5$ rows containing C have been prescribed. This additional information is useful when studying partial matrices with their original rows fixed.
+
+The finite catalogue comparison has a different role. Each of its $5469$ entries has an exact identification with the displayed cover, but the first family found by a search need not be its only presentation. Consequently, counting those identifications by target family would not give a disjoint count of equivalence classes in the families. Moreover, none of the tested root orders is divisible by $15$, so these catalogues cannot test the C-containing part of the classification. The example $M_{8,1}$ also shows why the cycle types at selected roots of unity need not describe the generic member of a continuous family. The unrestricted phase calculations supply the completeness that a finite catalogue comparison alone cannot provide.
+
+Finally, the complete regular classification leaves the corresponding questions without the regularity assumption open. We have classified all regular matrices at orders $7$ and $8$, and the affine descriptions explain how their continuous families arise from Butson matrices. Deciding whether every Butson matrix is regular, as in Conjecture~\ref{bg:regularityconjecture}, and classifying arbitrary complex Hadamard matrices are separate questions. Within the regular locus, an explicit description of the family intersections would complement the present list by explaining how its continuous pieces fit together. The formulas and certificates above make both kinds of comparison possible without repeating the completion classification.
+
+\begingroup
+\color{black}
+\hypersetup{allcolors=black}
+\linespread{0.85}\selectfont
+\begin{thebibliography}{99}
+\addcontentsline{toc}{section}{References}
+
+\bibitem{aff} J. Avan, T. Fonseca, L. Frappat, P. Kulish, E. Ragoucy and G. Rollet, Temperley-Lieb R-matrices from generalized Hadamard matrices, {\em Theor. Math. Phys.} {\bf 178} (2014), 223--240.
+
+\bibitem{ba1} T. Banica, The defect of generalized Fourier matrices, {\em Linear Algebra Appl.} {\bf 438} (2013), 3667--3688.
+
+\bibitem{banicaHM} T. Banica, Invitation to Hadamard matrices, {\hypersetup{allcolors=black}\href{https://arxiv.org/abs/1910.06911}{arXiv:1910.06911}} (2024).
+
+\bibitem{bbs} T. Banica, J. Bichon and J.-M. Schlenker, Representations of quantum permutation algebras, {\em J. Funct. Anal.} {\bf 257} (2009), 2864--2910.
+
+\bibitem{bnz} T. Banica, I. Nechita and K. \.Zyczkowski, Almost Hadamard matrices: general theory and examples, {\em Open Syst. Inf. Dyn.} {\bf 19} (2012), 1--26.
+
+\bibitem{bop} T. Banica, D. \"Ozteke and L. Pittau, Isolated partial Hadamard matrices and related topics, {\em Open Syst. Inf. Dyn.} {\bf 25} (2018), 1--27.
+
+\bibitem{ben} K. Beauchamp and R. Nicoara, Orthogonal maximal abelian $*$-subalgebras of the $6\times 6$ matrices, {\em Linear Algebra Appl.} {\bf 428} (2008), 1833--1853.
+
+\bibitem{bjo} G. Bj\"orck, Functions of modulus $1$ on ${\rm Z}_n$ whose Fourier transforms have constant modulus, and cyclic $n$-roots, {\em NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci.} {\bf 315} (1990), 131--140.
+
+\bibitem{bjf} G. Bj\"orck and R. Fr\"oberg, A faster way to count the solutions of inhomogeneous systems of algebraic equations, with applications to cyclic $n$-roots, {\em J. Symbolic Comput.} {\bf 12} (1991), 329--336.
+
+\bibitem{but} A.T. Butson, Generalized Hadamard matrices, {\em Proc. Amer. Math. Soc.} {\bf 13} (1962), 894--898.
+
+\bibitem{dle} W. de Launey and D.A. Levin, A Fourier-analytic approach to counting partial Hadamard matrices, {\em Cryptogr. Commun.} {\bf 2} (2010), 307--334.
+
+\bibitem{dit} P. Di\c t\u a, Some results on the parametrization of complex Hadamard matrices, {\em J. Phys. A} {\bf 37} (2004), 5355--5374.
+
+\bibitem{deb} T. Durt, B.-G. Englert, I. Bengtsson and K. \.Zyczkowski, On mutually unbiased bases, {\em Int. J. Quantum Inf.} {\bf 8} (2010), 535--640.
+
+\bibitem{ha1} U. Haagerup, Orthogonal maximal abelian $*$-subalgebras of the $n\times n$ matrices and cyclic $n$-roots, in ``Operator algebras and quantum field theory'', International Press (1997), 296--323.
+
+\bibitem{ha2} U. Haagerup, Cyclic $p$-roots of prime lengths $p$ and related complex Hadamard matrices, preprint 2008.
+
+\bibitem{hal} M. Hall, Integral matrices $A$ for which $AA^t=mI$, in ``Number Theory and Algebra'', Academic Press (1977), 119--134.
+
+\bibitem{hsc} G. Hiranandani and J.-M. Schlenker, Small circulant complex Hadamard matrices of Butson type, {\em European J. Combin.} {\bf 51} (2016), 306--314.
+
+\bibitem{jon} V.F.R. Jones, Planar algebras I, preprint 1999.
+
+\bibitem{KB} R. Kannan and A. Bachem, Polynomial algorithms for computing the Smith and Hermite normal forms of an integer matrix, {\em SIAM J. Comput.} {\bf 8} (1979), 499--507.
+
+\bibitem{lle} T.Y. Lam and K.H. Leung, On vanishing sums of roots of unity, {\em J. Algebra} {\bf 224} (2000), 91--109.
+
+\bibitem{LOSz} P. H. J. Lampio, P. R. J. \"Osterg\aa rd, and F. Sz\H{o}ll\H{o}si, \emph{Orderly generation of Butson Hadamard matrices}, Mathematics of Computation \textbf{89} (2020), 313--331.
+
+\bibitem{mwe} D. McNulty and S. Weigert, Isolated Hadamard matrices from mutually unbiased product bases, {\em J. Math. Phys.} {\bf 53} (2012), 1--21.
+
+\bibitem{mvo} F.J. Murray and J. von Neumann, On rings of operators, {\em Ann. of Math.} {\bf 37} (1936), 116--229.
+
+\bibitem{nwh} R. Nicoara and J. White, Analytic deformations of group commuting squares and complex Hadamard matrices, {\em J. Funct. Anal.} {\bf 272} (2017), 3486--3505.
+
+\bibitem{pal} R. Paley, On orthogonal matrices, {\em J. Math. Phys.} {\bf 12} (1933), 311--320.
+
+\bibitem{pet} M. Petrescu, Existence of continuous families of complex Hadamard matrices of certain prime dimensions and related results, Ph.D. Thesis, UCLA (1997).
+
+\bibitem{pop} S. Popa, Orthogonal pairs of $*$-subalgebras in finite von Neumann algebras, {\em J. Operator Theory} {\bf 9} (1983), 253--268.
+
+\bibitem{Ramsey} F.P. Ramsey, On a problem of formal logic, {\em Proc. London Math. Soc.} (2) {\bf 30} (1930), 264--286.
+
+\bibitem{szo} F. Sz\"oll\H{o}si, Exotic complex Hadamard matrices and their equivalence, {\em Cryptogr. Commun.} {\bf 2} (2010), 187--198.
+
+\bibitem{tad} W. Tadej, Defect of a Kronecker product of unitary matrices, {\em Linear Algebra Appl.} {\bf 436} (2012), 1924--1959.
+
+\bibitem{tz1} W. Tadej and K. \.Zyczkowski, A concise guide to complex Hadamard matrices, {\em Open Syst. Inf. Dyn.} {\bf 13} (2006), 133--177.
+
+\bibitem{tz2} W. Tadej and K. \.Zyczkowski, Defect of a unitary matrix, {\em Linear Algebra Appl.} {\bf 429} (2008), 447--481.
+
+\bibitem{tao} T. Tao, Fuglede's conjecture is false in 5 and higher dimensions, {\em Math. Res. Lett.} {\bf 11} (2004), 251--258.
+
+\bibitem{wa1} S. Wang, Quantum symmetry groups of finite spaces, {\em Comm. Math. Phys.} {\bf 195} (1998), 195--211.
+
+\end{thebibliography}
+\endgroup
+
+\end{document}
